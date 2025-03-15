@@ -1,0 +1,62 @@
+<h1>Singleton Pattern</h1>
+<div class="mb-4">
+  Singleton is a creational design pattern, which ensures that only one object
+  of its kind exists and provides a single point of access to it for any other
+  code.
+</div>
+
+<h2>Singleton Service</h2>
+<div class="mb-4">
+  Here’s an example of a singleton service in Angular 19 using TypeScript:
+  <ol>
+    <li>Creating the Singleton Service</li>
+  </ol>
+  <div>
+    In Angular, the service can still be provided at the root level to ensure
+    that it follows the Singleton pattern.
+  </div>
+</div>
+
+<app-code-highlight
+  [code]="singletonPatternCode1"
+  [language]="'typescript'"
+></app-code-highlight>
+
+<h4 class="mt-4">Key Points:</h4>
+<ul>
+  <li>
+    providedIn: 'root' ensures that the service is a singleton throughout the
+    application (Angular will create it only once).
+  </li>
+  <li>
+    The getInstance() method ensures that only one instance of the service is
+    ever created.
+  </li>
+</ul>
+
+<ol start="2">
+  <li>Using the Singleton Service in a Component</li>
+</ol>
+
+<div class="mb-4">
+  To use the singleton service in a component, you simply inject the service as
+  usual. Angular ensures it’s the same instance throughout the application.
+</div>
+
+<app-code-highlight
+  [code]="singletonPatternCode2"
+  [language]="'typescript'"
+></app-code-highlight>
+
+<h4 class="mt-4">Explanation:</h4>
+<ul>
+  <li>
+    In the service, getInstance() controls the creation of the singleton
+    instance. If the instance doesn’t exist, it is created, otherwise the
+    existing one is returned.
+  </li>
+  <li>
+    The component injects the SingletonService, and you can use its getData()
+    method or any other methods you define.
+  </li>
+</ul>

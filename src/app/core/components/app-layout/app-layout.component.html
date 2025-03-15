@@ -1,0 +1,16 @@
+<mat-toolbar>
+  <button mat-icon-button routerLink="/" class="me-2">
+    <mat-icon>home</mat-icon>
+  </button>
+  <span class="logo-text me-4">Angular Practices</span>
+  <!-- <span class="spacer"></span> -->
+
+  <button mat-button [matMenuTriggerFor]="menuPatterns">Patterns</button>
+  <mat-menu #menuPatterns="matMenu">
+    <button mat-menu-item routerLink="/singleton">Singleton</button>
+    <button mat-menu-item>MVVM</button>
+  </mat-menu>
+</mat-toolbar>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

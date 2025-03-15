@@ -1,0 +1,22 @@
+<div
+  class="d-flex justify-content-between rounded-top-4 px-4 py-2 code-header text-xs"
+>
+  {{ language }}
+
+  <button
+    #tooltip="matTooltip"
+    class="d-flex gap-1 px-4 py-1 copy-button"
+    aria-label="Copy"
+    matTooltip="Copy"
+    [matTooltipPosition]="'below'"
+  >
+    <mat-icon
+      class="copy-icon"
+      fontIcon="content_copy"
+      aria-label="Copy"
+      aria-hidden="false"
+    ></mat-icon
+    >Copy
+  </button>
+</div>
+<pre><code class="rounded-bottom-4 ps-4" [highlight]="code" lineNumbers language="{{ language }}"></code></pre>
