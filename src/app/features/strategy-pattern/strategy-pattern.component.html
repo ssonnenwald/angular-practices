@@ -1,1 +1,120 @@
-<p>strategy-pattern works!</p>
+<h1>Strategy Pattern</h1>
+<div class="mb-4">
+  The <b>Strategy Pattern</b> is a behavioral design pattern that allows a class
+  to change its behavior at runtime by selecting from a family of algorithms
+  (strategies).&nbsp;&nbsp;Instead of having a complex conditional structure,
+  you define a strategy interface and implement different
+  strategies.&nbsp;&nbsp;This way, the client can choose the strategy
+  dynamically based on the context.
+</div>
+
+<h2>Implementation</h2>
+<div class="mb-4">
+  In an Angular 19 application with <b>standalone components</b>, let’s
+  implement the Strategy Pattern for different types of sorting
+  algorithms.&nbsp;&nbsp;We’ll create a sorting service that can change its
+  sorting strategy at runtime.
+  <ol>
+    <li>
+      <b>Define the Strategy Interface</b>
+    </li>
+  </ol>
+  <div class="mb-4">
+    First, we define a <span class="hljs-attr">SortingStrategy</span> interface,
+    which ensures that all sorting strategies implement the
+    <span class="hljs-attr">sort</span> method.
+  </div>
+
+  <app-code-highlight
+    [code]="strategyPatternCode1"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <ol start="2">
+    <li>
+      <b>Concrete Strategies (Sorting Algorithms)</b>
+    </li>
+  </ol>
+  <div class="mb-4">
+    Next, we implement different sorting algorithms as concrete
+    strategies.&nbsp;&nbsp;For simplicity, we’ll implement <b>Bubble Sort</b>,
+    <b>Quick Sort</b>, and <b>Merge Sort</b>.
+  </div>
+
+  <app-code-highlight
+    [code]="strategyPatternCode2"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <app-code-highlight
+    [code]="strategyPatternCode3"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <app-code-highlight
+    [code]="strategyPatternCode4"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <ol start="3">
+    <li><b>Context (The Sorting Service)</b></li>
+  </ol>
+  <div class="mb-4">
+    Now, let’s define the <b>Context</b> class, which will use the selected
+    strategy to perform the sorting operation.
+  </div>
+
+  <app-code-highlight
+    [code]="strategyPatternCode5"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <ol start="4">
+    <li><b>Standalone Component Using the Strategy</b></li>
+  </ol>
+  <div class="mb-4">
+    Now let’s create a <b>standalone component</b> that allows the user to
+    select a sorting strategy at runtime.&nbsp;&nbsp;The user can select from
+    <b>Bubble Sort</b>, <b>Quick Sort</b>, or <b>Merge Sort</b>.
+  </div>
+
+  <app-code-highlight
+    [code]="strategyPatternCode6"
+    [language]="'typescript'"
+  ></app-code-highlight>
+</div>
+
+<h4 class="mt-4">Explanation:</h4>
+<ul>
+  <li>
+    <b>SortingStrategy Interface</b>:&nbsp;&nbsp;This defines the common
+    interface for all sorting strategies.&nbsp;&nbsp;Each sorting algorithm must
+    implement the <span class="hljs-attr">sort</span> method.
+  </li>
+  <li>
+    <b>Concrete Strategies</b>:&nbsp;&nbsp;These are specific sorting algorithms
+    (Bubble Sort, Quick Sort, Merge Sort) that implement the
+    <span class="hljs-attr">SortingStrategy</span>
+    interface.
+  </li>
+  <li>
+    <b>SortingContextService</b>:&nbsp;&nbsp;This service acts as the Context in
+    the Strategy Pattern.&nbsp;&nbsp;It holds a reference to the current sorting
+    strategy and allows switching between different strategies dynamically.
+  </li>
+  <li>
+    <b>AppComponent</b>:&nbsp;&nbsp;This is the client that interacts with the
+    context. It allows the user to choose a sorting algorithm and click a button
+    to sort an array of numbers using the selected strategy.
+  </li>
+</ul>
+
+<h4 class="mt-4">Conclusion:</h4>
+<div class="mb-4">
+  This example demonstrates how the <b>Strategy Pattern</b> can be used in
+  Angular 19 with standalone components to dynamically choose between different
+  algorithms (strategies) at runtime.&nbsp;&nbsp;The client (component)
+  interacts with the context (sorting service) without needing to know which
+  specific sorting algorithm is being used. This design makes it easy to add new
+  sorting strategies without changing the client code.
+</div>
