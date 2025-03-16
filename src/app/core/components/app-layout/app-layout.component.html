@@ -6,9 +6,42 @@
   <!-- <span class="spacer"></span> -->
 
   <button mat-button [matMenuTriggerFor]="menuPatterns">Patterns</button>
+
   <mat-menu #menuPatterns="matMenu">
-    <button mat-menu-item routerLink="/singleton">Singleton</button>
-    <button mat-menu-item>MVVM</button>
+    <button mat-menu-item routerLink="/design-patterns">
+      Design Patterns Overview
+    </button>
+    <button mat-menu-item [matMenuTriggerFor]="creationalPatterns">
+      Creational Patterns
+    </button>
+    <button mat-menu-item [matMenuTriggerFor]="structuralPatterns">
+      Structural Patterns
+    </button>
+    <button mat-menu-item [matMenuTriggerFor]="behavioralPatterns">
+      Behavioral Patterns
+    </button>
+  </mat-menu>
+
+  <mat-menu #creationalPatterns="matMenu">
+    <button mat-menu-item routerLink="/singleton-pattern">
+      Singleton Pattern
+    </button>
+    <button mat-menu-item routerLink="/builder-pattern">Builder Pattern</button>
+    <button mat-menu-item routerLink="/factory-pattern">Factory Pattern</button>
+  </mat-menu>
+
+  <mat-menu #structuralPatterns="matMenu">
+    <button mat-menu-item routerLink="/facade-pattern">Facade Pattern</button>
+    <button mat-menu-item routerLink="/adapter-pattern">Adapter Pattern</button>
+  </mat-menu>
+
+  <mat-menu #behavioralPatterns="matMenu">
+    <button mat-menu-item routerLink="/strategy-pattern">
+      Strategy Pattern
+    </button>
+    <button mat-menu-item routerLink="/observer-pattern">
+      Observer Pattern
+    </button>
   </mat-menu>
 </mat-toolbar>
 <div class="content">
