@@ -74,6 +74,13 @@ export const routes: Routes = [
             (c) => c.AbstractClassComponent
           ),
       },
+      {
+        path: 'optional-method',
+        loadComponent: () =>
+          import('./features/optional-method/optional-method.component').then(
+            (c) => c.OptionalMethodComponent
+          ),
+      },
     ],
   },
   { path: '**', redirectTo: '' }, // Redirect unmatched routes

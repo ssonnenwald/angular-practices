@@ -1,0 +1,115 @@
+<h1>Optional Method</h1>
+<div class="mb-4">
+  In TypeScript (and Angular 19 with standalone components), you can define
+  <b>optional methods</b> by using <b>optional properties</b> in interfaces or
+  classes.&nbsp;&nbsp;This is useful when you want a method or property to be
+  available but not necessarily implemented by every class or component.
+</div>
+
+<h2>Implementation</h2>
+<div class="mb-4">
+  Let's say you have a system where you have different types of
+  <b>notification services</b> (e.g., Email, SMS, and Push).&nbsp;&nbsp;Some of
+  these services might implement an optional method, such as
+  <span class="hljs-attr">trackDeliveryStatus()</span>, while others may not.<br /><br />We
+  can define the optional method in an interface and implement it conditionally
+  in certain services.
+  <ol>
+    <li>
+      <b>Define an Interface with Optional Methods</b>
+    </li>
+  </ol>
+  <div class="mb-4">
+    In TypeScript, we can define an interface where a method is optional by
+    using the <span class="hljs-attr">?</span> syntax.
+  </div>
+
+  <app-code-highlight
+    [code]="optionalMethodCode1"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <div class="mb-4">
+    Here, the <span class="hljs-attr">trackDeliveryStatus()</span> method is
+    optional, meaning it doesn’t need to be implemented in every class that
+    implements the <span class="hljs-attr">NotificationService</span>
+    interface.
+  </div>
+
+  <ol start="2">
+    <li>
+      <b>Concrete Services Implementing the Interface</b>
+    </li>
+  </ol>
+  <div class="mb-4">
+    Now let’s implement a couple of <b>notification services</b>: one that
+    includes the optional
+    <span class="hljs-attr">trackDeliveryStatus()</span> method and one that
+    does not.
+  </div>
+
+  <app-code-highlight
+    [code]="optionalMethodCode2"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <app-code-highlight
+    [code]="optionalMethodCode3"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <ol start="3">
+    <li><b>Standalone Component Using the Services</b></li>
+  </ol>
+  <div class="mb-4">
+    Next, let’s create a <b>standalone component</b> that uses the
+    <span class="hljs-attr">NotificationService</span>.&nbsp;&nbsp;If the
+    service implements <span class="hljs-attr">trackDeliveryStatus()</span>, it
+    will call that method; otherwise, it will simply skip it.
+  </div>
+
+  <app-code-highlight
+    [code]="optionalMethodCode4"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <h4 class="mt-4">Explanation:</h4>
+  <ul>
+    <li>
+      <b>Optional Method in Interface</b>:&nbsp;&nbsp;In the
+      <span class="hljs-attr">NotificationService</span> interface,
+      <span class="hljs-attr">trackDeliveryStatus?()</span> is an optional
+      method.&nbsp;&nbsp;Classes implementing this interface can choose to
+      implement it or not.&nbsp;&nbsp;This makes the method flexible and
+      non-mandatory for all services.
+    </li>
+    <li>
+      <b>Concrete Classes</b>:&nbsp;&nbsp;<span class="hljs-attr"
+        >EmailNotificationService</span
+      >
+      implements the
+      <span class="hljs-attr">trackDeliveryStatus()</span> method, but
+      SMSNotificationService does not.&nbsp;&nbsp;This shows how you can have an
+      optional method that doesn’t always need to be implemented.
+    </li>
+    <li>
+      <b>Component Logic</b>:&nbsp;&nbsp;The
+      <span class="hljs-attr">AppComponent</span> provides functionality to
+      switch between the Email and SMS notification services.&nbsp;&nbsp;It also
+      includes a Track Delivery Status button that checks if the service has
+      implemented the
+      <span class="hljs-attr">trackDeliveryStatus()</span> method.&nbsp;&nbsp;If
+      the method is available, it is called; otherwise, a default message is
+      shown.
+    </li>
+  </ul>
+
+  <h4 class="mt-4">Conclusion:</h4>
+  <div class="mb-4">
+    This example demonstrates how to use <b>optional methods</b> in Angular 19
+    with standalone components.&nbsp;&nbsp;By marking methods as optional in an
+    interface, you can provide flexibility in how services or components
+    implement certain functionality.&nbsp;&nbsp;This approach allows you to
+    create more adaptable and modular code.
+  </div>
+</div>
