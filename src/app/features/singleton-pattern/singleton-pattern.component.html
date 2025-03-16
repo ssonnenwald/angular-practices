@@ -25,12 +25,13 @@
 <h4 class="mt-4">Key Points:</h4>
 <ul>
   <li>
-    providedIn: 'root' ensures that the service is a singleton throughout the
-    application (Angular will create it only once).
+    <span class="hljs-attr">providedIn: 'root'</span> ensures that the service
+    is a singleton throughout the application (Angular will create it only
+    once).
   </li>
   <li>
-    The getInstance() method ensures that only one instance of the service is
-    ever created.
+    The <span class="hljs-attr">getInstance()</span> method ensures that only
+    one instance of the service is ever created.
   </li>
 </ul>
 
@@ -51,12 +52,13 @@
 <h4 class="mt-4">Explanation:</h4>
 <ul>
   <li>
-    In the service, getInstance() controls the creation of the singleton
-    instance. If the instance doesn’t exist, it is created, otherwise the
-    existing one is returned.
+    In the service, <span class="hljs-attr">getInstance()</span> controls the
+    creation of the singleton instance. If the instance doesn’t exist, it is
+    created, otherwise the existing one is returned.
   </li>
   <li>
-    The component injects the SingletonService, and you can use its getData()
+    The component injects the <span class="hljs-attr">SingletonService</span>,
+    and you can use its <span class="hljs-attr">getData()</span>
     method or any other methods you define.
   </li>
 </ul>

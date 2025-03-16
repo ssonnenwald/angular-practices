@@ -1,1 +1,74 @@
-<p>builder-pattern works!</p>
+<h1>Builder Pattern</h1>
+<div class="mb-4">
+  The Builder Pattern is a creational design pattern that allows you to
+  construct complex objects step by step, without needing to specify all of the
+  details in the constructor.&nbsp;&nbsp;In Angular, you could use the Builder
+  pattern to construct an object that has many optional fields or complicated
+  configuration.
+</div>
+
+<h2>Implementation</h2>
+<div class="mb-4">
+  Here's an example of implementing the Builder Pattern using Angular 19 with
+  standalone components.
+  <ol>
+    <li><b>Create the Product (Object to Build)</b></li>
+  </ol>
+  <div class="mb-4">
+    In this example, the product we are building is a <b>Car</b>.
+  </div>
+
+  <app-code-highlight
+    [code]="builderPatternCode1"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <ol start="2">
+    <li><b>Create the Builder (To Build the Car)</b></li>
+  </ol>
+  <div class="mb-4">
+    Now we define the <b>CarBuilder</b>, which helps us create a
+    <span class="hljs-attr">Car</span> step by step:
+  </div>
+
+  <app-code-highlight
+    [code]="builderPatternCode2"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <ol start="3">
+    <li><b>Create the Standalone Component (To Use the Builder)</b></li>
+  </ol>
+  <div class="mb-4">
+    Now, let's create a <b>Standalone Angular 19 Component</b> to use the
+    Builder pattern to construct a <span class="hljs-attr">Car</span>.
+  </div>
+
+  <app-code-highlight
+    [code]="builderPatternCode3"
+    [language]="'typescript'"
+  ></app-code-highlight>
+</div>
+
+<h4 class="mt-4">Explanation:</h4>
+<ul>
+  <li>
+    <b>Car Class</b>: This is the product being created by the builder. It has
+    attributes like <span class="hljs-attr">make</span>,
+    <span class="hljs-attr">model</span>, <span class="hljs-attr">color</span>,
+    and <span class="hljs-attr">engine</span>, which are assigned by the
+    <span class="hljs-attr">CarBuilder</span>.
+  </li>
+  <li>
+    <b>CarBuilder Class</b>: It allows us to configure the car step by step. We
+    can set the <span class="hljs-attr">color</span> and
+    <span class="hljs-attr">engine</span> types using method chaining. After all
+    steps are completed, we call <span class="hljs-attr">build()</span> to
+    construct the car.
+  </li>
+  <li>
+    <b>AppComponent</b>: In the <span class="hljs-attr">AppComponent</span>, we
+    create a car using the builder, specify the attributes, and display the
+    details in the template.
+  </li>
+</ul>
