@@ -1,1 +1,124 @@
-<p>observer-pattern works!</p>
+<h1>Observer Pattern</h1>
+<div class="mb-4">
+  The <b>Observer Pattern</b> is a behavioral design pattern where an object
+  (the <b>subject</b>) maintains a list of its dependents (observers), and
+  notifies them of any state changes, usually by calling one of their
+  methods.&nbsp;&nbsp;This is useful when you need to broadcast changes to
+  multiple components or services.
+</div>
+
+<h2>Implementation</h2>
+<div class="mb-4">
+  In Angular 19 with <b>standalone components</b>, we can implement the
+  <b>Observer Pattern</b> using <b>RxJS</b> (Reactive Extensions for
+  JavaScript), which is a popular way of handling asynchronous events and
+  streams of data in Angular.<br />In this example, we'll simulate a system
+  where a <b>Weather Service</b> updates weather information, and multiple
+  <b>Weather Display Components</b> observe those updates.
+  <ol>
+    <li>
+      <b>The Subject (Weather Service)</b>
+    </li>
+  </ol>
+  <div class="mb-4">
+    The <b>Weather Service</b> acts as the <b>subject</b> in the Observer
+    Pattern.&nbsp;&nbsp;It will notify all subscribed components (observers)
+    when the weather changes.
+  </div>
+
+  <app-code-highlight
+    [code]="observerPatternCode1"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <ol start="2">
+    <li>
+      <b>The Observers (Weather Display Components)</b>
+    </li>
+  </ol>
+  <div class="mb-4">
+    Now, let’s create a couple of <b>Weather Display Components</b> that will
+    observe changes in the weather.
+  </div>
+
+  <app-code-highlight
+    [code]="observerPatternCode2"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <app-code-highlight
+    [code]="observerPatternCode3"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <ol start="3">
+    <li><b>Weather Update Component (Update the Weather)</b></li>
+  </ol>
+  <div class="mb-4">
+    Next, we create a <b>Weather Update Component</b> that allows the user to
+    update the weather.&nbsp;&nbsp;This component will interact with the
+    <b>Weather Service</b> to trigger changes in the weather.
+  </div>
+
+  <app-code-highlight
+    [code]="observerPatternCode4"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <ol start="4">
+    <li><b>App Component (Main Entry)</b></li>
+  </ol>
+  <div class="mb-4">
+    Finally, we put everything together in the
+    <b>App Component</b>.&nbsp;&nbsp;This component will display both the
+    <b>Weather Update Component</b> and the <b>Weather Display Components</b>.
+  </div>
+
+  <app-code-highlight
+    [code]="observerPatternCode5"
+    [language]="'typescript'"
+  ></app-code-highlight>
+</div>
+
+<h4 class="mt-4">Explanation:</h4>
+<ul>
+  <li>
+    <b>WeatherService (Subject)</b>:&nbsp;&nbsp;The
+    <span class="hljs-attr">WeatherService</span> is the subject in the Observer
+    Pattern.&nbsp;&nbsp;It uses a
+    <span class="hljs-attr">BehaviorSubject</span> to hold and broadcast the
+    current weather.&nbsp;&nbsp;When the weather changes, it calls
+    <span class="hljs-attr">next()</span> to notify all subscribers (observers).
+  </li>
+  <li>
+    <b
+      >WeatherDisplayComponent (Observer 1) and WeatherDisplay2Component
+      (Observer 2)</b
+    >:&nbsp;&nbsp;These are the <b>observers</b> that listen for changes in the
+    weather.&nbsp;&nbsp;They subscribe to the
+    <span class="hljs-attr">weather$</span> observable from the
+    <span class="hljs-attr">WeatherService</span> and update their displayed
+    weather when it changes.
+  </li>
+  <li>
+    <b>WeatherUpdateComponent</b>:&nbsp;&nbsp;This component allows the user to
+    update the weather.&nbsp;&nbsp;When the user clicks one of the buttons, it
+    calls <span class="hljs-attr">updateWeather()</span> on the
+    <span class="hljs-attr">WeatherService</span>, which updates the weather and
+    triggers notifications to all subscribed components.
+  </li>
+  <li>
+    <b>AppComponent</b>:&nbsp;&nbsp;The main entry point, which imports and
+    displays the update and display components.
+  </li>
+</ul>
+
+<h4 class="mt-4">Conclusion:</h4>
+<div class="mb-4">
+  This is a simple implementation of the <b>Observer Pattern</b> in Angular 19
+  using <b>RxJS</b>.&nbsp;&nbsp;The <b>Weather Service</b> (subject) notifies
+  all <b>Weather Display Components</b>
+  (observers) when the weather changes.&nbsp;&nbsp;This pattern allows for loose
+  coupling between components and makes it easy to extend the system by adding
+  more observers without changing the core logic of the system.
+</div>
