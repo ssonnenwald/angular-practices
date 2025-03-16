@@ -67,6 +67,13 @@ export const routes: Routes = [
             (c) => c.ObserverPatternComponent
           ),
       },
+      {
+        path: 'abstract-class',
+        loadComponent: () =>
+          import('./features/abstract-class/abstract-class.component').then(
+            (c) => c.AbstractClassComponent
+          ),
+      },
     ],
   },
   { path: '**', redirectTo: '' }, // Redirect unmatched routes

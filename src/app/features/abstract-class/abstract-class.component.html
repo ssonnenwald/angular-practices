@@ -1,0 +1,120 @@
+<h1>Abstract Class</h1>
+<div class="mb-4">
+  In Angular 19 with <b>standalone components</b>, you can use
+  <b>abstract classes</b> to define base functionality that must be shared
+  across multiple classes.&nbsp;&nbsp;Abstract classes cannot be instantiated
+  directly, but they can be extended by other classes, allowing for code reuse
+  and providing a common structure for related components or services.
+</div>
+
+<h2>Implementation</h2>
+<div class="mb-4">
+  Let’s walk through an example where we use an <b>abstract class</b> to provide
+  a base for different types of <b>notification services</b>.&nbsp;&nbsp;We’ll
+  create an abstract class <span class="hljs-attr">NotificationService</span>,
+  and then extend it to create concrete services for sending different types of
+  notifications (e.g., <b>EmailNotificationService</b> and
+  <b>SMSNotificationService</b>).
+  <ol>
+    <li>
+      <b>Define the Abstract Class (NotificationService)</b>
+    </li>
+  </ol>
+  <div class="mb-4">
+    The <b>abstract class</b> will define the structure for sending
+    notifications.&nbsp;&nbsp;We’ll declare an abstract method
+    <span class="hljs-attr">sendNotification()</span> that each subclass will
+    need to implement.
+  </div>
+
+  <app-code-highlight
+    [code]="abstractClassCode1"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <ol start="2">
+    <li>
+      <b
+        >Concrete Classes (EmailNotificationService and
+        SMSNotificationService)</b
+      >
+    </li>
+  </ol>
+  <div class="mb-4">
+    Now, let’s implement the concrete subclasses, each implementing the
+    <span class="hljs-attr">sendNotification()</span> method in its own way.
+  </div>
+
+  <app-code-highlight
+    [code]="abstractClassCode2"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <app-code-highlight
+    [code]="abstractClassCode3"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <ol start="3">
+    <li><b>Standalone Component to Use the Notification Service</b></li>
+  </ol>
+  <div class="mb-4">
+    Now we’ll create a <b>standalone component</b> that will use the concrete
+    classes (<span class="hljs-attr">EmailNotificationService</span> and
+    <span class="hljs-attr">SMSNotificationService</span>) to send
+    notifications.&nbsp;&nbsp;In this example, we will inject one of the
+    services into the component based on user selection.
+  </div>
+
+  <app-code-highlight
+    [code]="abstractClassCode4"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <h4 class="mt-4">Explanation:</h4>
+  <ul>
+    <li>
+      <b>Abstract Class</b> (<span class="hljs-attr">NotificationService</span
+      >):&nbsp;&nbsp;This class provides a common structure for the notification
+      services.&nbsp;&nbsp;The abstract method
+      <span class="hljs-attr">sendNotification()</span> is meant to be
+      implemented by the concrete classes.&nbsp;&nbsp;The logNotification()
+      method is a shared function that both subclasses can use to log
+      notification details.
+    </li>
+    <li>
+      <b>Concrete Classes</b> (<span class="hljs-attr"
+        >EmailNotificationService</span
+      >
+      and
+      <span class="hljs-attr">SMSNotificationService</span>):&nbsp;&nbsp;These
+      classes extend the
+      <span class="hljs-attr">NotificationService</span> abstract class and
+      implement the <span class="hljs-attr">sendNotification()</span> method in
+      their own way.&nbsp;&nbsp;Each class contains its own logic for sending a
+      notification (email or SMS).
+    </li>
+    <li>
+      <b>AppComponent</b>:&nbsp;&nbsp;The component contains a simple UI that
+      allows the user to select between Email and SMS as the notification
+      type.&nbsp;&nbsp;Based on the selection, the component dynamically creates
+      an instance of the respective notification service and uses it to send a
+      notification.
+    </li>
+  </ul>
+
+  <h4 class="mt-4">Conclusion:</h4>
+  <div class="mb-4">
+    This example demonstrates how to use an abstract class in Angular 19 with
+    standalone components to create a flexible, extensible notification
+    system.&nbsp;&nbsp;The <b>NotificationService</b> abstract class enforces a
+    common structure, and the concrete classes (<span class="hljs-attr"
+      >EmailNotificationService</span
+    >
+    and <span class="hljs-attr">SMSNotificationService</span>) implement
+    specific logic for different types of notifications.<br /><br />By using
+    abstract classes, we can provide a clear contract for the subclass
+    implementation, making it easy to add new types of notification services in
+    the future.
+  </div>
+</div>

@@ -3,7 +3,6 @@
     <mat-icon>home</mat-icon>
   </button>
   <span class="logo-text me-4">Angular Practices</span>
-  <!-- <span class="spacer"></span> -->
 
   <button mat-button [matMenuTriggerFor]="menuPatterns">Patterns</button>
 
@@ -42,6 +41,12 @@
     <button mat-menu-item routerLink="/observer-pattern">
       Observer Pattern
     </button>
+  </mat-menu>
+
+  <button mat-button [matMenuTriggerFor]="menuTypescript">Typescript</button>
+
+  <mat-menu #menuTypescript="matMenu">
+    <button mat-menu-item routerLink="/abstract-class">Abstract Class</button>
   </mat-menu>
 </mat-toolbar>
 <div class="content">
