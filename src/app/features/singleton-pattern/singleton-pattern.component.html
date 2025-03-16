@@ -41,7 +41,8 @@
 
 <div class="mb-4">
   To use the singleton service in a component, you simply inject the service as
-  usual. Angular ensures it’s the same instance throughout the application.
+  usual.&nbsp;&nbsp;Angular ensures it’s the same instance throughout the
+  application.
 </div>
 
 <app-code-highlight
@@ -53,8 +54,8 @@
 <ul>
   <li>
     In the service, <span class="hljs-attr">getInstance()</span> controls the
-    creation of the singleton instance. If the instance doesn’t exist, it is
-    created, otherwise the existing one is returned.
+    creation of the singleton instance.&nbsp;&nbsp;If the instance doesn’t
+    exist, it is created, otherwise the existing one is returned.
   </li>
   <li>
     The component injects the <span class="hljs-attr">SingletonService</span>,
@@ -62,3 +63,10 @@
     method or any other methods you define.
   </li>
 </ul>
+
+<h4 class="mt-4">Conclusion:</h4>
+<div class="mb-4">
+  This pattern can be useful when you want to make sure that there is only one
+  instance of a service managing shared state or performing a task that should
+  only have a single point of execution.
+</div>

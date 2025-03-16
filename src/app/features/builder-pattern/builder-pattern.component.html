@@ -53,22 +53,31 @@
 <h4 class="mt-4">Explanation:</h4>
 <ul>
   <li>
-    <b>Car Class</b>: This is the product being created by the builder. It has
-    attributes like <span class="hljs-attr">make</span>,
+    <b>Car Class</b>:&nbsp;&nbsp;This is the product being created by the
+    builder. It has attributes like <span class="hljs-attr">make</span>,
     <span class="hljs-attr">model</span>, <span class="hljs-attr">color</span>,
     and <span class="hljs-attr">engine</span>, which are assigned by the
     <span class="hljs-attr">CarBuilder</span>.
   </li>
   <li>
-    <b>CarBuilder Class</b>: It allows us to configure the car step by step. We
-    can set the <span class="hljs-attr">color</span> and
+    <b>CarBuilder Class</b>:&nbsp;&nbsp;It allows us to configure the car step
+    by step. We can set the <span class="hljs-attr">color</span> and
     <span class="hljs-attr">engine</span> types using method chaining. After all
     steps are completed, we call <span class="hljs-attr">build()</span> to
     construct the car.
   </li>
   <li>
-    <b>AppComponent</b>: In the <span class="hljs-attr">AppComponent</span>, we
-    create a car using the builder, specify the attributes, and display the
-    details in the template.
+    <b>AppComponent</b>:&nbsp;&nbsp;In the
+    <span class="hljs-attr">AppComponent</span>, we create a car using the
+    builder, specify the attributes, and display the details in the template.
   </li>
 </ul>
+
+<h4 class="mt-4">Conclusion:</h4>
+<div class="mb-4">
+  This example shows how you can use the <b>Builder Pattern</b> in
+  <b>Angular 19</b> with standalone components to construct objects step by
+  step.&nbsp;&nbsp;The key benefit of the Builder pattern here is that it gives
+  you flexibility in how the car is built, without needing to pass all values
+  through a complex constructor.
+</div>

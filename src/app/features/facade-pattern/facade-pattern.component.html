@@ -1,1 +1,102 @@
-<p>facade-pattern works!</p>
+<h1>Facade Pattern</h1>
+<div class="mb-4">
+  The <b>Facade Pattern</b> is a structural design pattern that provides a
+  simplified interface to a complex system of classes or
+  subsystems.&nbsp;&nbsp;It acts as a "wrapper" to simplify the interactions for
+  the end user, hiding the complexities of the underlying system.
+</div>
+
+<h2>Implementation</h2>
+<div class="mb-4">
+  In the context of <b>Angular 19</b> with <b>standalone components</b>, let's
+  create a scenario where we have a <b>complex subsystem</b> involving multiple
+  services, and we want to simplify the interaction by creating a
+  <b>Facade</b> service that abstracts away the complexity.
+  <ol>
+    <li>
+      <b>Subsystem Services (Simulating Complex Logic)</b>
+    </li>
+  </ol>
+  <div class="mb-4">
+    Let’s define several services that represent different parts of the system,
+    each having a distinct responsibility.
+  </div>
+
+  <app-code-highlight
+    [code]="facadePatternCode1"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <app-code-highlight
+    [code]="facadePatternCode2"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <app-code-highlight
+    [code]="facadePatternCode3"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <ol start="2">
+    <li>
+      <b>Facade Service (Simplifying the Interface)</b>
+    </li>
+  </ol>
+  <div class="mb-4">
+    We now create the <b>Facade Service</b>, which will use the above subsystem
+    services but offer a simpler API to the user.
+  </div>
+
+  <app-code-highlight
+    [code]="facadePatternCode4"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <ol start="3">
+    <li><b>Standalone Component (Using the Facade)</b></li>
+  </ol>
+  <div class="mb-4">
+    Now, let’s create a <b>standalone Angular</b> component that uses the Facade
+    service to interact with the subsystem in a simplified way.
+  </div>
+
+  <app-code-highlight
+    [code]="facadePatternCode5"
+    [language]="'typescript'"
+  ></app-code-highlight>
+</div>
+
+<h4 class="mt-4">Explanation:</h4>
+<ul>
+  <li>
+    <b>Subsystem Services</b> (<span class="hljs-attr"
+      >AuthenticationService</span
+    >, <span class="hljs-attr">ProfileService</span>,
+    <span class="hljs-attr">NotificationService</span>):&nbsp;&nbsp;These
+    represent different, unrelated parts of the system, each handling specific
+    tasks (e.g., login, profile management, notifications).
+  </li>
+  <li>
+    <b>Facade Service</b> (<span class="hljs-attr">UserFacadeService</span
+    >):&nbsp;&nbsp;This service abstracts the complexity of interacting with
+    multiple services by providing a simpler API (<span class="hljs-attr"
+      >loginAndUpdateProfile</span
+    >, <span class="hljs-attr">logoutAndNotify</span>).
+  </li>
+  <li>
+    <b>AppComponent</b>:&nbsp;&nbsp;In this component, we interact with the
+    <span class="hljs-attr">UserFacadeService</span> instead of directly
+    interacting with each subsystem service, simplifying the logic and making
+    the code cleaner.
+  </li>
+</ul>
+
+<h4 class="mt-4">Conclusion:</h4>
+<div class="mb-4">
+  The <b>Facade Pattern</b> in Angular 19 with standalone components simplifies
+  the interaction with a complex system of services by providing a unified and
+  simpler interface.&nbsp;&nbsp;In this example, instead of calling multiple
+  services directly (which might involve more complicated logic), the component
+  interacts only with the facade, making the code cleaner and easier to
+  maintain.
+</div>

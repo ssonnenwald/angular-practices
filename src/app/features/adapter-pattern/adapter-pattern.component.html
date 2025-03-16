@@ -1,1 +1,119 @@
-<p>adapter-pattern works!</p>
+<h1>Adapter Pattern</h1>
+<div class="mb-4">
+  The <b>Avdapter Pattern</b> is a structural design pattern that allows
+  incompatible interfaces to work together by creating a wrapper (adapter) that
+  translates one interface into another.&nbsp;&nbsp;This can be useful when you
+  want to integrate different systems or third-party libraries that have
+  different interfaces.
+</div>
+
+<h2>Implementation</h2>
+<div class="mb-4">
+  In this example, we’ll use the <b>Adapter Pattern</b> to adapt the interface
+  of a legacy service to work with a modern service in an Angular 19 application
+  using standalone components.
+  <ol>
+    <li>
+      <b>Legacy Service (The Old System)</b>
+    </li>
+  </ol>
+  <div class="mb-4">
+    Let’s define a legacy service that has a method to fetch user data, but the
+    interface is incompatible with the newer system we want to integrate it
+    with.
+  </div>
+
+  <app-code-highlight
+    [code]="adapterPatternCode1"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <ol start="2">
+    <li>
+      <b>New System Service (Modern Interface)</b>
+    </li>
+  </ol>
+  <div class="mb-4">
+    Now, let's define the new system’s service that we want to use, which has a
+    different interface.
+  </div>
+
+  <app-code-highlight
+    [code]="adapterPatternCode2"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <ol start="3">
+    <li><b>The Adapter Service</b></li>
+  </ol>
+  <div class="mb-4">
+    We now create the Adapter service, which adapts the
+    <span class="hljs-attr">LegacyUserService</span> to the
+    <span class="hljs-attr">NewUserService</span> interface.&nbsp;&nbsp;The
+    adapter will translate the
+    <span class="hljs-attr">getUserDataFromLegacySystem</span> method into
+    something that conforms to the
+    <span class="hljs-attr">getUserInfo</span> method.
+  </div>
+
+  <app-code-highlight
+    [code]="adapterPatternCode3"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <ol start="4">
+    <li><b>Standalone Component Using the Adapter</b></li>
+  </ol>
+  <div class="mb-4">
+    Now, let’s create a standalone component that uses the adapter to access the
+    user data through the modern interface (<span class="hljs-attr"
+      >getUserInfo</span
+    >).
+  </div>
+
+  <app-code-highlight
+    [code]="adapterPatternCode4"
+    [language]="'typescript'"
+  ></app-code-highlight>
+</div>
+
+<h4 class="mt-4">Explanation:</h4>
+<ul>
+  <li>
+    <b>LegacyUserService</b>:&nbsp;&nbsp;This simulates an old service with an
+    incompatible interface.&nbsp;&nbsp;It has a method
+    <span class="hljs-attr">getUserDataFromLegacySystem</span> that returns a
+    string in an old format.
+  </li>
+  <li>
+    <b>NewUserService</b>:&nbsp;&nbsp;This is the modern system’s service with a
+    clean, structured interface.&nbsp;&nbsp;It provides user data as an object
+    (<span class="hljs-attr">&#123; name: string; age: number &#125;</span>).
+  </li>
+  <li>
+    <b>UserAdapterService</b>:&nbsp;&nbsp;This is the core of the Adapter
+    Pattern. It adapts the legacy service’s method (<span class="hljs-attr"
+      >getUserDataFromLegacySystem</span
+    >) to match the expected format of the new service’s method (<span
+      class="hljs-attr"
+      >getUserInfo</span
+    >).&nbsp;&nbsp;It does this by extracting and transforming the legacy data
+    into the expected object format.
+  </li>
+  <li>
+    <b>AppComponent</b>:&nbsp;&nbsp;The component uses the
+    <span class="hljs-attr">UserAdapterService</span> to fetch user data via the
+    modern <span class="hljs-attr">getUserInfo</span> method.&nbsp;&nbsp;This
+    allows the component to interact with the modern interface while hiding the
+    complexity of the legacy system.
+  </li>
+</ul>
+
+<h4 class="mt-4">Conclusion:</h4>
+<div class="mb-4">
+  The <b>Adapter Pattern</b> in Angular 19 with standalone components helps us
+  to bridge the gap between legacy and modern systems by creating a service that
+  adapts one interface to another.&nbsp;&nbsp;This pattern is particularly
+  useful when integrating third-party libraries or legacy systems into a modern
+  application.
+</div>

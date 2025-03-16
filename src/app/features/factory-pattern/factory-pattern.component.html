@@ -1,1 +1,130 @@
-<p>factory-pattern works!</p>
+<h1>Factory Pattern</h1>
+<div class="mb-4">
+  The <b>Factory Pattern</b> is a creational design pattern used to create
+  objects without specifying the exact class of object that will be
+  created.&nbsp;&nbsp;In this pattern, a
+  <span class="hljs-attr">Factory</span> method or class handles the object
+  creation.
+</div>
+
+<h2>Implementation</h2>
+<div class="mb-4">
+  In the case of Angular 19 with standalone components, let's create an example
+  that demonstrates the Factory Pattern to instantiate different types of
+  <span class="hljs-attr">Vehicle</span> objects (e.g.,
+  <span class="hljs-attr">Car</span>, <span class="hljs-attr">Truck</span>,
+  <span class="hljs-attr">Bike</span>) based on some criteria.
+  <ol>
+    <li>
+      <b>Create the Product Interface (Common Interface for all Products)</b>
+    </li>
+  </ol>
+  <div class="mb-4">
+    We define an interface for our vehicles to ensure that all of them have the
+    same structure and can be used interchangeably.
+  </div>
+
+  <app-code-highlight
+    [code]="factoryPatternCode1"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <ol start="2">
+    <li>
+      <b
+        >Create the Concrete Products (Classes Implementing the Vehicle
+        Interface)</b
+      >
+    </li>
+  </ol>
+  <div class="mb-4">
+    Here we define <span class="hljs-attr">Car</span>,
+    <span class="hljs-attr">Truck</span>, and
+    <span class="hljs-attr">Bike</span> as concrete implementations of the
+    <span class="hljs-attr">Vehicle</span> interface.
+  </div>
+
+  <app-code-highlight
+    [code]="factoryPatternCode2"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <app-code-highlight
+    [code]="factoryPatternCode3"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <app-code-highlight
+    [code]="factoryPatternCode4"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <ol start="3">
+    <li><b>Create the Factory (To Produce the Products)</b></li>
+  </ol>
+  <div class="mb-4">
+    The <span class="hljs-attr">Factory</span> class will return the correct
+    type of vehicle based on the input.
+  </div>
+
+  <app-code-highlight
+    [code]="factoryPatternCode5"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <ol start="4">
+    <li><b>Create the Standalone Component (To Use the Factory)</b></li>
+  </ol>
+  <div class="mb-4">
+    In this <b>standalone component</b>, we will use the factory to create a
+    specific type of vehicle based on user input.
+  </div>
+
+  <app-code-highlight
+    [code]="factoryPatternCode6"
+    [language]="'typescript'"
+  ></app-code-highlight>
+</div>
+
+<h4 class="mt-4">Explanation:</h4>
+<ul>
+  <li>
+    <b>Vehicle Interface</b>:&nbsp;&nbsp;This defines the methods (<span
+      class="hljs-attr"
+      >startEngine</span
+    >
+    and <span class="hljs-attr">stopEngine</span>) that any vehicle must
+    implement.
+  </li>
+  <li>
+    <b>Concrete Vehicles</b> (<span class="hljs-attr">Car</span>,
+    <span class="hljs-attr">Truck</span>,
+    <span class="hljs-attr">Bike</span>):&nbsp;&nbsp;Each
+    <span class="hljs-attr">vehicle</span> implements the Vehicle interface and
+    provides its own version of <span class="hljs-attr">startEngine</span> and
+    <span class="hljs-attr">stopEngine</span>.
+  </li>
+  <li>
+    <b>VehicleFactory</b>:&nbsp;&nbsp;The factory class decides which type of
+    vehicle to create based on the input (e.g.,
+    <span class="hljs-attr">car</span>, <span class="hljs-attr">truck</span>, or
+    <span class="hljs-attr">bike</span>).
+  </li>
+  <li>
+    <b>AppComponent</b>:&nbsp;&nbsp;This component allows the user to select a
+    vehicle type from a dropdown, and it uses the
+    <span class="hljs-attr">VehicleFactory</span> to create the appropriate
+    vehicle.&nbsp;&nbsp;The <span class="hljs-attr">vehicleDetails</span> string
+    is updated to show the actions (<span class="hljs-attr">startEngine</span>
+    and <span class="hljs-attr">stopEngine</span>) of the created vehicle.
+  </li>
+</ul>
+
+<h4 class="mt-4">Conclusion:</h4>
+<div class="mb-4">
+  This example demonstrates how to use the <b>Factory Pattern</b> in Angular 19
+  with standalone components to create different types of objects (vehicles)
+  based on input.&nbsp;&nbsp;The Factory Pattern abstracts the creation process
+  and allows for easy modification or extension of the product types in the
+  future.
+</div>
