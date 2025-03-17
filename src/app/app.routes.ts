@@ -88,6 +88,13 @@ export const routes: Routes = [
             (c) => c.OptionalMethodComponent
           ),
       },
+      {
+        path: 'interview-questions',
+        loadComponent: () =>
+          import(
+            './features/interview-questions/interview-questions.component'
+          ).then((c) => c.InterviewQuestionsComponent),
+      },
     ],
   },
   { path: '**', redirectTo: '' }, // Redirect unmatched routes

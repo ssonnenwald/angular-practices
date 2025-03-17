@@ -50,6 +50,14 @@
     <button mat-menu-item routerLink="/abstract-method">Abstract Method</button>
     <button mat-menu-item routerLink="/optional-method">Optional Method</button>
   </mat-menu>
+
+  <button mat-button [matMenuTriggerFor]="menuInterview">Interview</button>
+
+  <mat-menu #menuInterview="matMenu">
+    <button mat-menu-item routerLink="/interview-questions">
+      Interview Questions
+    </button>
+  </mat-menu>
 </mat-toolbar>
 <div class="content">
   <router-outlet></router-outlet>
