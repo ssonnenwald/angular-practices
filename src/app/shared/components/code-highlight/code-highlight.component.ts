@@ -1,8 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { Highlight } from 'ngx-highlightjs';
 import { HighlightLineNumbers } from 'ngx-highlightjs/line-numbers';
-import { TooltipPosition, MatTooltipModule } from '@angular/material/tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { ClipboardService } from 'ngx-clipboard';
 
 @Component({
   selector: 'app-code-highlight',
@@ -14,5 +15,11 @@ export class CodeHighLightComponent {
   @Input() public code: string = '';
   @Input() public language: string = 'typescript';
 
+  private clipboardService = inject(ClipboardService);
+
   public constructor() {}
+
+  public copyToClipboard(code: string): void {
+    this.clipboardService.copyFromContent(code);
+  }
 }

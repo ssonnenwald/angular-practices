@@ -9,6 +9,7 @@
     aria-label="Copy"
     matTooltip="Copy"
     [matTooltipPosition]="'below'"
+    (click)="copyToClipboard(code)"
   >
     <mat-icon
       class="copy-icon"
