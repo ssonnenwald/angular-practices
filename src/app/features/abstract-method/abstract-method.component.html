@@ -1,0 +1,119 @@
+<h1>Abstract Method</h1>
+<div class="mb-4">
+  In TypeScript, <b>abstract methods</b> are methods defined in an abstract
+  class without implementation.&nbsp;&nbsp;The concrete subclasses are then
+  required to provide the actual implementation of these
+  methods.&nbsp;&nbsp;This is useful when you want to define a common interface
+  or contract for a set of related classes while allowing each class to provide
+  its own specific behavior.
+</div>
+
+<h2>Implementation</h2>
+<div class="mb-4">
+  Let’s look at an example where we define an <b>abstract class</b> that
+  contains an <b>abstract method</b>, and then we implement this method in
+  subclasses.&nbsp;&nbsp;We’ll implement a notification system, where we have
+  different types of notification services (like <b>Email</b> and <b>SMS</b>)
+  and each service will have its own implementation of sending notifications.<br /><br />
+
+  In this example, we'll define an abstract class
+  <span class="hljs-attr">NotificationService</span> with an abstract method
+  <span class="hljs-attr">sendNotification()</span>.&nbsp;&nbsp;We’ll then
+  create two concrete classes, <b>EmailNotificationService</b> and
+  <b>SMSNotificationService</b>, that will implement the
+  <span class="hljs-attr">sendNotification()</span> method.<br /><br />
+  <ol>
+    <li>
+      <b>Define the Abstract Class with Abstract Method</b>
+    </li>
+  </ol>
+  <div class="mb-4">
+    First, we define an abstract class
+    <span class="hljs-attr">NotificationService</span> with the abstract method
+    <span class="hljs-attr">sendNotification()</span>.&nbsp;&nbsp;This method
+    will be implemented by the subclasses.
+  </div>
+
+  <app-code-highlight
+    [code]="abstractMethodCode1"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <ol start="2">
+    <li>
+      <b>Create Concrete Classes Implementing the Abstract Method</b>
+    </li>
+  </ol>
+
+  <app-code-highlight
+    [code]="abstractMethodCode2"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <app-code-highlight
+    [code]="abstractMethodCode3"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <ol start="3">
+    <li><b>Standalone Component Using the Notification Services</b></li>
+  </ol>
+  <div class="mb-4">
+    We now create a <b>standalone component</b> that will use either the
+    <b>EmailNotificationService</b> or <b>SMSNotificationService</b> to send
+    notifications.&nbsp;&nbsp;The component will inject the service and call the
+    <span class="hljs-attr">sendNotification()</span> method, which is abstract
+    and must be implemented by the concrete services.
+  </div>
+
+  <app-code-highlight
+    [code]="abstractMethodCode4"
+    [language]="'typescript'"
+  ></app-code-highlight>
+
+  <h4 class="mt-4">Explanation:</h4>
+  <ul>
+    <li>
+      <b>Abstract Class</b> (<span class="hljs-attr">NotificationService</span
+      >):&nbsp;&nbsp;This class defines an abstract method
+      <span class="hljs-attr">sendNotification()</span> that must be implemented
+      by any subclass.&nbsp;&nbsp;It also provides a helper method
+      <span class="hljs-attr">logNotification()</span> that can be used by
+      subclasses to log notifications.&nbsp;&nbsp;The abstract method enforces
+      that every subclass provides its own logic for sending notifications.
+    </li>
+    <li>
+      <b>Concrete Classes</b> (<span class="hljs-attr"
+        >EmailNotificationService</span
+      >
+      and
+      <span class="hljs-attr">SMSNotificationService</span>):&nbsp;&nbsp;These
+      classes extend the abstract class and implement the
+      <span class="hljs-attr">sendNotification()</span> method with their own
+      custom logic.&nbsp;&nbsp;<span class="hljs-attr"
+        >EmailNotificationService</span
+      >
+      sends emails, while
+      <span class="hljs-attr">SMSNotificationService</span> sends SMS messages.
+    </li>
+    <li>
+      <b>AppComponent</b>:&nbsp;&nbsp;The component lets the user select between
+      Email and SMS notification types and triggers the
+      <span class="hljs-attr">sendNotification()</span> method of the selected
+      service.&nbsp;&nbsp;It uses the
+      <span class="hljs-attr">NotificationService</span> class to interact with
+      either of the concrete classes.
+    </li>
+  </ul>
+
+  <h4 class="mt-4">Conclusion:</h4>
+  <div class="mb-4">
+    This example demonstrates how to use <b>abstract methods</b> in Angular 19
+    with <b>standalone components</b>.&nbsp;&nbsp;The
+    <span class="hljs-attr">NotificationService</span> abstract class defines a
+    contract for subclasses (i.e., that they must implement the
+    <span class="hljs-attr">sendNotification()</span> method).&nbsp;&nbsp;Each
+    subclass provides its own implementation of this method, allowing you to
+    create flexible and reusable services that follow a common structure.
+  </div>
+</div>

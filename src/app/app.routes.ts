@@ -75,6 +75,13 @@ export const routes: Routes = [
           ),
       },
       {
+        path: 'abstract-method',
+        loadComponent: () =>
+          import('./features/abstract-method/abstract-method.component').then(
+            (c) => c.AbstractMethodComponent
+          ),
+      },
+      {
         path: 'optional-method',
         loadComponent: () =>
           import('./features/optional-method/optional-method.component').then(
