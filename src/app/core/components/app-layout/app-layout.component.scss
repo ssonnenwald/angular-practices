@@ -26,8 +26,10 @@ mat-icon {
 }
 
 .content {
-  margin-top: 64px; /* Adjust this depending on the height of the toolbar */
-  padding: 32px;
+  padding-top: 96px; /* Adjust this depending on the height of the toolbar */
+  padding-right: 32px;
+  padding-left: 32px;
+  padding-bottom: 32px;
   min-height: 100vh;
 
   background-color: var(--mat-sys-background);
