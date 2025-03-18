@@ -68,6 +68,41 @@ export const routes: Routes = [
           ),
       },
       {
+        path: 'solid-single-responsibility',
+        loadComponent: () =>
+          import(
+            './features/solid-single-responsibility/solid-single-responsibility.component'
+          ).then((c) => c.SolidSingleResponsibilityComponent),
+      },
+      {
+        path: 'solid-open-closed',
+        loadComponent: () =>
+          import(
+            './features/solid-open-closed/solid-open-closed.component'
+          ).then((c) => c.SolidOpenClosedComponent),
+      },
+      {
+        path: 'solid-liskov-substitution',
+        loadComponent: () =>
+          import(
+            './features/solid-liskov-substitution/solid-liskov-substitution.component'
+          ).then((c) => c.SolidLiskovSubstitutionComponent),
+      },
+      {
+        path: 'solid-interface-segregation',
+        loadComponent: () =>
+          import(
+            './features/solid-interface-segregation/solid-interface-segregation.component'
+          ).then((c) => c.SolidInterfaceSegregationComponent),
+      },
+      {
+        path: 'solid-dependency-inversion',
+        loadComponent: () =>
+          import(
+            './features/solid-dependency-inversion/solid-dependency-inversion.component'
+          ).then((c) => c.SolidDependencyInversionComponent),
+      },
+      {
         path: 'abstract-class',
         loadComponent: () =>
           import('./features/abstract-class/abstract-class.component').then(

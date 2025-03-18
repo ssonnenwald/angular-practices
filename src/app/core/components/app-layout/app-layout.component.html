@@ -43,6 +43,24 @@
     </button>
   </mat-menu>
 
+  <button mat-button [matMenuTriggerFor]="menuSolid">SOLID</button>
+
+  <mat-menu #menuSolid="matMenu">
+    <button mat-menu-item routerLink="/solid-single-responsibility">
+      Single Responsibility
+    </button>
+    <button mat-menu-item routerLink="/solid-open-closed">Open/Closed</button>
+    <button mat-menu-item routerLink="/solid-liskov-substitution">
+      Liskov Substitution
+    </button>
+    <button mat-menu-item routerLink="/solid-interface-segregation">
+      Interface Segregation
+    </button>
+    <button mat-menu-item routerLink="/solid-dependency-inversion">
+      Dependency Inversion
+    </button>
+  </mat-menu>
+
   <button mat-button [matMenuTriggerFor]="menuTypescript">Typescript</button>
 
   <mat-menu #menuTypescript="matMenu">
