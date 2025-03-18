@@ -1,1 +1,66 @@
-<p>solid-interface-segregation works!</p>
+<h1>I - Interface Segregation Principle (ISP)</h1>
+
+<div class="mb-4 mt-2">
+  <h6>Original Definition</h6>
+  No code should be forced to depend on methods it does not use.<br /><br />
+
+  <h6>Simple Definition</h6>
+  The ISP means that clients should not be forced to implement methods they
+  don't use.&nbsp;&nbsp;It's like saying, "Don't make people take things they
+  don't need."
+</div>
+
+<h5>Example</h5>
+
+In the initial implementation before applying the ISP, the
+<span class="hljs-attr">VPNConnection</span> interface encompasses methods for
+various VPN protocols, including <span class="hljs-attr">useL2TP</span>,
+<span class="hljs-attr">useOpenVPN</span>,
+<span class="hljs-attr">useV2Ray</span>, and
+<span class="hljs-attr">useShadowsocks</span>.&nbsp;&nbsp;However, not all
+classes implementing this interface require all these methods.&nbsp;&nbsp;For
+instance, the <span class="hljs-attr">InternalNetwork</span> class only utilizes
+<span class="hljs-attr">useL2TP</span> and
+<span class="hljs-attr">useOpenVPN</span>, yet it is forced to implement all
+methods defined in the <span class="hljs-attr">VPNConnection</span> interface,
+leading to unnecessary dependencies and potential errors if methods are called
+inappropriately.<br /><br />
+
+To address this issue, the Interface Segregation Principle suggests breaking
+down the monolithic interface into smaller, more focused
+interfaces.&nbsp;&nbsp;In the improved implementation, two interfaces are
+introduced: <span class="hljs-attr">BaseVPNConnection</span> and
+<span class="hljs-attr">ExtraVPNConnection</span>.&nbsp;&nbsp;The
+<span class="hljs-attr">BaseVPNConnection</span> interface contains methods
+common to both external and internal networks (<span class="hljs-attr"
+  >useL2TP</span
+>
+and <span class="hljs-attr">useOpenVPN</span>), while the ExtraVPNConnection
+interface includes methods specific to external networks (<span
+  class="hljs-attr"
+  >useV2Ray</span
+>
+and <span class="hljs-attr">useShadowsocks</span>).<br /><br />
+
+With this segregation, the <span class="hljs-attr">InternalNetwork</span> class
+now only needs to implement the methods relevant to its functionality, adhering
+to the principle of "clients should not be forced to depend on interfaces they
+do not use."&nbsp;&nbsp;This restructuring enhances code clarity, reduces
+unnecessary dependencies, and makes the system more maintainable and
+flexible.&nbsp;&nbsp;Additionally, it mitigates the risk of errors by ensuring
+that classes only expose the methods they actually support, promoting better
+encapsulation and separation of concerns.<br /><br />
+
+<mat-icon class="icon-red">close_small</mat-icon><b>Before following ISP:</b>
+
+<app-code-highlight
+  [code]="beforeCode"
+  [language]="'typescript'"
+></app-code-highlight>
+
+<mat-icon class="icon-green">check_small</mat-icon><b>After following ISP:</b>
+
+<app-code-highlight
+  [code]="afterCode"
+  [language]="'typescript'"
+></app-code-highlight>

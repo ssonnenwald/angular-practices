@@ -1,1 +1,64 @@
-<p>solid-liskov-substitution works!</p>
+<h1>L - Liskov Substitution Principle (LSP)</h1>
+
+<div class="mb-4 mt-2">
+  <h6>Original Definition</h6>
+  If <span class="hljs-attr">S</span> is a subtype of
+  <span class="hljs-attr">T</span>, then objects of type
+  <span class="hljs-attr">T</span> in a program may be replaced with objects of
+  type <span class="hljs-attr">S</span> without altering any of the desirable
+  properties of that program.<br /><br />
+
+  <h6>Simple Definition</h6>
+  The LSP says that if you have a class, you should be able to use any of its
+  subclasses interchangeably without breaking the program.
+</div>
+
+<h5>Example</h5>
+
+In the initial example, we have an
+<span class="hljs-attr">ImageProcessor</span> class responsible for various
+image processing operations such as
+<b
+  >compression, enhancing size, removing background, and enhancing quality with
+  AI</b
+>.&nbsp;&nbsp;There's also a
+<span class="hljs-attr">LimitedImageProcessor</span> class that extends
+<span class="hljs-attr">ImageProcessor</span>, but it overrides the
+<span class="hljs-attr">removeBackground</span> and
+<span class="hljs-attr">enhanceQualityWithAI</span> methods to throw errors
+indicating that these features are only available in the premium version.<br /><br />
+
+This violates the Liskov Substitution Principle because substituting an instance
+of <span class="hljs-attr">LimitedImageProcessor</span> for an instance of
+<span class="hljs-attr">ImageProcessor</span> could lead to unexpected errors if
+code relies on those overridden methods.<br /><br />
+
+To adhere to the LSP, we refactor the classes. We create a
+<span class="hljs-attr">PremiumImageProcessor</span> class that extends
+<span class="hljs-attr">ImageProcessor</span> and implements the
+removeBackground and enhanceQualityWithAI methods.&nbsp;&nbsp;This way, both
+classes share a common interface and substituting an instance of
+<span class="hljs-attr">PremiumImageProcessor</span> for an instance of
+<span class="hljs-attr">ImageProcessor</span> won't break the program's
+correctness.<br /><br />
+
+In the refactored version, <span class="hljs-attr">ImageProcessor</span> is now
+focused on basic image processing operations like compression and enhancing
+size, while <span class="hljs-attr">PremiumImageProcessor</span> extends it to
+include premium features like removing background and enhancing quality with
+AI.&nbsp;&nbsp;This separation allows for better code organization and adherence
+to the Liskov Substitution Principle.<br /><br />
+
+<mat-icon class="icon-red">close_small</mat-icon><b>Before following LSP:</b>
+
+<app-code-highlight
+  [code]="beforeCode"
+  [language]="'typescript'"
+></app-code-highlight>
+
+<mat-icon class="icon-green">check_small</mat-icon><b>After following LSP:</b>
+
+<app-code-highlight
+  [code]="afterCode"
+  [language]="'typescript'"
+></app-code-highlight>

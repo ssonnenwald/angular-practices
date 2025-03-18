@@ -1,1 +1,60 @@
-<p>solid-dependency-inversion works!</p>
+<h1>D - Dependency Inversion Principle (DIP)</h1>
+
+<div class="mb-4 mt-2">
+  <h6>Original Definition</h6>
+  High-level modules should not import anything from low-level
+  modules.&nbsp;&nbsp;Both should depend on abstractions. Abstractions should
+  not depend on details.&nbsp;&nbsp;Details (concrete implementations) should
+  depend on abstractions.<br /><br />
+
+  <h6>Simple Definition</h6>
+  DIP means that instead of high-level modules depending directly on low-level
+  modules, both should depend on abstractions.&nbsp;&nbsp;This way, changes in
+  low-level modules don't directly affect high-level ones, promoting flexible
+  and maintainable code.
+</div>
+
+<h5>Example</h5>
+
+In the original code, the <span class="hljs-attr">Messenger</span> class
+directly depends on specific implementations of messaging APIs like
+<span class="hljs-attr">TelegramApi</span>,
+<span class="hljs-attr">WhatsappApi</span>, and
+<span class="hljs-attr">SignalApi</span>.&nbsp;&nbsp;This tightly couples
+Messenger with these concrete implementations, making it difficult to change or
+extend the system without modifying the
+<span class="hljs-attr">Messenger</span> class itself.&nbsp;&nbsp;This violates
+the Dependency Inversion Principle (DIP), which suggests that high-level modules
+should not depend on low-level modules but rather on abstractions.<br /><br />
+
+To adhere to DIP, we introduce an interface called
+<span class="hljs-attr">MessengerApi</span>, which defines the methods that the
+<span class="hljs-attr">Messenger</span> class requires from a messaging
+API.&nbsp;&nbsp;Then, each messaging API class (<span class="hljs-attr"
+  >TelegramApi</span
+>, <span class="hljs-attr">WhatsappApi</span> and
+<span class="hljs-attr">SignalApi</span>) implements this interface, providing
+their own implementation of the connect and send methods.<br /><br />
+
+By doing this, we decouple the Messenger class from specific messaging API
+implementations.&nbsp;&nbsp;Now, Messenger depends on the MessengerApi interface
+rather than concrete implementations.&nbsp;&nbsp;This allows us to easily switch
+between different messaging APIs or add new ones without modifying the Messenger
+class.&nbsp;&nbsp;Additionally, it promotes code reusability and simplifies
+testing, as we can now easily mock the MessengerApi interface for testing
+purposes.&nbsp;&nbsp;Overall, following DIP enhances the flexibility,
+maintainability, and testability of the codebase.<br /><br />
+
+<mat-icon class="icon-red">close_small</mat-icon><b>Before following DIP:</b>
+
+<app-code-highlight
+  [code]="beforeCode"
+  [language]="'typescript'"
+></app-code-highlight>
+
+<mat-icon class="icon-green">check_small</mat-icon><b>After following DIP:</b>
+
+<app-code-highlight
+  [code]="afterCode"
+  [language]="'typescript'"
+></app-code-highlight>

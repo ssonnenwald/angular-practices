@@ -1,1 +1,57 @@
-<p>solid-open-closed works!</p>
+<h1>O - Open/Closed Principle (OCP)</h1>
+
+<div class="mb-4 mt-2">
+  <h6>Original Definition</h6>
+  Software entities should be open for extension, but closed for
+  modification.<br /><br />
+
+  <h6>Simple Definition</h6>
+  he Open/Closed Principle means that once you write a piece of code, you should
+  be able to add new functionality to it without changing the existing
+  code.&nbsp;&nbsp;It promotes extending the behavior of software rather than
+  altering it, ensuring that changes don't break existing functionality.
+</div>
+
+<h5>Example</h5>
+
+Before OCP implementation, the
+<span class="hljs-attr">QueryGenerator</span> class directly handles different
+types of databases, such as <i>MySQL</i>, <i>Redis</i>, and <i>Neo4j</i>, within
+its methods.&nbsp;&nbsp;This violates the Open/Closed Principle because if you
+want to add support for a new database, you would need to modify the
+<span class="hljs-attr">QueryGenerator</span> class by adding a new case to each
+switch statement.&nbsp;&nbsp;This could lead to the class becoming bloated and
+tightly coupled to specific database implementations, making it harder to
+maintain and extend.<br /><br />
+
+After implementing OCP, the code is refactored to use interfaces and separate
+classes for each database type. Now, the QueryGenerator interface defines common
+methods <span class="hljs-attr">getReadingQuery</span> and
+<span class="hljs-attr">getWritingQuery</span>, while individual database
+classes (<span class="hljs-attr">MySql</span>,
+<span class="hljs-attr">Redis</span>, and <span class="hljs-attr">Neo4j</span>)
+implement these methods according to their specific behavior.<br /><br />
+
+This approach adheres to the Open/Closed Principle because the
+<span class="hljs-attr">QueryGenerator</span>
+interface is open for extension, allowing you to add support for new databases
+by creating new classes that implement the interface, without modifying existing
+code. Additionally, it's closed for modification because changes to existing
+database classes won't affect the
+<span class="hljs-attr">QueryGenerator</span> interface or other database
+implementations. This results in a more flexible, maintainable, and scalable
+design.<br /><br />
+
+<mat-icon class="icon-red">close_small</mat-icon><b>Before following OCP:</b>
+
+<app-code-highlight
+  [code]="beforeCode"
+  [language]="'typescript'"
+></app-code-highlight>
+
+<mat-icon class="icon-green">check_small</mat-icon><b>After following OCP:</b>
+
+<app-code-highlight
+  [code]="afterCode"
+  [language]="'typescript'"
+></app-code-highlight>
