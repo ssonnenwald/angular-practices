@@ -68,6 +68,13 @@ export const routes: Routes = [
           ),
       },
       {
+        path: 'solid-overview',
+        loadComponent: () =>
+          import('./features/solid-overview/solid-overview.component').then(
+            (c) => c.SolidOverviewComponent
+          ),
+      },
+      {
         path: 'solid-single-responsibility',
         loadComponent: () =>
           import(
