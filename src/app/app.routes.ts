@@ -68,6 +68,13 @@ export const routes: Routes = [
           ),
       },
       {
+        path: 'mvvm-pattern',
+        loadComponent: () =>
+          import('./features/mvvm-pattern/mvvm-pattern.component').then(
+            (c) => c.MvvmPatternComponent
+          ),
+      },
+      {
         path: 'solid-overview',
         loadComponent: () =>
           import('./features/solid-overview/solid-overview.component').then(

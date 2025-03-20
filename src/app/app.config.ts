@@ -1,7 +1,7 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideRouter } from '@angular/router';
-import { HIGHLIGHT_OPTIONS, provideHighlightOptions } from 'ngx-highlightjs';
+import { provideHighlightOptions } from 'ngx-highlightjs';
 
 import { routes } from './app.routes';
 
@@ -17,6 +17,7 @@ export const appConfig: ApplicationConfig = {
         typescript: () => import('highlight.js/lib/languages/typescript'),
         css: () => import('highlight.js/lib/languages/css'),
         scss: () => import('highlight.js/lib/languages/scss'),
+        html: () => import('highlight.js/lib/languages/xml'),
       },
     }),
   ],

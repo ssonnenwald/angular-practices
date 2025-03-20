@@ -1,0 +1,453 @@
+<h1>MVVM (Model-View-ViewModel) Pattern</h1>
+<div class="mb-4">
+  he MVVM (Model-View-ViewModel) design pattern is a type of architectural
+  pattern that focuses on separating the presentation logic (View) from the
+  business logic (Model) through an intermediary component called the ViewModel.
+</div>
+
+<div class="mb-4">
+  <h5>Detailed Breakdown</h5>
+  <ul>
+    <li>
+      <b>Model</b>:&nbsp;&nbsp;Represents the data and business logic of the
+      application.
+    </li>
+    <li>
+      <b>View</b>:&nbsp;&nbsp;Represents the user interface and displays the
+      data from the ViewModel.
+    </li>
+    <li>
+      <b>ViewModel</b>:&nbsp;&nbsp;Exposes the model's data and commands to the
+      view through data binding, handling the interaction between the View and
+      Model.
+    </li>
+    <li>
+      <b>Benefits of MVVM</b>:<br />
+      <ul>
+        <li>
+          <b>Separation of Concerns</b>:&nbsp;&nbsp;MVVM promotes a clean
+          separation of concerns, making it easier to maintain and test the
+          application.
+        </li>
+        <li>
+          <b>Testability</b>:&nbsp;&nbsp;The ViewModel can be easily tested
+          independently of the View, as it doesn't have a direct dependency on
+          the UI.
+        </li>
+        <li>
+          <b>Maintainability</b>:&nbsp;&nbsp;The separation of concerns makes it
+          easier to modify or extend the application, as changes in one part of
+          the application are less likely to affect other parts.
+        </li>
+        <li>
+          <b>Reusability</b>:&nbsp;&nbsp;ViewModels can be reused across
+          multiple views, promoting code reusability.
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="d-flex justify-content-center">
+  <img src="../../../assets/images/mvvm2.png" />
+</div>
+
+<h3 class="mt-4">Overview of the MVVM Pattern in Angular</h3>
+<ul>
+  <li>
+    <b>Model (DomainModel)</b>:&nbsp;&nbsp;Manages application state, business
+    logic, and data-fetching logic.
+  </li>
+  <li>
+    <b>ViewModel</b>:&nbsp;&nbsp;Acts as an intermediary between the View and
+    Model. Transforms data from the Model to a format suitable for the View and
+    exposes it as signals.
+  </li>
+  <li>
+    <b>View (Component + HTML)</b>:&nbsp;&nbsp;Renders the UI and delegates user
+    actions to the ViewModel.
+  </li>
+</ul>
+<br />
+
+<div class="mb-2">
+  <h6 class="d-inline"><mark>counter.model.ts</mark></h6>
+  &nbsp;&nbsp;
+  <h5 class="d-inline">(DomainModel - Shared Service)</h5>
+</div>
+
+<app-code-highlight
+  [code]="counterModelCode"
+  [language]="'typescript'"
+></app-code-highlight>
+
+<h5>Explanation</h5>
+<ul>
+  <li>
+    <span class="hljs-attr">Injectable</span>:&nbsp;&nbsp;Makes the service
+    available for Dependency Injection.
+  </li>
+  <li>
+    <span class="hljs-attr">signal</span>:&nbsp;&nbsp;Signals are used to manage
+    reactive state.
+  </li>
+  <li>
+    <span class="hljs-attr">HttpClient</span>:&nbsp;&nbsp;Injected to perform
+    HTTP requests.
+  </li>
+  <li>
+    <span class="hljs-attr">fetchRandomNumber()</span>:&nbsp;&nbsp;Fetches data
+    from a backend API and updates the signal.
+  </li>
+  <li>
+    <span class="hljs-attr"
+      >&#64;Injectable(&#123; providedIn: 'root' &#125;)</span
+    >:&nbsp;&nbsp;Makes this service a singleton, ensuring shared state across
+    all components using this service.
+  </li>
+</ul>
+&nbsp;&nbsp;
+
+<div class="mb-2">
+  <h6 class="d-inline"><mark>counter.viewmodel.ts</mark></h6>
+  &nbsp;&nbsp;
+  <h5 class="d-inline">(ViewModel)</h5>
+</div>
+
+<app-code-highlight
+  [code]="counterViewModelCode"
+  [language]="'typescript'"
+></app-code-highlight>
+
+<h5>Explanation</h5>
+<ul>
+  <li>
+    Acts as a facade between the <span class="hljs-attr">Component</span> and
+    the <span class="hljs-attr">DomainModel</span>.
+  </li>
+  <li>
+    Only exposes what the <span class="hljs-attr">Component</span> needs (<span
+      class="hljs-attr"
+      >count</span
+    >, <span class="hljs-attr">randomNumber</span>,
+    <span class="hljs-attr">increment()</span>, etc.).
+  </li>
+  <li>
+    Keeps the <span class="hljs-attr">Component</span> clean and simple by only
+    dealing with UI logic.
+  </li>
+  <li>
+    Allows <span class="hljs-attr">CounterModel</span> to be swapped or modified
+    without affecting the <span class="hljs-attr">Component</span>.
+  </li>
+</ul>
+&nbsp;&nbsp;
+
+<div class="mb-2">
+  <h6 class="d-inline"><mark>counter.component.ts</mark></h6>
+  &nbsp;&nbsp;
+  <h5 class="d-inline">(Controller Component - CounterComponent)</h5>
+</div>
+
+<app-code-highlight
+  [code]="counterComponentCode"
+  [language]="'typescript'"
+></app-code-highlight>
+
+<h5>Explanation</h5>
+<ul>
+  <li>View (HTML) and Controller (TypeScript) are tightly related.</li>
+  <li>
+    Injects the <span class="hljs-attr">CounterViewModel</span> and interacts
+    with its methods/signals.
+  </li>
+  <li>
+    Keeps UI rendering and interaction separate from data manipulation logic.
+  </li>
+</ul>
+&nbsp;&nbsp;
+
+<div class="mb-2">
+  <h6 class="d-inline"><mark>display.component.ts</mark></h6>
+  &nbsp;&nbsp;
+  <h5 class="d-inline">(Controller Component - DisplayComponent)</h5>
+</div>
+
+<app-code-highlight
+  [code]="displayComponentCode"
+  [language]="'typescript'"
+></app-code-highlight>
+
+<h5>Explanation</h5>
+<ul>
+  <li>
+    Uses the same <span class="hljs-attr">CounterViewModel</span> instance as
+    <span class="hljs-attr">CounterComponent</span> because it's provided in the
+    <span class="hljs-attr">root</span> scope.
+  </li>
+  <li>Demonstrates cross-component communication via signals.</li>
+</ul>
+&nbsp;&nbsp;
+
+<div class="mb-2">
+  <h6 class="d-inline"><mark>display.component.html</mark></h6>
+  &nbsp;&nbsp;
+  <h5 class="d-inline">(Display View)</h5>
+</div>
+
+<app-code-highlight
+  [code]="displayComponentHtml"
+  [language]="'html'"
+></app-code-highlight>
+
+<h5>Explanation</h5>
+<ul>
+  <li>
+    Displays shared state (<span class="hljs-attr">count</span>) and performs a
+    fetch for a random number.
+  </li>
+</ul>
+&nbsp;&nbsp;
+
+<h4>Why This Structure Works Well</h4>
+<ol>
+  <li>
+    <b>Separation of Concerns:</b>
+    <ul>
+      <li><span class="hljs-attr">DomainModel</span> handles data/state.</li>
+      <li><span class="hljs-attr">ViewModel</span> acts as a bridge.</li>
+      <li><span class="hljs-attr">Components</span> handle UI only.</li>
+    </ul>
+  </li>
+  <li>
+    <b>Scalability:</b>
+    <ul>
+      <li>Multiple components can interact with the same model via signals.</li>
+    </ul>
+  </li>
+  <li>
+    <b>Testability:</b>
+    <ul>
+      <li>Each layer can be independently unit-tested.</li>
+    </ul>
+  </li>
+</ol>
+&nbsp;&nbsp;
+
+<h4>Unit Testing</h4>
+<div class="mb-2">
+  Let's dive into unit testing for each part of our Angular application using
+  Jasmine and Angular Testing Utilities.&nbsp;&nbsp;I’ll cover testing for:
+</div>
+
+<ol>
+  <li>
+    <b>DomainModel</b> (<span class="hljs-attr">CounterModel</span>) with HTTP
+    mocking.
+  </li>
+  <li>
+    <b>ViewModel</b> (<span class="hljs-attr">CounterViewModel</span>) with
+    service interactions.
+  </li>
+  <li>
+    <b>Components</b> (<span class="hljs-attr">CounterComponent</span> and
+    <span class="hljs-attr">DisplayComponent</span>) with user interaction and
+    DOM verification.
+  </li>
+</ol>
+&nbsp;&nbsp;
+
+<h4>
+  1.&nbsp;&nbsp;Unit Testing
+  <span class="hljs-attr">CounterModel</span> (DomainModel)
+</h4>
+
+<h5>
+  Mocking HTTP Requests in the <span class="hljs-attr">CounterModel</span>
+</h5>
+
+We’ll mock HTTP requests by using Jasmine’s
+<span class="hljs-attr">HttpClientTestingModule</span> and
+<span class="hljs-attr">HttpTestingController</span>.
+
+<div class="mb-2 mt-4">
+  <h6 class="d-inline"><mark>counter.model.spec.ts</mark></h6>
+  &nbsp;&nbsp;
+  <h5 class="d-inline">(Test File for DomainModel)</h5>
+</div>
+
+<app-code-highlight
+  [code]="counterModelSpecCode"
+  [language]="'typescript'"
+></app-code-highlight>
+
+<h5>Explanation</h5>
+<ul>
+  <li>
+    <span class="hljs-attr">HttpClientTestingModule</span>:&nbsp;&nbsp;This
+    module is used to mock HTTP requests, so no actual HTTP requests are made
+    during tests.
+  </li>
+  <li>
+    <span class="hljs-attr">HttpTestingController</span>:&nbsp;&nbsp;Allows us
+    to verify and mock responses for HTTP calls.
+  </li>
+  <li>
+    <b>Test Flow</b>:
+    <ul>
+      <li>
+        We test that the <span class="hljs-attr">CounterModel</span> properly
+        increments, decrements, and resets the counter.
+      </li>
+      <li>
+        The <span class="hljs-attr">fetchRandomNumber</span> method is tested to
+        ensure it triggers an HTTP request and correctly updates the
+        <span class="hljs-attr">randomNumber</span> signal when the response is
+        received.
+      </li>
+    </ul>
+  </li>
+</ul>
+&nbsp;&nbsp;
+
+<h4>
+  2.&nbsp;&nbsp;Unit Testing
+  <span class="hljs-attr">CounterModel</span> <b>(ViewModel)</b>
+</h4>
+
+We will <b>mock</b> the <span class="hljs-attr">CounterModel</span> so that we
+can test the <span class="hljs-attr">CounterViewModel</span> independently.
+
+<div class="mb-2 mt-4">
+  <h6 class="d-inline"><mark>counter.viewmodel.spec.ts</mark></h6>
+  &nbsp;&nbsp;
+  <h5 class="d-inline">(Test File for ViewModel)</h5>
+</div>
+
+<app-code-highlight
+  [code]="counterViewModelSpecCode"
+  [language]="'typescript'"
+></app-code-highlight>
+
+<h5>Explanation</h5>
+<ul>
+  <li>
+    Jasmine Spies: <span class="hljs-attr">createSpyObj</span> allows us to mock
+    the methods and properties of <span class="hljs-attr">CounterModel</span>.
+  </li>
+  <li>
+    <b>Test Flow</b>:
+    <ul>
+      <li>
+        We mock the <span class="hljs-attr">count</span> and
+        <span class="hljs-attr">randomNumber</span> values so that
+        <span class="hljs-attr">ViewModel</span> can be tested independently of
+        the actual <span class="hljs-attr">CounterModel</span> service.
+      </li>
+      <li>
+        We test that calling <span class="hljs-attr">increment()</span>,
+        <span class="hljs-attr">decrement()</span>, and
+        <span class="hljs-attr">reset()</span> on the
+        <span class="hljs-attr">ViewModel</span> triggers the corresponding
+        methods on the <span class="hljs-attr">CounterModel</span>.
+      </li>
+    </ul>
+  </li>
+</ul>
+&nbsp;&nbsp;
+
+<h4>
+  3.&nbsp;&nbsp;Unit Testing
+  <span class="hljs-attr">CounterComponent</span>
+</h4>
+
+We test <b>UI behavior</b> and <b>component interaction</b> with
+<span class="hljs-attr">ViewModel</span> using Angular's <b>TestBed</b> and
+<b>ComponentFixture</b>.
+
+<div class="mb-2 mt-4">
+  <h6 class="d-inline"><mark>counter.component.spec.ts</mark></h6>
+  &nbsp;&nbsp;
+  <h5 class="d-inline">(Test File for CounterComponent)</h5>
+</div>
+
+<app-code-highlight
+  [code]="counterComponentSpecCode"
+  [language]="'typescript'"
+></app-code-highlight>
+
+<h5>Explanation</h5>
+<ul>
+  <li>
+    <b>Test Component Interactions</b>:
+    <ul>
+      <li>
+        <span class="hljs-attr">fixture.detectChanges()</span> triggers change
+        detection to ensure that the component’s DOM updates reflect the model’s
+        state.
+      </li>
+      <li>
+        We check if the <span class="hljs-attr">count</span> is displayed
+        correctly in the view (h1 element).
+      </li>
+      <li>
+        We simulate button clicks and verify if
+        <span class="hljs-attr">increment()</span> and
+        <span class="hljs-attr">reset()</span> are called when buttons are
+        clicked.
+      </li>
+    </ul>
+  </li>
+</ul>
+&nbsp;&nbsp;
+
+<h4>
+  4.&nbsp;&nbsp;Unit Testing
+  <span class="hljs-attr">DisplayComponent</span>
+</h4>
+
+Similar to <span class="hljs-attr">CounterComponent</span>, we will test the UI
+rendering and user interactions (i.e., fetching random numbers).
+
+<div class="mb-2 mt-4">
+  <h6 class="d-inline"><mark>display.component.spec.ts</mark></h6>
+  &nbsp;&nbsp;
+  <h5 class="d-inline">(Test File for DisplayComponent)</h5>
+</div>
+
+<app-code-highlight
+  [code]="displayComponentSpecCode"
+  [language]="'typescript'"
+></app-code-highlight>
+
+<h5>Explanation</h5>
+<ul>
+  <li>
+    We simulate a user clicking the button and ensure the correct method (<span
+      class="hljs-attr"
+      >fetchRandomNumber()</span
+    >) is called.
+  </li>
+  <li>
+    We mock the <span class="hljs-attr">count</span> value and ensure the UI
+    updates properly when the value changes.
+  </li>
+</ul>
+&nbsp;&nbsp;
+
+<h4>Final Thoughts on Testing</h4>
+<ol>
+  <li>
+    <b>DomainModel Tests</b>:&nbsp;&nbsp;Focus on business logic, state
+    management, and data-fetching behavior.
+  </li>
+  <li>
+    <b>ViewModel Tests</b>:&nbsp;&nbsp;Test the interaction between the
+    ViewModel and the DomainModel, ensuring that methods are invoked correctly.
+  </li>
+  <li>
+    <b>Component Tests</b>:&nbsp;&nbsp;Test the UI rendering and user
+    interactions, making sure that components react correctly to user inputs and
+    render the expected values.
+  </li>
+</ol>
