@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal, WritableSignal } from '@angular/core';
 import { CodeHighLightComponent } from '../../shared/components/code-highlight/code-highlight.component';
 
 @Component({
@@ -10,7 +10,8 @@ import { CodeHighLightComponent } from '../../shared/components/code-highlight/c
 export class MvvmPatternComponent {
   constructor() {}
 
-  public counterModelCode: string = `import { Injectable, signal } from '@angular/core';
+  public counterModelCode: WritableSignal<string> =
+    signal(`import { Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { catchError } from 'rxjs/operators';
@@ -54,9 +55,10 @@ export class CounterModel {
       });
   }
 }
-`;
+`);
 
-  public counterViewModelCode: string = `import { Injectable, inject } from '@angular/core';
+  public counterViewModelCode: WritableSignal<string> =
+    signal(`import { Injectable, inject } from '@angular/core';
 import { CounterModel } from './counter.model';
 
 @Injectable({
@@ -89,9 +91,10 @@ export class CounterViewModel {
     this.model.fetchRandomNumber();
   }
 }
-`;
+`);
 
-  public counterComponentCode: string = `import { Component, inject } from '@angular/core';
+  public counterComponentCode: WritableSignal<string> =
+    signal(`import { Component, inject } from '@angular/core';
 import { CounterViewModel } from './counter.viewmodel';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -121,9 +124,10 @@ export class CounterComponent {
     this.viewModel.reset();
   }
 }
-`;
+`);
 
-  public displayComponentCode: string = `import { Component, inject } from '@angular/core';
+  public displayComponentCode: WritableSignal<string> =
+    signal(`import { Component, inject } from '@angular/core';
 import { CounterViewModel } from '../counter/counter.viewmodel';
 
 @Component({
@@ -147,16 +151,18 @@ export class DisplayComponent {
     this.viewModel.fetchRandomNumber();
   }
 }
-`;
+`);
 
-  public displayComponentHtml: string = `<div class="display-container">
+  public displayComponentHtml: WritableSignal<string> =
+    signal(`<div class="display-container">
   <p>Current Count: {{ count }}</p>
   <button (click)="fetchRandomNumber()">Fetch Random Number</button>
   <p *ngIf="randomNumber !== null">Random Number: {{ randomNumber }}</p>
 </div>
-`;
+`);
 
-  public counterModelSpecCode: string = `import { TestBed } from '@angular/core/testing';
+  public counterModelSpecCode: WritableSignal<string> =
+    signal(`import { TestBed } from '@angular/core/testing';
 import { CounterModel } from './counter.model';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HttpClient } from '@angular/common/http';
@@ -208,9 +214,10 @@ describe('CounterModel', () => {
     httpMock.verify();
   });
 });
-`;
+`);
 
-  public counterViewModelSpecCode: string = `import { TestBed } from '@angular/core/testing';
+  public counterViewModelSpecCode: WritableSignal<string> =
+    signal(`import { TestBed } from '@angular/core/testing';
 import { CounterViewModel } from './counter.viewmodel';
 import { CounterModel } from './counter.model';
 import { of } from 'rxjs';
@@ -254,9 +261,10 @@ describe('CounterViewModel', () => {
     expect(modelMock.fetchRandomNumber).toHaveBeenCalled();
   });
 });
-`;
+`);
 
-  public counterComponentSpecCode: string = `import { ComponentFixture, TestBed } from '@angular/core/testing';
+  public counterComponentSpecCode: WritableSignal<string> =
+    signal(`import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CounterComponent } from './counter.component';
 import { CounterViewModel } from './counter.viewmodel';
 import { of } from 'rxjs';
@@ -300,9 +308,10 @@ describe('CounterComponent', () => {
     expect(viewModelMock.reset).toHaveBeenCalled();
   });
 });
-`;
+`);
 
-  public displayComponentSpecCode: string = `import { ComponentFixture, TestBed } from '@angular/core/testing';
+  public displayComponentSpecCode: WritableSignal<string> =
+    signal(`import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DisplayComponent } from './display.component';
 import { CounterViewModel } from '../counter/counter.viewmodel';
 import { By } from '@angular/platform-browser';
@@ -339,5 +348,5 @@ describe('DisplayComponent', () => {
     expect(viewModelMock.fetchRandomNumber).toHaveBeenCalled();
   });
 });
-`;
+`);
 }

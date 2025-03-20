@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal, WritableSignal } from '@angular/core';
 import { CodeHighLightComponent } from '../../shared/components/code-highlight/code-highlight.component';
 
 @Component({
@@ -8,7 +8,8 @@ import { CodeHighLightComponent } from '../../shared/components/code-highlight/c
   styleUrl: './singleton-pattern.component.scss',
 })
 export class SingletonPatternComponent {
-  public singletonPatternCode1 = `import { Injectable } from '@angular/core';
+  public singletonPatternCode1: WritableSignal<string> =
+    signal(`import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'  // Ensures the service is a singleton in the app
@@ -33,9 +34,10 @@ export class SingletonService {
     return 'Singleton Service Data';
   }
 }
-`;
+`);
 
-  public singletonPatternCode2 = `import { Component, OnInit } from '@angular/core';
+  public singletonPatternCode2: WritableSignal<string> =
+    signal(`import { Component, OnInit } from '@angular/core';
 import { SingletonService } from './singleton.service';
 
 @Component({
@@ -53,5 +55,5 @@ export class AppComponent implements OnInit {
     this.data = instance.getData();
   }
 }
-`;
+`);
 }

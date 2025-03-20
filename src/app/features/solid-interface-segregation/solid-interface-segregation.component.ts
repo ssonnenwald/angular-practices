@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal, WritableSignal } from '@angular/core';
 import { CodeHighLightComponent } from '../../shared/components/code-highlight/code-highlight.component';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -11,7 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 export class SolidInterfaceSegregationComponent {
   constructor() {}
 
-  public beforeCode = `interface VPNConnection {
+  public beforeCode: WritableSignal<string> = signal(`interface VPNConnection {
   useL2TP: () => void;
   useOpenVPN: () => void;
   useV2Ray: () => void;
@@ -53,9 +53,10 @@ class InternalNetwork implements VPNConnection {
     throw Error("Shadowsocks is not available for your internal network!");
   }
 }
-`;
+`);
 
-  public afterCode = `interface BaseVPNConnection {
+  public afterCode: WritableSignal<string> =
+    signal(`interface BaseVPNConnection {
   useL2TP: () => void;
   useOpenVPN: () => void;
 }
@@ -92,5 +93,5 @@ class InternalNetwork implements BaseVPNConnection {
     console.log("OpenVPN is ready for your internal network!");
   }
 }
-`;
+`);
 }

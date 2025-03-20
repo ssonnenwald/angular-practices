@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal, WritableSignal } from '@angular/core';
 import { CodeHighLightComponent } from '../../shared/components/code-highlight/code-highlight.component';
 
 @Component({
@@ -8,7 +8,8 @@ import { CodeHighLightComponent } from '../../shared/components/code-highlight/c
   styleUrl: './adapter-pattern.component.scss',
 })
 export class AdapterPatternComponent {
-  public adapterPatternCode1 = `import { Injectable } from '@angular/core';
+  public adapterPatternCode1: WritableSignal<string> =
+    signal(`import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -21,9 +22,10 @@ export class LegacyUserService {
     return 'Legacy User: John Doe, Age: 30';
   }
 }
-`;
+`);
 
-  public adapterPatternCode2 = `import { Injectable } from '@angular/core';
+  public adapterPatternCode2: WritableSignal<string> =
+    signal(`import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -36,9 +38,10 @@ export class NewUserService {
     return { name: 'John Doe', age: 30 };
   }
 }
-`;
+`);
 
-  public adapterPatternCode3 = `import { Injectable } from '@angular/core';
+  public adapterPatternCode3: WritableSignal<string> =
+    signal(`import { Injectable } from '@angular/core';
 import { LegacyUserService } from './legacy-user.service';
 import { NewUserService } from './new-user.service';
 
@@ -63,9 +66,10 @@ export class UserAdapterService {
     return { name, age: Number(age) };
   }
 }
-`;
+`);
 
-  public adapterPatternCode4 = `import { Component } from '@angular/core';
+  public adapterPatternCode4: WritableSignal<string> =
+    signal(`import { Component } from '@angular/core';
 import { UserAdapterService } from './user-adapter.service';
 
 @Component({
@@ -87,5 +91,5 @@ export class AppComponent {
     this.userInfo = this.userAdapter.getUserInfo();
   }
 }
-`;
+`);
 }

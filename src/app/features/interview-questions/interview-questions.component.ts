@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal, WritableSignal } from '@angular/core';
 import { CodeHighLightComponent } from '../../shared/components/code-highlight/code-highlight.component';
 
 @Component({
@@ -10,25 +10,27 @@ import { CodeHighLightComponent } from '../../shared/components/code-highlight/c
 export class InterviewQuestionsComponent {
   constructor() {}
 
-  public conditionalTypesCode: string = `type IsString<T> = T extends string ? "Yes" : "No";
+  public conditionalTypesCode: WritableSignal<string> =
+    signal(`type IsString<T> = T extends string ? "Yes" : "No";
 type Test = IsString<string>;  // "Yes"
-`;
+`);
 
-  public mappedTypesCode: string = `type ReadOnly<T> = {
+  public mappedTypesCode: WritableSignal<string> = signal(`type ReadOnly<T> = {
   readonly [K in keyof T]: T[K];
 };
 
 const user: ReadOnly<User> = { name: "John", age: 30 }; // Immutable object
-`;
+`);
 
-  public genericsCode: string = `class ApiService<T> {
+  public genericsCode: WritableSignal<string> = signal(`class ApiService<T> {
   getData(): Observable<T> {
     return this.http.get<T>(this.endpoint);
   }
 }
-`;
+`);
 
-  public apiResponseCode: string = `type ApiResponse<T> = T extends { success: true } ? T : { error: string };
+  public apiResponseCode: WritableSignal<string> =
+    signal(`type ApiResponse<T> = T extends { success: true } ? T : { error: string };
 
 type SuccessResponse = { success: true, data: string };
 type ErrorResponse = { success: false, error: string };
@@ -40,9 +42,10 @@ function handleApiResponse<T>(response: ApiResponse<T>) {
     console.error('Error:', response.error);
   }
 }
-`;
+`);
 
-  public conditionalTypesCode2: string = `type UserRole = "admin" | "editor" | "viewer";
+  public conditionalTypesCode2: WritableSignal<string> =
+    signal(`type UserRole = "admin" | "editor" | "viewer";
 
 type Permissions<T extends UserRole> = T extends "admin"
   ? { read: true, write: true, delete: true }
@@ -52,9 +55,9 @@ type Permissions<T extends UserRole> = T extends "admin"
 
 type AdminPermissions = Permissions<"admin">;
 type EditorPermissions = Permissions<"editor">;
-`;
+`);
 
-  public handlingPromiseCode: string = `interface User {
+  public handlingPromiseCode: WritableSignal<string> = signal(`interface User {
   id: number;
   name: string;
 }
@@ -66,9 +69,10 @@ function fetchUser(id: number): Promise<User> {
 fetchUser(1).then((user) => {
   console.log(user.name); // TypeScript knows \`user\` is of type \`User\`
 });
-`;
+`);
 
-  public handlingObservableCode: string = `import { Observable } from 'rxjs';
+  public handlingObservableCode: WritableSignal<string> =
+    signal(`import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 interface Product {
@@ -88,28 +92,31 @@ fetchProducts()
     // TypeScript knows \`productNames\` is \`string[]\`
     console.log(productNames);
   });
-`;
+`);
 
-  public promiseErrorHandlingCode: string = `fetchUser(1)
+  public promiseErrorHandlingCode: WritableSignal<string> = signal(`fetchUser(1)
   .then((user) => console.log(user))
   .catch((error: Error) => console.error(error.message)); // TypeScript ensures \`error\` is an \`Error\`
-`;
+`);
 
-  public observableErrorHandlingCode: string = `this.http.get<Product[]>('/api/products').pipe(
+  public observableErrorHandlingCode: WritableSignal<string> =
+    signal(`this.http.get<Product[]>('/api/products').pipe(
   catchError((error: HttpErrorResponse) => {
     // TypeScript ensures \`error\` is of type \`HttpErrorResponse\`
     return of([]);
   })
 ).subscribe();
-`;
+`);
 
-  public asyncAwaitCode: string = `async function getUser(id: number): Promise<User> {
+  public asyncAwaitCode: WritableSignal<string> =
+    signal(`async function getUser(id: number): Promise<User> {
   const response = await fetch(\`/api/users/\${id}\`);
   return response.json(); // TypeScript ensures the resolved value is of type \`User\`
 }
-`;
+`);
 
-  public discriminatedUnionCode: string = `interface Admin {
+  public discriminatedUnionCode: WritableSignal<string> =
+    signal(`interface Admin {
   role: 'admin';
   privileges: string[];
 }
@@ -128,9 +135,10 @@ function handlePerson(person: Person) {
     console.log('User subscription:', person.subscription);
   }
 }
-`;
+`);
 
-  public customTypeGuardsCode: string = `interface Product {
+  public customTypeGuardsCode: WritableSignal<string> =
+    signal(`interface Product {
   id: number;
   name: string;
 }
@@ -155,9 +163,10 @@ fetchProduct().then(response => {
     console.error('Error:', response.error);
   }
 });
-`;
+`);
 
-  public complexStateCode: string = `type LoadingState = { state: 'loading' };
+  public complexStateCode: WritableSignal<string> =
+    signal(`type LoadingState = { state: 'loading' };
 type SuccessState = { state: 'success'; data: string };
 type ErrorState = { state: 'error'; message: string };
 
@@ -176,9 +185,10 @@ function render(state: AppState) {
       break;
   }
 }
-`;
+`);
 
-  public reusableServiceCode: string = `import { Injectable } from '@angular/core';
+  public reusableServiceCode: WritableSignal<string> =
+    signal(`import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -192,18 +202,20 @@ export class ApiService {
     return this.http.get<T>(url);
   }
 }
-`;
+`);
 
-  public reusableServiceUsageCode: string = `interface User {
+  public reusableServiceUsageCode: WritableSignal<string> =
+    signal(`interface User {
   id: number;
   name: string;
 }
 
 const user$ = this.apiService.fetchData<User>('/api/users/1');
 user$.subscribe(user => console.log(user.name)); // TypeScript knows \`user\` is of type \`User\`
-`;
+`);
 
-  public reusableComponentCode: string = `import { Component, Input } from '@angular/core';
+  public reusableComponentCode: WritableSignal<string> =
+    signal(`import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-list',
@@ -217,13 +229,15 @@ user$.subscribe(user => console.log(user.name)); // TypeScript knows \`user\` is
 export class ListComponent<T> {
   @Input() items: T[] = [];
 }
-`;
+`);
 
-  public reusableComponentUsageCode: string = `<app-list [items]="['Apple', 'Banana', 'Cherry']"></app-list>
+  public reusableComponentUsageCode: WritableSignal<string> =
+    signal(`<app-list [items]="['Apple', 'Banana', 'Cherry']"></app-list>
 <app-list [items]="[{ name: 'John' }, { name: 'Jane' }]"></app-list>
-`;
+`);
 
-  public utilityFunctionCode: string = `function merge<T, U>(obj1: T, obj2: U): T & U {
+  public utilityFunctionCode: WritableSignal<string> =
+    signal(`function merge<T, U>(obj1: T, obj2: U): T & U {
   return { ...obj1, ...obj2 };
 }
 
@@ -231,9 +245,10 @@ const person = { name: 'Alice' };
 const details = { age: 30 };
 
 const result = merge(person, details);  // Type is inferred as { name: string; age: number; }
-`;
+`);
 
-  public intersectionTypeCode1: string = `interface ApiResponse {
+  public intersectionTypeCode1: WritableSignal<string> =
+    signal(`interface ApiResponse {
   status: number;
   timestamp: Date;
 }
@@ -251,9 +266,10 @@ const response: UserResponse = {
   id: 1,
   name: 'Alice'
 };
-`;
+`);
 
-  public intersectionTypeCode2: string = `interface BaseProps {
+  public intersectionTypeCode2: WritableSignal<string> =
+    signal(`interface BaseProps {
   id: string;
   visible: boolean;
 }
@@ -271,9 +287,10 @@ const button: CombinedButtonProps = {
   label: 'Submit',
   onClick: () => console.log('Button clicked')
 };
-`;
+`);
 
-  public intersectionTypeCode3: string = `interface LoggingService {
+  public intersectionTypeCode3: WritableSignal<string> =
+    signal(`interface LoggingService {
   log: (message: string) => void;
 }
 
@@ -292,9 +309,10 @@ class UserService implements Service<User> {
     return { id: 1, name: 'Alice' };
   }
 }
-`;
+`);
 
-  public changeDetectionCode1: string = `import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+  public changeDetectionCode1: WritableSignal<string> =
+    signal(`import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
 @Component({
   selector: 'app-user-card',
@@ -305,13 +323,15 @@ class UserService implements Service<User> {
 export class UserCardComponent {
   @Input() user!: { name: string; age: number };
 }
-`;
+`);
 
-  public changeDetectionCode2: string = `<li *ngFor="let user of users; trackBy: trackById">{{ user.name }}</li>
-`;
+  public changeDetectionCode2: WritableSignal<string> =
+    signal(`<li *ngFor="let user of users; trackBy: trackById">{{ user.name }}</li>
+`);
 
-  public changeDetectionCode3: string = `trackById(index: number, user: { id: number }): number {
+  public changeDetectionCode3: WritableSignal<string> =
+    signal(`trackById(index: number, user: { id: number }): number {
   return user.id;
 }
-`;
+`);
 }

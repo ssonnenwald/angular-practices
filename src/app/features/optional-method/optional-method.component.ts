@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal, WritableSignal } from '@angular/core';
 import { CodeHighLightComponent } from '../../shared/components/code-highlight/code-highlight.component';
 
 @Component({
@@ -8,15 +8,17 @@ import { CodeHighLightComponent } from '../../shared/components/code-highlight/c
   styleUrl: './optional-method.component.scss',
 })
 export class OptionalMethodComponent {
-  public optionalMethodCode1 = `export interface NotificationService {
+  public optionalMethodCode1: WritableSignal<string> =
+    signal(`export interface NotificationService {
   sendNotification(message: string, recipient: string): void;
 
   // Optional method, not all services need to implement it
   trackDeliveryStatus?(recipient: string): string;
 }
-`;
+`);
 
-  public optionalMethodCode2 = `import { NotificationService } from './notification.interface';
+  public optionalMethodCode2: WritableSignal<string> =
+    signal(`import { NotificationService } from './notification.interface';
 
 export class EmailNotificationService implements NotificationService {
   sendNotification(message: string, recipient: string): void {
@@ -28,9 +30,10 @@ export class EmailNotificationService implements NotificationService {
     return \`Tracking Email delivery to \${recipient}\`;
   }
 }
-`;
+`);
 
-  public optionalMethodCode3 = `import { NotificationService } from './notification.interface';
+  public optionalMethodCode3: WritableSignal<string> =
+    signal(`import { NotificationService } from './notification.interface';
 
 export class SMSNotificationService implements NotificationService {
   sendNotification(message: string, recipient: string): void {
@@ -39,9 +42,10 @@ export class SMSNotificationService implements NotificationService {
 
   // This service does not implement trackDeliveryStatus
 }
-`;
+`);
 
-  public optionalMethodCode4 = `import { Component } from '@angular/core';
+  public optionalMethodCode4: WritableSignal<string> =
+    signal(`import { Component } from '@angular/core';
 import { EmailNotificationService } from './email-notification.service';
 import { SMSNotificationService } from './sms-notification.service';
 import { NotificationService } from './notification.interface';
@@ -104,5 +108,5 @@ export class AppComponent {
     }
   }
 }
-`;
+`);
 }

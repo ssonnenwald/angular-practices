@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal, WritableSignal } from '@angular/core';
 import { CodeHighLightComponent } from '../../shared/components/code-highlight/code-highlight.component';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -11,7 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 export class SolidDependencyInversionComponent {
   constructor() {}
 
-  public beforeCode = `class TelegramApi {
+  public beforeCode: WritableSignal<string> = signal(`class TelegramApi {
   start() {
     console.log("You are connected to Telegram API!");
   }
@@ -57,9 +57,9 @@ class Messenger {
     }
   }
 }
-`;
+`);
 
-  public afterCode = `interface MessengerApi {
+  public afterCode: WritableSignal<string> = signal(`interface MessengerApi {
   connect: () => void;
   send: (targetId: string, message: string) => void;
 }
@@ -102,5 +102,5 @@ class Messenger {
     this.api.send(targetId, message);
   }
 }
-`;
+`);
 }

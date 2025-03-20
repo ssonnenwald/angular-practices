@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal, WritableSignal } from '@angular/core';
 import { CodeHighLightComponent } from '../../shared/components/code-highlight/code-highlight.component';
 
 @Component({
@@ -8,12 +8,14 @@ import { CodeHighLightComponent } from '../../shared/components/code-highlight/c
   styleUrl: './strategy-pattern.component.scss',
 })
 export class StrategyPatternComponent {
-  public strategyPatternCode1: string = `export interface SortingStrategy {
+  public strategyPatternCode1: WritableSignal<string> =
+    signal(`export interface SortingStrategy {
   sort(data: number[]): number[];
 }
-`;
+`);
 
-  public strategyPatternCode2: string = `import { SortingStrategy } from './sorting-strategy.interface';
+  public strategyPatternCode2: WritableSignal<string> =
+    signal(`import { SortingStrategy } from './sorting-strategy.interface';
 
 export class BubbleSortStrategy implements SortingStrategy {
   sort(data: number[]): number[] {
@@ -29,9 +31,10 @@ export class BubbleSortStrategy implements SortingStrategy {
     return arr;
   }
 }
-`;
+`);
 
-  public strategyPatternCode3: string = `import { SortingStrategy } from './sorting-strategy.interface';
+  public strategyPatternCode3: WritableSignal<string> =
+    signal(`import { SortingStrategy } from './sorting-strategy.interface';
 
 export class QuickSortStrategy implements SortingStrategy {
   sort(data: number[]): number[] {
@@ -43,9 +46,10 @@ export class QuickSortStrategy implements SortingStrategy {
     return [...this.sort(left), pivot, ...this.sort(right)];
   }
 }
-`;
+`);
 
-  public strategyPatternCode4: string = `import { SortingStrategy } from './sorting-strategy.interface';
+  public strategyPatternCode4: WritableSignal<string> =
+    signal(`import { SortingStrategy } from './sorting-strategy.interface';
 
 export class MergeSortStrategy implements SortingStrategy {
   sort(data: number[]): number[] {
@@ -72,9 +76,10 @@ export class MergeSortStrategy implements SortingStrategy {
     return result.concat(left.slice(i), right.slice(j));
   }
 }
-`;
+`);
 
-  public strategyPatternCode5: string = `import { Injectable } from '@angular/core';
+  public strategyPatternCode5: WritableSignal<string> =
+    signal(`import { Injectable } from '@angular/core';
 import { SortingStrategy } from './sorting-strategy.interface';
 
 @Injectable({
@@ -96,10 +101,10 @@ export class SortingContextService {
     return this.strategy.sort(data);
   }
 }
-`;
+`);
 
-  public strategyPatternCode6: string = `// app.component.ts
-import { Component } from '@angular/core';
+  public strategyPatternCode6: WritableSignal<string> =
+    signal(`import { Component } from '@angular/core';
 import { SortingContextService } from './sorting-context.service';
 import { BubbleSortStrategy } from './bubble-sort.strategy';
 import { QuickSortStrategy } from './quick-sort.strategy';
@@ -153,5 +158,5 @@ export class AppComponent {
     this.sortedData = this.sortingContext.sortData(this.data);
   }
 }
-`;
+`);
 }

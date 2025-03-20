@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal, WritableSignal } from '@angular/core';
 import { CodeHighLightComponent } from '../../shared/components/code-highlight/code-highlight.component';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -11,7 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 export class SolidSingleResponsibilityComponent {
   constructor() {}
 
-  public beforeCode = `class Profile {
+  public beforeCode: WritableSignal<string> = signal(`class Profile {
   private email: string;
   private bio: string;
   private theme: "LIGHT" | "DARK";
@@ -55,9 +55,9 @@ export class SolidSingleResponsibilityComponent {
     };
   }
 }
-`;
+`);
 
-  public afterCode = `class Settings {
+  public afterCode: WritableSignal<string> = signal(`class Settings {
   constructor(
     protected theme: "LIGHT" | "DARK",
     protected preferredLanguage: string,
@@ -99,5 +99,5 @@ class Profile {
     return { email: this.email, bio: this.bio, settings: this.settings.getSettings() };
   }
 }
-`;
+`);
 }

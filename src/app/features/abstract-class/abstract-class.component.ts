@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal, WritableSignal } from '@angular/core';
 import { CodeHighLightComponent } from '../../shared/components/code-highlight/code-highlight.component';
 
 @Component({
@@ -8,7 +8,8 @@ import { CodeHighLightComponent } from '../../shared/components/code-highlight/c
   styleUrl: './abstract-class.component.scss',
 })
 export class AbstractClassComponent {
-  public abstractClassCode1 = `export abstract class NotificationService {
+  public abstractClassCode1: WritableSignal<string> =
+    signal(`export abstract class NotificationService {
   // Abstract method that subclasses must implement
   abstract sendNotification(message: string, recipient: string): void;
 
@@ -17,9 +18,10 @@ export class AbstractClassComponent {
     console.log(\`Sending message: "\${message}" to recipient: \${recipient}\`);
   }
 }
-`;
+`);
 
-  public abstractClassCode2 = `import { NotificationService } from './notification.service';
+  public abstractClassCode2: WritableSignal<string> =
+    signal(`import { NotificationService } from './notification.service';
 
 export class EmailNotificationService extends NotificationService {
   sendNotification(message: string, recipient: string): void {
@@ -28,9 +30,10 @@ export class EmailNotificationService extends NotificationService {
     console.log(\`Sending Email: "\${message}" to \${recipient}\`);
   }
 }
-`;
+`);
 
-  public abstractClassCode3 = `import { NotificationService } from './notification.service';
+  public abstractClassCode3: WritableSignal<string> =
+    signal(`import { NotificationService } from './notification.service';
 
 export class SMSNotificationService extends NotificationService {
   sendNotification(message: string, recipient: string): void {
@@ -39,9 +42,10 @@ export class SMSNotificationService extends NotificationService {
     console.log(\`Sending SMS: "\${message}" to \${recipient}\`);
   }
 }
-`;
+`);
 
-  public abstractClassCode4 = `import { Component } from '@angular/core';
+  public abstractClassCode4: WritableSignal<string> =
+    signal(`import { Component } from '@angular/core';
 import { EmailNotificationService } from './email-notification.service';
 import { SMSNotificationService } from './sms-notification.service';
 
@@ -94,5 +98,5 @@ export class AppComponent {
     this.notificationResult = \`Notification sent using \${this.notificationService.constructor.name}\`;
   }
 }
-`;
+`);
 }

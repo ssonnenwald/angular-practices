@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal, WritableSignal } from '@angular/core';
 import { CodeHighLightComponent } from '../../shared/components/code-highlight/code-highlight.component';
 
 @Component({
@@ -8,7 +8,8 @@ import { CodeHighLightComponent } from '../../shared/components/code-highlight/c
   styleUrl: './builder-pattern.component.scss',
 })
 export class BuilderPatternComponent {
-  public builderPatternCode1 = `export class Car {
+  public builderPatternCode1: WritableSignal<string> =
+    signal(`export class Car {
   private make: string;
   private model: string;
   private color: string;
@@ -26,9 +27,10 @@ export class BuilderPatternComponent {
     return \`\${this.make} \${this.model} - \${this.color} with a \${this.engine} engine\`;
   }
 }
-`;
+`);
 
-  public builderPatternCode2 = `export class CarBuilder {
+  public builderPatternCode2: WritableSignal<string> =
+    signal(`export class CarBuilder {
   private make: string;
   private model: string;
   private color: string;
@@ -75,9 +77,10 @@ export class BuilderPatternComponent {
     return new Car(this);
   }
 }
-`;
+`);
 
-  public builderPatternCode3 = `import { Component } from '@angular/core';
+  public builderPatternCode3: WritableSignal<string> =
+    signal(`import { Component } from '@angular/core';
 import { CarBuilder } from './car.builder';
 import { Car } from './car.model';
 
@@ -102,5 +105,5 @@ export class AppComponent {
     this.carDetails = car.getCarDetails();
   }
 }
-`;
+`);
 }

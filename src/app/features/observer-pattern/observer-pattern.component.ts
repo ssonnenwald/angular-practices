@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal, WritableSignal } from '@angular/core';
 import { CodeHighLightComponent } from '../../shared/components/code-highlight/code-highlight.component';
 
 @Component({
@@ -8,7 +8,8 @@ import { CodeHighLightComponent } from '../../shared/components/code-highlight/c
   styleUrl: './observer-pattern.component.scss',
 })
 export class ObserverPatternComponent {
-  public observerPatternCode1: string = `import { Injectable } from '@angular/core';
+  public observerPatternCode1: WritableSignal<string> =
+    signal(`import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -25,9 +26,10 @@ export class WeatherService {
     this.weatherSubject.next(weather);
   }
 }
-`;
+`);
 
-  public observerPatternCode2: string = `import { Component, OnInit, OnDestroy } from '@angular/core';
+  public observerPatternCode2: WritableSignal<string> =
+    signal(`import { Component, OnInit, OnDestroy } from '@angular/core';
 import { WeatherService } from './weather.service';
 import { Subscription } from 'rxjs';
 
@@ -62,9 +64,10 @@ export class WeatherDisplayComponent implements OnInit, OnDestroy {
     this.weatherSubscription.unsubscribe();
   }
 }
-`;
+`);
 
-  public observerPatternCode3: string = `import { Component, OnInit, OnDestroy } from '@angular/core';
+  public observerPatternCode3: WritableSignal<string> =
+    signal(`import { Component, OnInit, OnDestroy } from '@angular/core';
 import { WeatherService } from './weather.service';
 import { Subscription } from 'rxjs';
 
@@ -99,9 +102,10 @@ export class WeatherDisplay2Component implements OnInit, OnDestroy {
     this.weatherSubscription.unsubscribe();
   }
 }
-`;
+`);
 
-  public observerPatternCode4: string = `import { Component } from '@angular/core';
+  public observerPatternCode4: WritableSignal<string> =
+    signal(`import { Component } from '@angular/core';
 import { WeatherService } from './weather.service';
 
 @Component({
@@ -125,9 +129,10 @@ export class WeatherUpdateComponent {
     this.weatherService.updateWeather(weather);
   }
 }
-`;
+`);
 
-  public observerPatternCode5: string = `import { Component } from '@angular/core';
+  public observerPatternCode5: WritableSignal<string> =
+    signal(`import { Component } from '@angular/core';
 import { WeatherUpdateComponent } from './weather-update.component';
 import { WeatherDisplayComponent } from './weather-display.component';
 import { WeatherDisplay2Component } from './weather-display2.component';
@@ -145,5 +150,5 @@ import { WeatherDisplay2Component } from './weather-display2.component';
   imports: [WeatherUpdateComponent, WeatherDisplayComponent, WeatherDisplay2Component],
 })
 export class AppComponent {}
-`;
+`);
 }

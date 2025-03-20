@@ -9,7 +9,7 @@
     aria-label="Copy"
     matTooltip="Copy"
     [matTooltipPosition]="'below'"
-    (click)="copyToClipboard(code)"
+    (click)="copyToClipboard(code())"
   >
     <mat-icon
       class="copy-icon"
@@ -20,4 +20,4 @@
     >Copy
   </button>
 </div>
-<pre><code class="rounded-bottom-4 ps-4" [highlight]="code" lineNumbers language="{{ language }}"></code></pre>
+<pre><code class="rounded-bottom-4 ps-4" [highlight]="code()" lineNumbers language="{{ language }}"></code></pre>

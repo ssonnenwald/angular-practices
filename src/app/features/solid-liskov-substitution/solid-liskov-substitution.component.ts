@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal, WritableSignal } from '@angular/core';
 import { CodeHighLightComponent } from '../../shared/components/code-highlight/code-highlight.component';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -11,7 +11,8 @@ import { MatIconModule } from '@angular/material/icon';
 export class SolidLiskovSubstitutionComponent {
   constructor() {}
 
-  public beforeCode = `type DB = "MySQL" | "Redis" | "Neo4j";
+  public beforeCode: WritableSignal<string> =
+    signal(`type DB = "MySQL" | "Redis" | "Neo4j";
 
 class QueryGenerator {
   getReadingQuery(database: DB): string {
@@ -40,9 +41,9 @@ class QueryGenerator {
     }
   }
 }
-`;
+`);
 
-  public afterCode = `interface QueryGenerator {
+  public afterCode: WritableSignal<string> = signal(`interface QueryGenerator {
   getReadingQuery: () => string;
   getWritingQuery: (data: string) => string;
 }
@@ -76,5 +77,5 @@ class Neo4j implements QueryGenerator {
     return \`CREATE (\${data})\`;
   }
 }
-`;
+`);
 }

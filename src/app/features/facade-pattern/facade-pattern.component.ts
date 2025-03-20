@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal, WritableSignal } from '@angular/core';
 import { CodeHighLightComponent } from '../../shared/components/code-highlight/code-highlight.component';
 
 @Component({
@@ -8,7 +8,8 @@ import { CodeHighLightComponent } from '../../shared/components/code-highlight/c
   styleUrl: './facade-pattern.component.scss',
 })
 export class FacadePatternComponent {
-  public facadePatternCode1 = `import { Injectable } from '@angular/core';
+  public facadePatternCode1: WritableSignal<string> =
+    signal(`import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -26,9 +27,10 @@ export class AuthenticationService {
     return 'User logged out';
   }
 }
-`;
+`);
 
-  public facadePatternCode2 = `import { Injectable } from '@angular/core';
+  public facadePatternCode2: WritableSignal<string> =
+    signal(`import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -40,9 +42,10 @@ export class ProfileService {
     return \`Profile updated for \${name} with email \${email}\`;
   }
 }
-`;
+`);
 
-  public facadePatternCode3 = `import { Injectable } from '@angular/core';
+  public facadePatternCode3: WritableSignal<string> =
+    signal(`import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -54,9 +57,10 @@ export class NotificationService {
     return \`Notification sent: \${message}\`;
   }
 }
-`;
+`);
 
-  public facadePatternCode4 = `import { Injectable } from '@angular/core';
+  public facadePatternCode4: WritableSignal<string> =
+    signal(`import { Injectable } from '@angular/core';
 import { AuthenticationService } from './authentication.service';
 import { ProfileService } from './profile.service';
 import { NotificationService } from './notification.service';
@@ -96,9 +100,10 @@ export class UserFacadeService {
     return \`\${logoutMessage}\n\${notificationMessage}\`;
   }
 }
-`;
+`);
 
-  public facadePatternCode5 = `import { Component } from '@angular/core';
+  public facadePatternCode5: WritableSignal<string> =
+    signal(`import { Component } from '@angular/core';
 import { UserFacadeService } from './user-facade.service';
 
 @Component({
@@ -130,5 +135,5 @@ export class AppComponent {
     this.resultMessage = this.userFacade.logoutAndNotify();
   }
 }
-`;
+`);
 }

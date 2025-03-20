@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal, WritableSignal } from '@angular/core';
 import { CodeHighLightComponent } from '../../shared/components/code-highlight/code-highlight.component';
 
 @Component({
@@ -8,13 +8,15 @@ import { CodeHighLightComponent } from '../../shared/components/code-highlight/c
   styleUrl: './factory-pattern.component.scss',
 })
 export class FactoryPatternComponent {
-  public factoryPatternCode1: string = `export interface Vehicle {
+  public factoryPatternCode1: WritableSignal<string> =
+    signal(`export interface Vehicle {
   startEngine(): string;
   stopEngine(): string;
 }
-`;
+`);
 
-  public factoryPatternCode2: string = `import { Vehicle } from './vehicle.interface';
+  public factoryPatternCode2: WritableSignal<string> =
+    signal(`import { Vehicle } from './vehicle.interface';
 
 export class Car implements Vehicle {
   startEngine(): string {
@@ -25,9 +27,10 @@ export class Car implements Vehicle {
     return 'Car engine stopped.';
   }
 }
-`;
+`);
 
-  public factoryPatternCode3: string = `import { Vehicle } from './vehicle.interface';
+  public factoryPatternCode3: WritableSignal<string> =
+    signal(`import { Vehicle } from './vehicle.interface';
 
 export class Truck implements Vehicle {
   startEngine(): string {
@@ -38,9 +41,10 @@ export class Truck implements Vehicle {
     return 'Truck engine stopped.';
   }
 }
-`;
+`);
 
-  public factoryPatternCode4: string = `import { Vehicle } from './vehicle.interface';
+  public factoryPatternCode4: WritableSignal<string> =
+    signal(`import { Vehicle } from './vehicle.interface';
 
 export class Bike implements Vehicle {
   startEngine(): string {
@@ -51,9 +55,10 @@ export class Bike implements Vehicle {
     return 'Bike engine stopped.';
   }
 }
-`;
+`);
 
-  public factoryPatternCode5: string = `import { Vehicle } from './vehicle.interface';
+  public factoryPatternCode5: WritableSignal<string> =
+    signal(`import { Vehicle } from './vehicle.interface';
 import { Car } from './car';
 import { Truck } from './truck';
 import { Bike } from './bike';
@@ -72,9 +77,10 @@ export class VehicleFactory {
     }
   }
 }
-`;
+`);
 
-  public factoryPatternCode6: string = `import { Component } from '@angular/core';
+  public factoryPatternCode6: WritableSignal<string> =
+    signal(`import { Component } from '@angular/core';
 import { VehicleFactory } from './vehicle-factory';
 import { Vehicle } from './vehicle.interface';
 
@@ -109,5 +115,5 @@ export class AppComponent {
     }
   }
 }
-`;
+`);
 }

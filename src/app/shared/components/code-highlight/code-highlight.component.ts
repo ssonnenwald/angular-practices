@@ -1,4 +1,11 @@
-import { Component, inject, Input } from '@angular/core';
+import {
+  Component,
+  inject,
+  Input,
+  signal,
+  Signal,
+  WritableSignal,
+} from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { Highlight } from 'ngx-highlightjs';
 import { HighlightLineNumbers } from 'ngx-highlightjs/line-numbers';
@@ -12,7 +19,7 @@ import { ClipboardService } from 'ngx-clipboard';
   styleUrl: './code-highlight.component.scss',
 })
 export class CodeHighLightComponent {
-  @Input() public code: string = '';
+  @Input() public code: WritableSignal<string> = signal('');
   @Input() public language: string = 'typescript';
 
   private clipboardService = inject(ClipboardService);
