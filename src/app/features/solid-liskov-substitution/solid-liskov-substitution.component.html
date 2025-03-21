@@ -36,8 +36,9 @@ code relies on those overridden methods.<br /><br />
 To adhere to the LSP, we refactor the classes. We create a
 <span class="hljs-attr">PremiumImageProcessor</span> class that extends
 <span class="hljs-attr">ImageProcessor</span> and implements the
-removeBackground and enhanceQualityWithAI methods.&nbsp;&nbsp;This way, both
-classes share a common interface and substituting an instance of
+<span class="hljs-attr">removeBackground</span> and
+<span class="hljs-attr">enhanceQualityWithAI</span> methods.&nbsp;&nbsp;This
+way, both classes share a common interface and substituting an instance of
 <span class="hljs-attr">PremiumImageProcessor</span> for an instance of
 <span class="hljs-attr">ImageProcessor</span> won't break the program's
 correctness.<br /><br />

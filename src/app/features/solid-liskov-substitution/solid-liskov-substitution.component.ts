@@ -11,70 +11,64 @@ import { MatIconModule } from '@angular/material/icon';
 export class SolidLiskovSubstitutionComponent {
   constructor() {}
 
-  public beforeCode: WritableSignal<string> =
-    signal(`type DB = "MySQL" | "Redis" | "Neo4j";
+  public beforeCode: WritableSignal<string> = signal(`class AudioProcessor {
+  constructor(protected audioFile: File) {}
 
-class QueryGenerator {
-  getReadingQuery(database: DB): string {
-    switch (database) {
-      case "MySQL":
-        return "SELECT * FROM MySQL";
-      case "Redis":
-        return "SCAN 0";
-      case "Neo4j":
-        return "MATCH (n) RETURN n";
-      default:
-        return "Unknown";
-    }
+  compress() {
+    // Compress the size of the audio
   }
 
-  getWritingQuery(database: DB, data: string): string {
-    switch (database) {
-      case "MySQL":
-        return \`INSERT INTO MySQL VALUES (\${data})\`;
-      case "Redis":
-        return \`SET \${data}\`;
-      case "Neo4j":
-        return \`CREATE (\${data})\`;
-      default:
-        return "Unknown";
-    }
+  changeTempo() {
+    // Increase the size of the audio
+  }
+
+  separateMusicAndVocal() {
+    // Remove the background of the audio
+  }
+
+  enhanceQualityWithAI() {
+    // Enhance the quality of the audio with AI
+  }
+}
+
+class LimitedAudioProcessor extends AudioProcessor {
+  constructor(audioFile: File) {
+    super(audioFile);
+  }
+
+  override separateMusicAndVocal(): Error {
+    throw Error("You have to buy the premium version to access this feature!");
+  }
+
+  override enhanceQualityWithAI(): Error {
+    throw Error("You have to buy the premium version to access this feature!");
   }
 }
 `);
 
-  public afterCode: WritableSignal<string> = signal(`interface QueryGenerator {
-  getReadingQuery: () => string;
-  getWritingQuery: (data: string) => string;
-}
+  public afterCode: WritableSignal<string> = signal(`class AudioProcessor {
+  constructor(protected audioFile: File) {}
 
-class MySql implements QueryGenerator {
-  getReadingQuery() {
-    return "SELECT * FROM MySQL";
+  compress() {
+    // Compress the size of the audio
   }
 
-  getWritingQuery(data: string) {
-    return \`INSERT INTO MySQL VALUES (\${data})\`;
+  changeTempo() {
+    // Increase the size of the audio
   }
 }
 
-class Redis implements QueryGenerator {
-  getReadingQuery() {
-    return "SCAN 0";
+class PremiumAudioProcessor extends AudioProcessor {
+  constructor(audioFile: File) {
+    super(audioFile);
   }
 
-  getWritingQuery(data: string) {
-    return \`SET \${data}\`;
-  }
-}
-
-class Neo4j implements QueryGenerator {
-  getReadingQuery() {
-    return "MATCH (n) RETURN n";
+  separateMusicAndVocal() {
+    // Remove the background of the audio
   }
 
-  getWritingQuery(data: string) {
-    return \`CREATE (\${data})\`;
+  enhanceQualityWithAI() {
+    // Enhance the quality of the audio with AI
   }
 }
 `);
