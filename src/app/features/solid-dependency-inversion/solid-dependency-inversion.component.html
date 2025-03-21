@@ -3,9 +3,10 @@
 <div class="mb-4 mt-2">
   <h6>Original Definition</h6>
   High-level modules should not import anything from low-level
-  modules.&nbsp;&nbsp;Both should depend on abstractions. Abstractions should
-  not depend on details.&nbsp;&nbsp;Details (concrete implementations) should
-  depend on abstractions.<br /><br />
+  modules.&nbsp;&nbsp;Both should depend on
+  abstractions.&nbsp;&nbsp;Abstractions should not depend on
+  details.&nbsp;&nbsp;Details (concrete implementations) should depend on
+  abstractions.<br /><br />
 
   <h6>Simple Definition</h6>
   DIP means that instead of high-level modules depending directly on low-level
@@ -36,12 +37,15 @@ API.&nbsp;&nbsp;Then, each messaging API class (<span class="hljs-attr"
 <span class="hljs-attr">SignalApi</span>) implements this interface, providing
 their own implementation of the connect and send methods.<br /><br />
 
-By doing this, we decouple the Messenger class from specific messaging API
-implementations.&nbsp;&nbsp;Now, Messenger depends on the MessengerApi interface
-rather than concrete implementations.&nbsp;&nbsp;This allows us to easily switch
-between different messaging APIs or add new ones without modifying the Messenger
-class.&nbsp;&nbsp;Additionally, it promotes code reusability and simplifies
-testing, as we can now easily mock the MessengerApi interface for testing
+By doing this, we decouple the <span class="hljs-attr">Messenger</span> class
+from specific messaging API implementations.&nbsp;&nbsp;Now,
+<span class="hljs-attr">Messenger</span> depends on the
+<span class="hljs-attr">MessengerApi</span> interface rather than concrete
+implementations.&nbsp;&nbsp;This allows us to easily switch between different
+messaging APIs or add new ones without modifying the
+<span class="hljs-attr">Messenger</span> class.&nbsp;&nbsp;Additionally, it
+promotes code reusability and simplifies testing, as we can now easily mock the
+<span class="hljs-attr">MessengerApi</span> interface for testing
 purposes.&nbsp;&nbsp;Overall, following DIP enhances the flexibility,
 maintainability, and testability of the codebase.<br /><br />
 
