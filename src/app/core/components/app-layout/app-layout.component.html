@@ -1,13 +1,20 @@
 <mat-toolbar>
-  <button mat-icon-button routerLink="/" class="me-2">
-    <mat-icon>home</mat-icon>
+  @if (isMobile()) {
+  <button mat-icon-button (click)="toggleSideNav()">
+    <mat-icon>menu</mat-icon>
   </button>
-  <span class="logo-text me-4">Angular Practices</span>
+  }
 
+  <span role="button" class="logo-text me-2" (click)="navigateToHome()"
+    >Angular Practices</span
+  >
+
+  @if (!isMobile()) {
   <button mat-button [matMenuTriggerFor]="menuPatterns">Patterns</button>
+  }
 
   <mat-menu #menuPatterns="matMenu">
-    <button mat-menu-item routerLink="/design-patterns">
+    <button mat-menu-item routerLink="patterns/design-patterns">
       Design Patterns Overview
     </button>
     <button mat-menu-item [matMenuTriggerFor]="creationalPatterns">
@@ -20,66 +27,131 @@
       Behavioral Patterns
     </button>
 
-    <button mat-menu-item routerLink="/mvvm-pattern">MVVM Pattern</button>
+    <button mat-menu-item routerLink="/patterns/mvvm-pattern">
+      MVVM Pattern
+    </button>
   </mat-menu>
 
   <mat-menu #creationalPatterns="matMenu">
-    <button mat-menu-item routerLink="/singleton-pattern">
+    <button
+      mat-menu-item
+      routerLink="/patterns/creational-patterns/singleton-pattern"
+    >
       Singleton Pattern
     </button>
-    <button mat-menu-item routerLink="/builder-pattern">Builder Pattern</button>
-    <button mat-menu-item routerLink="/factory-pattern">Factory Pattern</button>
+    <button
+      mat-menu-item
+      routerLink="/patterns/creational-patterns/builder-pattern"
+    >
+      Builder Pattern
+    </button>
+    <button
+      mat-menu-item
+      routerLink="/patterns/creational-patterns/factory-pattern"
+    >
+      Factory Pattern
+    </button>
   </mat-menu>
 
   <mat-menu #structuralPatterns="matMenu">
-    <button mat-menu-item routerLink="/facade-pattern">Facade Pattern</button>
-    <button mat-menu-item routerLink="/adapter-pattern">Adapter Pattern</button>
+    <button
+      mat-menu-item
+      routerLink="/patterns/structural-patterns/facade-pattern"
+    >
+      Facade Pattern
+    </button>
+    <button
+      mat-menu-item
+      routerLink="/patterns/structural-patterns/adapter-pattern"
+    >
+      Adapter Pattern
+    </button>
   </mat-menu>
 
   <mat-menu #behavioralPatterns="matMenu">
-    <button mat-menu-item routerLink="/strategy-pattern">
+    <button
+      mat-menu-item
+      routerLink="/patterns/behavioral-patterns/strategy-pattern"
+    >
       Strategy Pattern
     </button>
-    <button mat-menu-item routerLink="/observer-pattern">
+    <button
+      mat-menu-item
+      routerLink="/patterns/behavioral-patterns/observer-pattern"
+    >
       Observer Pattern
     </button>
   </mat-menu>
 
+  @if (!isMobile()) {
   <button mat-button [matMenuTriggerFor]="menuSolid">SOLID</button>
+  }
 
   <mat-menu #menuSolid="matMenu">
-    <button mat-menu-item routerLink="/solid-overview">SOLID Overview</button>
-    <button mat-menu-item routerLink="/solid-single-responsibility">
+    <button mat-menu-item routerLink="/solid/solid-overview">
+      SOLID Overview
+    </button>
+    <button mat-menu-item routerLink="/solid/solid-single-responsibility">
       Single Responsibility
     </button>
-    <button mat-menu-item routerLink="/solid-open-closed">Open/Closed</button>
-    <button mat-menu-item routerLink="/solid-liskov-substitution">
+    <button mat-menu-item routerLink="/solid/solid-open-closed">
+      Open/Closed
+    </button>
+    <button mat-menu-item routerLink="/solid/solid-liskov-substitution">
       Liskov Substitution
     </button>
-    <button mat-menu-item routerLink="/solid-interface-segregation">
+    <button mat-menu-item routerLink="/solid/solid-interface-segregation">
       Interface Segregation
     </button>
-    <button mat-menu-item routerLink="/solid-dependency-inversion">
+    <button mat-menu-item routerLink="/solid/solid-dependency-inversion">
       Dependency Inversion
     </button>
   </mat-menu>
 
+  @if (!isMobile()) {
   <button mat-button [matMenuTriggerFor]="menuTypescript">Typescript</button>
+  }
 
   <mat-menu #menuTypescript="matMenu">
-    <button mat-menu-item routerLink="/abstract-class">Abstract Class</button>
-    <button mat-menu-item routerLink="/abstract-method">Abstract Method</button>
-    <button mat-menu-item routerLink="/optional-method">Optional Method</button>
+    <button mat-menu-item routerLink="/typescript/abstract-class">
+      Abstract Class
+    </button>
+    <button mat-menu-item routerLink="/typescript/abstract-method">
+      Abstract Method
+    </button>
+    <button mat-menu-item routerLink="/typescript/optional-method">
+      Optional Method
+    </button>
   </mat-menu>
 
+  @if (!isMobile()) {
   <button mat-button [matMenuTriggerFor]="menuInterview">Interview</button>
+  }
 
   <mat-menu #menuInterview="matMenu">
-    <button mat-menu-item routerLink="/interview-questions">
+    <button mat-menu-item routerLink="/interview/interview-questions">
       Interview Questions
     </button>
   </mat-menu>
 </mat-toolbar>
-<div class="content">
-  <router-outlet></router-outlet>
-</div>
+
+<mat-sidenav-container>
+  <!-- Sidenav (side menu) -->
+  <mat-sidenav #sidenav mode="over" opened="false">
+    <mat-nav-list>
+      @for (item of menuItems(); track item.label) {
+      <app-menu-item
+        [item]="item"
+        [collapsed]="sideNavCollapsed()"
+      ></app-menu-item>
+      }
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Main Content Area -->
+  <mat-sidenav-content>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,5 +1,5 @@
 mat-toolbar {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
@@ -25,15 +25,19 @@ mat-icon {
   flex: 1 1 auto;
 }
 
+mat-sidenav-container {
+  height: calc(100vh - 64px);
+}
+
 .content {
-  padding-top: 96px; /* Adjust this depending on the height of the toolbar */
+  padding-top: 32px; /* Adjust this depending on the height of the toolbar */
   padding-right: 32px;
   padding-left: 32px;
   padding-bottom: 32px;
-  min-height: 100vh;
-
+  min-height: calc(100vh - 96px);
   background-color: var(--mat-sys-background);
   color: var(--mat-sys-on-background);
+  overflow: auto;
 }
 
 .logo-text {
