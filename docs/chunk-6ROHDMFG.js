@@ -1,1 +1,0 @@
-import{a as n}from"./chunk-XNFLL75T.js";import{bb as o,vb as a}from"./chunk-ENZIFP74.js";var r=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=o({type:t,selectors:[["app-behavioral-patterns"]],decls:1,vars:0,template:function(e,i){e&1&&a(0,"router-outlet")},dependencies:[n],encapsulation:2})};export{r as a};
