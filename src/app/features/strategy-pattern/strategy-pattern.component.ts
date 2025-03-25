@@ -7,7 +7,7 @@ import { CodeHighLightComponent } from '../../shared/components/code-highlight/c
   templateUrl: './strategy-pattern.component.html',
   styleUrl: './strategy-pattern.component.scss',
 })
-export class StrategyPatternComponent {
+export default class StrategyPatternComponent {
   public strategyPatternCode1: WritableSignal<string> =
     signal(`export interface SortingStrategy {
   sort(data: number[]): number[];

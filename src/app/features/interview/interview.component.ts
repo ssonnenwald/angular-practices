@@ -7,4 +7,4 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './interview.component.html',
   styleUrl: './interview.component.scss',
 })
-export class InterviewComponent {}
+export default class InterviewComponent {}

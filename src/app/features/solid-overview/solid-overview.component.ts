@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-solid-overview',
   imports: [],
   templateUrl: './solid-overview.component.html',
-  styleUrl: './solid-overview.component.scss'
+  styleUrl: './solid-overview.component.scss',
 })
-export class SolidOverviewComponent {
-
-}
+export default class SolidOverviewComponent {}

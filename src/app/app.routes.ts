@@ -19,24 +19,18 @@ export const routes: Routes = [
       {
         title: 'Home',
         path: '',
-        loadComponent: () =>
-          import('./features/home/home.component').then((c) => c.HomeComponent),
+        loadComponent: () => import('./features/home/home.component'),
       },
       {
         title: 'Patterns',
         path: 'patterns',
-        loadComponent: () =>
-          import('./features/patterns/patterns.component').then(
-            (c) => c.PatternsComponent
-          ),
+        loadComponent: () => import('./features/patterns/patterns.component'),
         children: [
           {
             title: 'Design Patterns Overview',
             path: 'design-patterns',
             loadComponent: () =>
-              import(
-                './features/design-patterns/design-patterns.component'
-              ).then((c) => c.DesignPatternsComponent),
+              import('./features/design-patterns/design-patterns.component'),
           },
           {
             title: 'Creational Patterns',
@@ -44,7 +38,7 @@ export const routes: Routes = [
             loadComponent: () =>
               import(
                 './features/creational-patterns/creational-patterns.component'
-              ).then((c) => c.CreationalPatternsComponent),
+              ),
             children: [
               {
                 title: 'Singleton Pattern',
@@ -52,7 +46,7 @@ export const routes: Routes = [
                 loadComponent: () =>
                   import(
                     './features/singleton-pattern/singleton-pattern.component'
-                  ).then((c) => c.SingletonPatternComponent),
+                  ),
               },
               {
                 title: 'Builder Pattern',
@@ -60,7 +54,7 @@ export const routes: Routes = [
                 loadComponent: () =>
                   import(
                     './features/builder-pattern/builder-pattern.component'
-                  ).then((c) => c.BuilderPatternComponent),
+                  ),
               },
               {
                 title: 'Factory Pattern',
@@ -68,7 +62,7 @@ export const routes: Routes = [
                 loadComponent: () =>
                   import(
                     './features/factory-pattern/factory-pattern.component'
-                  ).then((c) => c.FactoryPatternComponent),
+                  ),
               },
             ],
           },
@@ -78,15 +72,13 @@ export const routes: Routes = [
             loadComponent: () =>
               import(
                 './features/structural-patterns/structural-patterns.component'
-              ).then((c) => c.StructuralPatternsComponent),
+              ),
             children: [
               {
                 title: 'Facade Pattern',
                 path: 'facade-pattern',
                 loadComponent: () =>
-                  import(
-                    './features/facade-pattern/facade-pattern.component'
-                  ).then((c) => c.FacadePatternComponent),
+                  import('./features/facade-pattern/facade-pattern.component'),
               },
               {
                 title: 'Adapter Pattern',
@@ -94,7 +86,7 @@ export const routes: Routes = [
                 loadComponent: () =>
                   import(
                     './features/adapter-pattern/adapter-pattern.component'
-                  ).then((c) => c.AdapterPatternComponent),
+                  ),
               },
             ],
           },
@@ -104,7 +96,7 @@ export const routes: Routes = [
             loadComponent: () =>
               import(
                 './features/behavioral-patterns/behavioral-patterns.component'
-              ).then((c) => c.BehavioralPatternsComponent),
+              ),
             children: [
               {
                 title: 'Strategy Pattern',
@@ -112,7 +104,7 @@ export const routes: Routes = [
                 loadComponent: () =>
                   import(
                     './features/strategy-pattern/strategy-pattern.component'
-                  ).then((c) => c.StrategyPatternComponent),
+                  ),
               },
               {
                 title: 'Observer Pattern',
@@ -120,7 +112,7 @@ export const routes: Routes = [
                 loadComponent: () =>
                   import(
                     './features/observer-pattern/observer-pattern.component'
-                  ).then((c) => c.ObserverPatternComponent),
+                  ),
               },
             ],
           },
@@ -128,27 +120,20 @@ export const routes: Routes = [
             title: 'MVVM Pattern',
             path: 'mvvm-pattern',
             loadComponent: () =>
-              import('./features/mvvm-pattern/mvvm-pattern.component').then(
-                (c) => c.MvvmPatternComponent
-              ),
+              import('./features/mvvm-pattern/mvvm-pattern.component'),
           },
         ],
       },
       {
         title: 'SOLID',
         path: 'solid',
-        loadComponent: () =>
-          import('./features/solid/solid.component').then(
-            (c) => c.SolidComponent
-          ),
+        loadComponent: () => import('./features/solid/solid.component'),
         children: [
           {
             title: 'SOLID Overview',
             path: 'solid-overview',
             loadComponent: () =>
-              import('./features/solid-overview/solid-overview.component').then(
-                (c) => c.SolidOverviewComponent
-              ),
+              import('./features/solid-overview/solid-overview.component'),
           },
           {
             title: 'Single Responsibility',
@@ -156,7 +141,7 @@ export const routes: Routes = [
             loadComponent: () =>
               import(
                 './features/solid-single-responsibility/solid-single-responsibility.component'
-              ).then((c) => c.SolidSingleResponsibilityComponent),
+              ),
           },
           {
             title: 'Open/Closed',
@@ -164,7 +149,7 @@ export const routes: Routes = [
             loadComponent: () =>
               import(
                 './features/solid-open-closed/solid-open-closed.component'
-              ).then((c) => c.SolidOpenClosedComponent),
+              ),
           },
           {
             title: 'Liskov Substitution',
@@ -172,7 +157,7 @@ export const routes: Routes = [
             loadComponent: () =>
               import(
                 './features/solid-liskov-substitution/solid-liskov-substitution.component'
-              ).then((c) => c.SolidLiskovSubstitutionComponent),
+              ),
           },
           {
             title: 'Interface Segregation',
@@ -180,7 +165,7 @@ export const routes: Routes = [
             loadComponent: () =>
               import(
                 './features/solid-interface-segregation/solid-interface-segregation.component'
-              ).then((c) => c.SolidInterfaceSegregationComponent),
+              ),
           },
           {
             title: 'Dependency Inversion',
@@ -188,7 +173,7 @@ export const routes: Routes = [
             loadComponent: () =>
               import(
                 './features/solid-dependency-inversion/solid-dependency-inversion.component'
-              ).then((c) => c.SolidDependencyInversionComponent),
+              ),
           },
         ],
       },
@@ -196,43 +181,32 @@ export const routes: Routes = [
         title: 'Typescript',
         path: 'typescript',
         loadComponent: () =>
-          import('./features/typescript/typescript.component').then(
-            (c) => c.TypescriptComponent
-          ),
+          import('./features/typescript/typescript.component'),
         children: [
           {
             title: 'Abstract Class',
             path: 'abstract-class',
             loadComponent: () =>
-              import('./features/abstract-class/abstract-class.component').then(
-                (c) => c.AbstractClassComponent
-              ),
+              import('./features/abstract-class/abstract-class.component'),
           },
           {
             title: 'Abstract Method',
             path: 'abstract-method',
             loadComponent: () =>
-              import(
-                './features/abstract-method/abstract-method.component'
-              ).then((c) => c.AbstractMethodComponent),
+              import('./features/abstract-method/abstract-method.component'),
           },
           {
             title: 'Optional Method',
             path: 'optional-method',
             loadComponent: () =>
-              import(
-                './features/optional-method/optional-method.component'
-              ).then((c) => c.OptionalMethodComponent),
+              import('./features/optional-method/optional-method.component'),
           },
         ],
       },
       {
         title: 'Interview',
         path: 'interview',
-        loadComponent: () =>
-          import('./features/interview/interview.component').then(
-            (c) => c.InterviewComponent
-          ),
+        loadComponent: () => import('./features/interview/interview.component'),
         children: [
           {
             title: 'Interview Questions',
@@ -240,7 +214,7 @@ export const routes: Routes = [
             loadComponent: () =>
               import(
                 './features/interview-questions/interview-questions.component'
-              ).then((c) => c.InterviewQuestionsComponent),
+              ),
           },
         ],
       },

@@ -8,7 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './solid-open-closed.component.html',
   styleUrl: './solid-open-closed.component.scss',
 })
-export class SolidOpenClosedComponent {
+export default class SolidOpenClosedComponent {
   constructor() {}
 
   public beforeCode: WritableSignal<string> =

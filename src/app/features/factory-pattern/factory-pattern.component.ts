@@ -7,7 +7,7 @@ import { CodeHighLightComponent } from '../../shared/components/code-highlight/c
   templateUrl: './factory-pattern.component.html',
   styleUrl: './factory-pattern.component.scss',
 })
-export class FactoryPatternComponent {
+export default class FactoryPatternComponent {
   public factoryPatternCode1: WritableSignal<string> =
     signal(`export interface Vehicle {
   startEngine(): string;

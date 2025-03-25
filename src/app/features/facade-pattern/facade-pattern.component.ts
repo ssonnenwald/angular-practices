@@ -7,7 +7,7 @@ import { CodeHighLightComponent } from '../../shared/components/code-highlight/c
   templateUrl: './facade-pattern.component.html',
   styleUrl: './facade-pattern.component.scss',
 })
-export class FacadePatternComponent {
+export default class FacadePatternComponent {
   public facadePatternCode1: WritableSignal<string> =
     signal(`import { Injectable } from '@angular/core';
 

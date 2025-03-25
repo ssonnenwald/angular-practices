@@ -8,7 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './solid-liskov-substitution.component.html',
   styleUrl: './solid-liskov-substitution.component.scss',
 })
-export class SolidLiskovSubstitutionComponent {
+export default class SolidLiskovSubstitutionComponent {
   constructor() {}
 
   public beforeCode: WritableSignal<string> = signal(`class AudioProcessor {

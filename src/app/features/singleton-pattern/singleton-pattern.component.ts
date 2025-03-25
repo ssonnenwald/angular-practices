@@ -7,7 +7,7 @@ import { CodeHighLightComponent } from '../../shared/components/code-highlight/c
   templateUrl: './singleton-pattern.component.html',
   styleUrl: './singleton-pattern.component.scss',
 })
-export class SingletonPatternComponent {
+export default class SingletonPatternComponent {
   public singletonPatternCode1: WritableSignal<string> =
     signal(`import { Injectable } from '@angular/core';
 

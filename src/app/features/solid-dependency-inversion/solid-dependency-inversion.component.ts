@@ -8,7 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './solid-dependency-inversion.component.html',
   styleUrl: './solid-dependency-inversion.component.scss',
 })
-export class SolidDependencyInversionComponent {
+export default class SolidDependencyInversionComponent {
   constructor() {}
 
   public beforeCode: WritableSignal<string> = signal(`class TelegramApi {

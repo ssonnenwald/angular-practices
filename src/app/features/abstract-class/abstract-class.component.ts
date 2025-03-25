@@ -7,7 +7,7 @@ import { CodeHighLightComponent } from '../../shared/components/code-highlight/c
   templateUrl: './abstract-class.component.html',
   styleUrl: './abstract-class.component.scss',
 })
-export class AbstractClassComponent {
+export default class AbstractClassComponent {
   public abstractClassCode1: WritableSignal<string> =
     signal(`export abstract class NotificationService {
   // Abstract method that subclasses must implement

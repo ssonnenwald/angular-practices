@@ -8,7 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './solid-interface-segregation.component.html',
   styleUrl: './solid-interface-segregation.component.scss',
 })
-export class SolidInterfaceSegregationComponent {
+export default class SolidInterfaceSegregationComponent {
   constructor() {}
 
   public beforeCode: WritableSignal<string> = signal(`interface VPNConnection {

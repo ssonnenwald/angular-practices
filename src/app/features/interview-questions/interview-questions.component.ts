@@ -7,7 +7,7 @@ import { CodeHighLightComponent } from '../../shared/components/code-highlight/c
   templateUrl: './interview-questions.component.html',
   styleUrl: './interview-questions.component.scss',
 })
-export class InterviewQuestionsComponent {
+export default class InterviewQuestionsComponent {
   constructor() {}
 
   public conditionalTypesCode: WritableSignal<string> =

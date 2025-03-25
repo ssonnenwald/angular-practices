@@ -7,7 +7,7 @@ import { CodeHighLightComponent } from '../../shared/components/code-highlight/c
   templateUrl: './adapter-pattern.component.html',
   styleUrl: './adapter-pattern.component.scss',
 })
-export class AdapterPatternComponent {
+export default class AdapterPatternComponent {
   public adapterPatternCode1: WritableSignal<string> =
     signal(`import { Injectable } from '@angular/core';
 

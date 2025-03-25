@@ -8,7 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './solid-single-responsibility.component.html',
   styleUrl: './solid-single-responsibility.component.scss',
 })
-export class SolidSingleResponsibilityComponent {
+export default class SolidSingleResponsibilityComponent {
   constructor() {}
 
   public beforeCode: WritableSignal<string> = signal(`class Profile {

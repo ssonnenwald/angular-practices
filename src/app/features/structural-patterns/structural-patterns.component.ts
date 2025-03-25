@@ -7,4 +7,4 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './structural-patterns.component.html',
   styleUrl: './structural-patterns.component.scss',
 })
-export class StructuralPatternsComponent {}
+export default class StructuralPatternsComponent {}

@@ -7,4 +7,4 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './behavioral-patterns.component.html',
   styleUrl: './behavioral-patterns.component.scss',
 })
-export class BehavioralPatternsComponent {}
+export default class BehavioralPatternsComponent {}

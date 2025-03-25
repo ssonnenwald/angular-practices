@@ -7,4 +7,4 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './typescript.component.html',
   styleUrl: './typescript.component.scss',
 })
-export class TypescriptComponent {}
+export default class TypescriptComponent {}

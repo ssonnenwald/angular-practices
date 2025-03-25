@@ -7,7 +7,7 @@ import { CodeHighLightComponent } from '../../shared/components/code-highlight/c
   templateUrl: './optional-method.component.html',
   styleUrl: './optional-method.component.scss',
 })
-export class OptionalMethodComponent {
+export default class OptionalMethodComponent {
   public optionalMethodCode1: WritableSignal<string> =
     signal(`export interface NotificationService {
   sendNotification(message: string, recipient: string): void;

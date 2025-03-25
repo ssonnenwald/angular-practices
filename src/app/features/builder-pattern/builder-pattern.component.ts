@@ -7,7 +7,7 @@ import { CodeHighLightComponent } from '../../shared/components/code-highlight/c
   templateUrl: './builder-pattern.component.html',
   styleUrl: './builder-pattern.component.scss',
 })
-export class BuilderPatternComponent {
+export default class BuilderPatternComponent {
   public builderPatternCode1: WritableSignal<string> =
     signal(`export class Car {
   private make: string;

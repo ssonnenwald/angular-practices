@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-design-patterns',
   imports: [],
   templateUrl: './design-patterns.component.html',
-  styleUrl: './design-patterns.component.scss'
+  styleUrl: './design-patterns.component.scss',
 })
-export class DesignPatternsComponent {
-
-}
+export default class DesignPatternsComponent {}

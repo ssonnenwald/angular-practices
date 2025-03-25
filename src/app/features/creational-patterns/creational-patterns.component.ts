@@ -7,4 +7,4 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './creational-patterns.component.html',
   styleUrl: './creational-patterns.component.scss',
 })
-export class CreationalPatternsComponent {}
+export default class CreationalPatternsComponent {}

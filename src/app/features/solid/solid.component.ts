@@ -7,4 +7,4 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './solid.component.html',
   styleUrl: './solid.component.scss',
 })
-export class SolidComponent {}
+export default class SolidComponent {}

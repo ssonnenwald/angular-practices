@@ -7,7 +7,7 @@ import { CodeHighLightComponent } from '../../shared/components/code-highlight/c
   templateUrl: './mvvm-pattern.component.html',
   styleUrl: './mvvm-pattern.component.scss',
 })
-export class MvvmPatternComponent {
+export default class MvvmPatternComponent {
   constructor() {}
 
   public counterModelCode: WritableSignal<string> =

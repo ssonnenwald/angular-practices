@@ -7,7 +7,7 @@ import { CodeHighLightComponent } from '../../shared/components/code-highlight/c
   templateUrl: './observer-pattern.component.html',
   styleUrl: './observer-pattern.component.scss',
 })
-export class ObserverPatternComponent {
+export default class ObserverPatternComponent {
   public observerPatternCode1: WritableSignal<string> =
     signal(`import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
