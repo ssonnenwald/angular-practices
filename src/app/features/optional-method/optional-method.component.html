@@ -24,10 +24,12 @@
     using the <span class="hljs-attr">?</span> syntax.
   </div>
 
+  @defer(on viewport) {
   <app-code-highlight
     [code]="optionalMethodCode1"
     [language]="'typescript'"
   ></app-code-highlight>
+  } @placeholder {<span>Loading...</span>}
 
   <div class="mb-4">
     Here, the <span class="hljs-attr">trackDeliveryStatus()</span> method is
@@ -48,15 +50,17 @@
     does not.
   </div>
 
+  @defer(on viewport) {
   <app-code-highlight
     [code]="optionalMethodCode2"
     [language]="'typescript'"
   ></app-code-highlight>
-
+  } @placeholder {<span>Loading...</span>} @defer(on viewport) {
   <app-code-highlight
     [code]="optionalMethodCode3"
     [language]="'typescript'"
   ></app-code-highlight>
+  } @placeholder {<span>Loading...</span>}
 
   <ol start="3">
     <li><b>Standalone Component Using the Services</b></li>
@@ -68,10 +72,12 @@
     will call that method; otherwise, it will simply skip it.
   </div>
 
+  @defer(on viewport) {
   <app-code-highlight
     [code]="optionalMethodCode4"
     [language]="'typescript'"
   ></app-code-highlight>
+  } @placeholder {<span>Loading...</span>}
 
   <h4 class="mt-4">Explanation:</h4>
   <ul>

@@ -26,10 +26,12 @@
     when the weather changes.
   </div>
 
+  @defer(on viewport) {
   <app-code-highlight
     [code]="observerPatternCode1"
     [language]="'typescript'"
   ></app-code-highlight>
+  } @placeholder {<span>Loading...</span>}
 
   <ol start="2">
     <li>
@@ -41,15 +43,17 @@
     observe changes in the weather.
   </div>
 
+  @defer(on viewport) {
   <app-code-highlight
     [code]="observerPatternCode2"
     [language]="'typescript'"
   ></app-code-highlight>
-
+  } @placeholder {<span>Loading...</span>} @defer(on viewport) {
   <app-code-highlight
     [code]="observerPatternCode3"
     [language]="'typescript'"
   ></app-code-highlight>
+  } @placeholder {<span>Loading...</span>}
 
   <ol start="3">
     <li><b>Weather Update Component (Update the Weather)</b></li>
@@ -60,10 +64,12 @@
     <b>Weather Service</b> to trigger changes in the weather.
   </div>
 
+  @defer(on viewport) {
   <app-code-highlight
     [code]="observerPatternCode4"
     [language]="'typescript'"
   ></app-code-highlight>
+  } @placeholder {<span>Loading...</span>}
 
   <ol start="4">
     <li><b>App Component (Main Entry)</b></li>
@@ -74,10 +80,12 @@
     <b>Weather Update Component</b> and the <b>Weather Display Components</b>.
   </div>
 
+  @defer(on viewport) {
   <app-code-highlight
     [code]="observerPatternCode5"
     [language]="'typescript'"
   ></app-code-highlight>
+  } @placeholder {<span>Loading...</span>}
 </div>
 
 <h4 class="mt-4">Explanation:</h4>

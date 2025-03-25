@@ -45,15 +45,17 @@
     <span class="hljs-attr">sendNotification()</span> method in its own way.
   </div>
 
+  @defer(on viewport) {
   <app-code-highlight
     [code]="abstractClassCode2"
     [language]="'typescript'"
   ></app-code-highlight>
-
+  } @placeholder {<span>Loading...</span>} @defer(on viewport) {
   <app-code-highlight
     [code]="abstractClassCode3"
     [language]="'typescript'"
   ></app-code-highlight>
+  } @placeholder {<span>Loading...</span>}
 
   <ol start="3">
     <li><b>Standalone Component to Use the Notification Service</b></li>
@@ -66,10 +68,12 @@
     services into the component based on user selection.
   </div>
 
+  @defer(on viewport) {
   <app-code-highlight
     [code]="abstractClassCode4"
     [language]="'typescript'"
   ></app-code-highlight>
+  } @placeholder {<span>Loading...</span>}
 
   <h4 class="mt-4">Explanation:</h4>
   <ul>

@@ -78,6 +78,11 @@
                   "with": "src/environments/environment.staging.ts"
                 }
               ]
+            },
+            "analyze-bundle": {
+              "sourceMap": true,
+              "outputHashing": "none",
+              "namedChunks": true
             }
           },
           "defaultConfiguration": "development"

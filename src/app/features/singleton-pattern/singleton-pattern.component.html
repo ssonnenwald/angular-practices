@@ -17,10 +17,12 @@
   </div>
 </div>
 
+@defer(on viewport) {
 <app-code-highlight
   [code]="singletonPatternCode1"
   [language]="'typescript'"
 ></app-code-highlight>
+} @placeholder {<span>Loading...</span>}
 
 <h4 class="mt-4">Key Points:</h4>
 <ul>
@@ -45,10 +47,12 @@
   application.
 </div>
 
+@defer(on viewport) {
 <app-code-highlight
   [code]="singletonPatternCode2"
   [language]="'typescript'"
 ></app-code-highlight>
+} @placeholder {<span>Loading...</span>}
 
 <h4 class="mt-4">Explanation:</h4>
 <ul>

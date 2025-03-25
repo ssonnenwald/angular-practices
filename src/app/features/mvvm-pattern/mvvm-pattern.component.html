@@ -49,7 +49,7 @@
 </div>
 
 <div class="d-flex justify-content-center">
-  <img src="assets/images/mvvm2.png" />
+  <img src="assets/images/mvvm2.png" class="img-fluid" />
 </div>
 
 <h3 class="mt-4">Overview of the MVVM Pattern in Angular</h3>
@@ -76,10 +76,12 @@
   <h5 class="d-inline">(DomainModel - Shared Service)</h5>
 </div>
 
+@defer(on viewport) {
 <app-code-highlight
   [code]="counterModelCode"
   [language]="'typescript'"
 ></app-code-highlight>
+} @placeholder {<span>Loading...</span>}
 
 <h5>Explanation</h5>
 <ul>
@@ -114,10 +116,12 @@
   <h5 class="d-inline">(ViewModel)</h5>
 </div>
 
+@defer(on viewport) {
 <app-code-highlight
   [code]="counterViewModelCode"
   [language]="'typescript'"
 ></app-code-highlight>
+} @placeholder {<span>Loading...</span>}
 
 <h5>Explanation</h5>
 <ul>
@@ -149,10 +153,12 @@
   <h5 class="d-inline">(Controller Component - CounterComponent)</h5>
 </div>
 
+@defer(on viewport) {
 <app-code-highlight
   [code]="counterComponentCode"
   [language]="'typescript'"
 ></app-code-highlight>
+} @placeholder {<span>Loading...</span>}
 
 <h5>Explanation</h5>
 <ul>
@@ -173,10 +179,12 @@
   <h5 class="d-inline">(Controller Component - DisplayComponent)</h5>
 </div>
 
+@defer(on viewport) {
 <app-code-highlight
   [code]="displayComponentCode"
   [language]="'typescript'"
 ></app-code-highlight>
+} @placeholder {<span>Loading...</span>}
 
 <h5>Explanation</h5>
 <ul>
@@ -195,10 +203,12 @@
   <h5 class="d-inline">(Display View)</h5>
 </div>
 
+@defer(on viewport) {
 <app-code-highlight
   [code]="displayComponentHtml"
   [language]="'html'"
 ></app-code-highlight>
+} @placeholder {<span>Loading...</span>}
 
 <h5>Explanation</h5>
 <ul>
@@ -276,10 +286,12 @@ We’ll mock HTTP requests by using Jasmine’s
   <h5 class="d-inline">(Test File for DomainModel)</h5>
 </div>
 
+@defer(on viewport) {
 <app-code-highlight
   [code]="counterModelSpecCode"
   [language]="'typescript'"
 ></app-code-highlight>
+} @placeholder {<span>Loading...</span>}
 
 <h5>Explanation</h5>
 <ul>
@@ -324,10 +336,12 @@ can test the <span class="hljs-attr">CounterViewModel</span> independently.
   <h5 class="d-inline">(Test File for ViewModel)</h5>
 </div>
 
+@defer(on viewport) {
 <app-code-highlight
   [code]="counterViewModelSpecCode"
   [language]="'typescript'"
 ></app-code-highlight>
+} @placeholder {<span>Loading...</span>}
 
 <h5>Explanation</h5>
 <ul>
@@ -371,10 +385,12 @@ We test <b>UI behavior</b> and <b>component interaction</b> with
   <h5 class="d-inline">(Test File for CounterComponent)</h5>
 </div>
 
+@defer(on viewport) {
 <app-code-highlight
   [code]="counterComponentSpecCode"
   [language]="'typescript'"
 ></app-code-highlight>
+} @placeholder {<span>Loading...</span>}
 
 <h5>Explanation</h5>
 <ul>
@@ -415,10 +431,12 @@ rendering and user interactions (i.e., fetching random numbers).
   <h5 class="d-inline">(Test File for DisplayComponent)</h5>
 </div>
 
+@defer(on viewport) {
 <app-code-highlight
   [code]="displayComponentSpecCode"
   [language]="'typescript'"
 ></app-code-highlight>
+} @placeholder {<span>Loading...</span>}
 
 <h5>Explanation</h5>
 <ul>

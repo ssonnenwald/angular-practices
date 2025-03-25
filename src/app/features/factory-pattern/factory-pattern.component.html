@@ -24,10 +24,12 @@
     same structure and can be used interchangeably.
   </div>
 
+  @defer(on viewport) {
   <app-code-highlight
     [code]="factoryPatternCode1"
     [language]="'typescript'"
   ></app-code-highlight>
+  } @placeholder {<span>Loading...</span>}
 
   <ol start="2">
     <li>
@@ -44,20 +46,22 @@
     <span class="hljs-attr">Vehicle</span> interface.
   </div>
 
+  @defer(on viewport) {
   <app-code-highlight
     [code]="factoryPatternCode2"
     [language]="'typescript'"
   ></app-code-highlight>
-
+  } @placeholder {<span>Loading...</span>} @defer(on viewport) {
   <app-code-highlight
     [code]="factoryPatternCode3"
     [language]="'typescript'"
   ></app-code-highlight>
-
+  } @placeholder {<span>Loading...</span>} @defer(on viewport) {
   <app-code-highlight
     [code]="factoryPatternCode4"
     [language]="'typescript'"
   ></app-code-highlight>
+  } @placeholder {<span>Loading...</span>}
 
   <ol start="3">
     <li><b>Create the Factory (To Produce the Products)</b></li>
@@ -67,10 +71,12 @@
     type of vehicle based on the input.
   </div>
 
+  @defer(on viewport) {
   <app-code-highlight
     [code]="factoryPatternCode5"
     [language]="'typescript'"
   ></app-code-highlight>
+  } @placeholder {<span>Loading...</span>}
 
   <ol start="4">
     <li><b>Create the Standalone Component (To Use the Factory)</b></li>
@@ -80,10 +86,12 @@
     specific type of vehicle based on user input.
   </div>
 
+  @defer(on viewport) {
   <app-code-highlight
     [code]="factoryPatternCode6"
     [language]="'typescript'"
   ></app-code-highlight>
+  } @placeholder {<span>Loading...</span>}
 </div>
 
 <h4 class="mt-4">Explanation:</h4>

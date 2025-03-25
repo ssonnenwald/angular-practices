@@ -33,11 +33,12 @@
     <span class="hljs-attr">sendNotification()</span>.&nbsp;&nbsp;This method
     will be implemented by the subclasses.
   </div>
-
+  @defer(on viewport) {
   <app-code-highlight
     [code]="abstractMethodCode1"
     [language]="'typescript'"
   ></app-code-highlight>
+  } @placeholder {<span>Loading...</span>}
 
   <ol start="2">
     <li>
@@ -45,15 +46,17 @@
     </li>
   </ol>
 
+  @defer(on viewport) {
   <app-code-highlight
     [code]="abstractMethodCode2"
     [language]="'typescript'"
   ></app-code-highlight>
-
+  } @placeholder {<span>Loading...</span>} @defer(on viewport) {
   <app-code-highlight
     [code]="abstractMethodCode3"
     [language]="'typescript'"
   ></app-code-highlight>
+  } @placeholder {<span>Loading...</span>}
 
   <ol start="3">
     <li><b>Standalone Component Using the Notification Services</b></li>
@@ -66,10 +69,12 @@
     and must be implemented by the concrete services.
   </div>
 
+  @defer(on viewport) {
   <app-code-highlight
     [code]="abstractMethodCode4"
     [language]="'typescript'"
   ></app-code-highlight>
+  } @placeholder {<span>Loading...</span>}
 
   <h4 class="mt-4">Explanation:</h4>
   <ul>

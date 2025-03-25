@@ -25,10 +25,12 @@
     <span class="hljs-attr">sort</span> method.
   </div>
 
+  @defer(on viewport) {
   <app-code-highlight
     [code]="strategyPatternCode1"
     [language]="'typescript'"
   ></app-code-highlight>
+  } @placeholder {<span>Loading...</span>}
 
   <ol start="2">
     <li>
@@ -41,20 +43,22 @@
     <b>Quick Sort</b>, and <b>Merge Sort</b>.
   </div>
 
+  @defer(on viewport) {
   <app-code-highlight
     [code]="strategyPatternCode2"
     [language]="'typescript'"
   ></app-code-highlight>
-
+  } @placeholder {<span>Loading...</span>} @defer(on viewport) {
   <app-code-highlight
     [code]="strategyPatternCode3"
     [language]="'typescript'"
   ></app-code-highlight>
-
+  } @placeholder {<span>Loading...</span>} @defer(on viewport) {
   <app-code-highlight
     [code]="strategyPatternCode4"
     [language]="'typescript'"
   ></app-code-highlight>
+  } @placeholder {<span>Loading...</span>}
 
   <ol start="3">
     <li><b>Context (The Sorting Service)</b></li>
@@ -64,10 +68,12 @@
     strategy to perform the sorting operation.
   </div>
 
+  @defer(on viewport) {
   <app-code-highlight
     [code]="strategyPatternCode5"
     [language]="'typescript'"
   ></app-code-highlight>
+  } @placeholder {<span>Loading...</span>}
 
   <ol start="4">
     <li><b>Standalone Component Using the Strategy</b></li>
@@ -78,10 +84,12 @@
     <b>Bubble Sort</b>, <b>Quick Sort</b>, or <b>Merge Sort</b>.
   </div>
 
+  @defer(on viewport) {
   <app-code-highlight
     [code]="strategyPatternCode6"
     [language]="'typescript'"
   ></app-code-highlight>
+  } @placeholder {<span>Loading...</span>}
 </div>
 
 <h4 class="mt-4">Explanation:</h4>

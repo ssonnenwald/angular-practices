@@ -23,10 +23,12 @@
     with.
   </div>
 
+  @defer(on viewport) {
   <app-code-highlight
     [code]="adapterPatternCode1"
     [language]="'typescript'"
   ></app-code-highlight>
+  } @placeholder {<span>Loading...</span>}
 
   <ol start="2">
     <li>
@@ -38,10 +40,12 @@
     different interface.
   </div>
 
+  @defer(on viewport) {
   <app-code-highlight
     [code]="adapterPatternCode2"
     [language]="'typescript'"
   ></app-code-highlight>
+  } @placeholder {<span>Loading...</span>}
 
   <ol start="3">
     <li><b>The Adapter Service</b></li>
@@ -56,10 +60,12 @@
     <span class="hljs-attr">getUserInfo</span> method.
   </div>
 
+  @defer(on viewport) {
   <app-code-highlight
     [code]="adapterPatternCode3"
     [language]="'typescript'"
   ></app-code-highlight>
+  } @placeholder {<span>Loading...</span>}
 
   <ol start="4">
     <li><b>Standalone Component Using the Adapter</b></li>
@@ -71,10 +77,12 @@
     >).
   </div>
 
+  @defer(on viewport) {
   <app-code-highlight
     [code]="adapterPatternCode4"
     [language]="'typescript'"
   ></app-code-highlight>
+  } @placeholder {<span>Loading...</span>}
 </div>
 
 <h4 class="mt-4">Explanation:</h4>

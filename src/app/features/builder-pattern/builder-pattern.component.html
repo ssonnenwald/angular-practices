@@ -18,10 +18,12 @@
     In this example, the product we are building is a <b>Car</b>.
   </div>
 
+  @defer(on viewport) {
   <app-code-highlight
     [code]="builderPatternCode1"
     [language]="'typescript'"
   ></app-code-highlight>
+  } @placeholder {<span>Loading...</span>}
 
   <ol start="2">
     <li><b>Create the Builder (To Build the Car)</b></li>
@@ -31,10 +33,12 @@
     <span class="hljs-attr">Car</span> step by step:
   </div>
 
+  @defer(on viewport) {
   <app-code-highlight
     [code]="builderPatternCode2"
     [language]="'typescript'"
   ></app-code-highlight>
+  } @placeholder {<span>Loading...</span>}
 
   <ol start="3">
     <li><b>Create the Standalone Component (To Use the Builder)</b></li>
@@ -44,10 +48,12 @@
     Builder pattern to construct a <span class="hljs-attr">Car</span>.
   </div>
 
+  @defer(on viewport) {
   <app-code-highlight
     [code]="builderPatternCode3"
     [language]="'typescript'"
   ></app-code-highlight>
+  } @placeholder {<span>Loading...</span>}
 </div>
 
 <h4 class="mt-4">Explanation:</h4>

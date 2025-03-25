@@ -44,14 +44,18 @@ design.<br /><br />
 
 <mat-icon class="icon-red">close_small</mat-icon><b>Before following OCP:</b>
 
+@defer(on viewport) {
 <app-code-highlight
   [code]="beforeCode"
   [language]="'typescript'"
 ></app-code-highlight>
+} @placeholder {<span>Loading...</span>}
 
 <mat-icon class="icon-green">check_small</mat-icon><b>After following OCP:</b>
 
+@defer(on viewport) {
 <app-code-highlight
   [code]="afterCode"
   [language]="'typescript'"
 ></app-code-highlight>
+} @placeholder {<span>Loading...</span>}

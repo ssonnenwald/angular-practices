@@ -144,13 +144,14 @@
           while still enforcing correct types.<br />
           <br />
 
+          @defer(on viewport) {
           <app-code-highlight
             [code]="conditionalTypesCode"
             [language]="'typescript'"
           ></app-code-highlight>
-
-          In an Angular application, this could be used for form validation or
-          conditional logic in service calls.<br />
+          } @placeholder {<span>Loading...</span>} In an Angular application,
+          this could be used for form validation or conditional logic in service
+          calls.<br />
           <br />
         </li>
         <li>
@@ -162,14 +163,15 @@
           need for repetitive code.<br />
           <br />
 
+          @defer(on viewport) {
           <app-code-highlight
             [code]="mappedTypesCode"
             [language]="'typescript'"
           ></app-code-highlight>
-
-          For example, if you have models representing entities from an API, you
-          can create dynamic types for form inputs or responses with just a
-          single transformation, ensuring consistency across the app.<br />
+          } @placeholder {<span>Loading...</span>} For example, if you have
+          models representing entities from an API, you can create dynamic types
+          for form inputs or responses with just a single transformation,
+          ensuring consistency across the app.<br />
           <br />
         </li>
         <li>
@@ -179,14 +181,14 @@
           components that work with a variety of data types.<br />
           <br />
 
+          @defer(on viewport) {
           <app-code-highlight
             [code]="genericsCode"
             [language]="'typescript'"
           ></app-code-highlight>
-
-          In a large-scale app, this reduces duplication and ensures that every
-          part of the app that interacts with external data or APIs is
-          type-safe.
+          } @placeholder {<span>Loading...</span>} In a large-scale app, this
+          reduces duplication and ensures that every part of the app that
+          interacts with external data or APIs is type-safe.
         </li>
       </ol>
       <br />
@@ -229,12 +231,13 @@
       conditionally returns different types based on the result of an API call.
       <br /><br />
 
+      @defer(on viewport) {
       <app-code-highlight
         [code]="apiResponseCode"
         [language]="'typescript'"
       ></app-code-highlight>
-
-      In this example, the return type changes based on whether the
+      } @placeholder {<span>Loading...</span>} In this example, the return type
+      changes based on whether the
       <span class="hljs-attr">success</span> flag is
       <span class="hljs-attr">true</span> or
       <span class="hljs-attr">false</span>, ensuring that we can handle success
@@ -246,17 +249,17 @@
       large application, such as form inputs that vary depending on user roles
       or settings.<br /><br />
 
+      @defer(on viewport) {
       <app-code-highlight
         [code]="conditionalTypesCode2"
         [language]="'typescript'"
       ></app-code-highlight>
-
-      Here, the <span class="hljs-attr">Permissions</span> type dynamically
-      adjusts based on the <span class="hljs-attr">UserRole</span>, providing
-      different permission structures for admins, editors, and
-      viewers.&nbsp;&nbsp;This ensures that the type system enforces correct
-      permissions depending on the user’s role, preventing incorrect access
-      rights.<br /><br />
+      } @placeholder {<span>Loading...</span>} Here, the
+      <span class="hljs-attr">Permissions</span> type dynamically adjusts based
+      on the <span class="hljs-attr">UserRole</span>, providing different
+      permission structures for admins, editors, and viewers.&nbsp;&nbsp;This
+      ensures that the type system enforces correct permissions depending on the
+      user’s role, preventing incorrect access rights.<br /><br />
 
       <h5><b>Conclusion</b></h5>
 
@@ -286,16 +289,15 @@
       types with <span class="hljs-attr">Promise&lt;T&gt;</span>, we can enforce
       what type the Promise will return.<br /><br />
       For example, if you have an API call that returns a user object, you can
-      ensure type safety like so:
-
+      ensure type safety like so: @defer(on viewport) {
       <app-code-highlight
         [code]="handlingPromiseCode"
         [language]="'typescript'"
       ></app-code-highlight>
-
-      By using <span class="hljs-attr">Promise&lt;User&gt;</span>, TypeScript
-      can infer the structure of the resolved value, ensuring that any operation
-      on <span class="hljs-attr">user</span> is type-safe.<br /><br />
+      } @placeholder {<span>Loading...</span>} By using
+      <span class="hljs-attr">Promise&lt;User&gt;</span>, TypeScript can infer
+      the structure of the resolved value, ensuring that any operation on
+      <span class="hljs-attr">user</span> is type-safe.<br /><br />
 
       <h5><b>2. Handling Observables:</b></h5>
 
@@ -306,14 +308,13 @@
       and <span class="hljs-attr">switchMap</span>, can be typed to make sure
       that we process the correct data.<br /><br />
 
-      For example:
-
+      For example: @defer(on viewport) {
       <app-code-highlight
         [code]="handlingObservableCode"
         [language]="'typescript'"
       ></app-code-highlight>
-
-      Here, <span class="hljs-attr">fetchProducts()</span> returns an
+      } @placeholder {<span>Loading...</span>} Here,
+      <span class="hljs-attr">fetchProducts()</span> returns an
       <span class="hljs-attr">Observable&lt;Product[]&gt;</span>, ensuring that
       each item in the stream is typed correctly, and TypeScript provides type
       safety throughout the RxJS pipeline.<br /><br />
@@ -325,29 +326,29 @@
       example, when handling errors in Promises or Observables, we can define
       specific types for error handling.<br /><br />
 
-      For <b>Promises</b>:
-
+      For <b>Promises</b>: @defer(on viewport) {
       <app-code-highlight
         [code]="promiseErrorHandlingCode"
         [language]="'typescript'"
       ></app-code-highlight>
-
-      For <b>Observables</b>:
-
+      } @placeholder {<span>Loading...</span>} For <b>Observables</b>: @defer(on
+      viewport) {
       <app-code-highlight
         [code]="observableErrorHandlingCode"
         [language]="'typescript'"
       ></app-code-highlight>
+      } @placeholder {<span>Loading...</span>}
 
       <h5><b>4. Async-Await with Type Safety:</b></h5>
 
       For async-await operations, TypeScript provides strong typing by ensuring
-      the return type of async functions matches the expected type:
-
+      the return type of async functions matches the expected type: @defer(on
+      viewport) {
       <app-code-highlight
         [code]="asyncAwaitCode"
         [language]="'typescript'"
       ></app-code-highlight>
+      } @placeholder {<span>Loading...</span>}
 
       <h5><b>Conclusion:</b></h5>
 
@@ -378,12 +379,13 @@
       <b>discriminated unions</b>, where we have objects with a common property
       that distinguishes their type. For instance:<br />
 
+      @defer(on viewport) {
       <app-code-highlight
         [code]="discriminatedUnionCode"
         [language]="'typescript'"
       ></app-code-highlight>
-
-      In this example, TypeScript correctly narrows down the type of
+      } @placeholder {<span>Loading...</span>} In this example, TypeScript
+      correctly narrows down the type of
       <span class="hljs-attr">person</span> based on the
       <span class="hljs-attr">role</span> property, ensuring type safety for
       each block.<br /><br />
@@ -394,14 +396,15 @@
       useful.&nbsp;&nbsp;They’re especially powerful when dealing with APIs that
       may return various data structures.<br />
 
+      @defer(on viewport) {
       <app-code-highlight
         [code]="customTypeGuardsCode"
         [language]="'typescript'"
       ></app-code-highlight>
-
-      The <span class="hljs-attr">isProduct</span> type guard ensures the
-      TypeScript compiler understands what type we’re dealing with, enhancing
-      both safety and readability.<br /><br />
+      } @placeholder {<span>Loading...</span>} The
+      <span class="hljs-attr">isProduct</span> type guard ensures the TypeScript
+      compiler understands what type we’re dealing with, enhancing both safety
+      and readability.<br /><br />
 
       <h5><b>Example: Handling Complex State</b></h5>
 
@@ -409,13 +412,13 @@
       varying structures.&nbsp;&nbsp;Type guards allow us to safely access
       properties without unnecessary type assertions.<br />
 
+      @defer(on viewport) {
       <app-code-highlight
         [code]="complexStateCode"
         [language]="'typescript'"
       ></app-code-highlight>
-
-      This approach ensures the application correctly handles various states
-      with complete type safety.<br /><br />
+      } @placeholder {<span>Loading...</span>} This approach ensures the
+      application correctly handles various states with complete type safety.<br /><br />
 
       <h5><b>Conclusion:</b></h5>
       By using <b>TypeScript’s type guards</b>, we can create robust
@@ -443,53 +446,60 @@
       One common use case is building a reusable HTTP service that can handle
       various data models.<br />
 
+      @defer(on viewport) {
       <app-code-highlight
         [code]="reusableServiceCode"
         [language]="'typescript'"
       ></app-code-highlight>
-
-      Here, <span class="hljs-attr">fetchData&lt;T&gt;</span> is a generic
-      method that returns an
+      } @placeholder {<span>Loading...</span>} Here,
+      <span class="hljs-attr">fetchData&lt;T&gt;</span> is a generic method that
+      returns an
       <span class="hljs-attr">Observable&lt;T&gt;</span>.&nbsp;&nbsp;This allows
       the service to be used with any data type, ensuring type safety when
       making API calls.<br />
 
+      @defer(on viewport) {
       <app-code-highlight
         [code]="reusableServiceUsageCode"
         [language]="'typescript'"
       ></app-code-highlight>
+      } @placeholder {<span>Loading...</span>}
 
       <h5><b>Example 2: Reusable Components with Generics</b></h5>
 
       Generics are also powerful when creating UI components that need to be
       <b>type-aware</b>.<br />
 
+      @defer(on viewport) {
       <app-code-highlight
         [code]="reusableComponentCode"
         [language]="'typescript'"
       ></app-code-highlight>
+      } @placeholder {<span>Loading...</span>} This
+      <span class="hljs-attr">ListComponent</span> can be used with different
+      types, such as strings or complex objects, and TypeScript will enforce the
+      correct type.<br />
 
-      This <span class="hljs-attr">ListComponent</span> can be used with
-      different types, such as strings or complex objects, and TypeScript will
-      enforce the correct type.<br />
-
+      @defer(on viewport) {
       <app-code-highlight
         [code]="reusableComponentUsageCode"
         [language]="'typescript'"
       ></app-code-highlight>
+      } @placeholder {<span>Loading...</span>}
 
       <h5><b>Example 3: Utility Functions with Generics</b></h5>
 
       Utility functions often benefit from generics to provide
       <b>type inference and reusability</b>.<br />
 
+      @defer(on viewport) {
       <app-code-highlight
         [code]="utilityFunctionCode"
         [language]="'typescript'"
       ></app-code-highlight>
-
-      The <span class="hljs-attr">merge</span> function works with any two
-      objects and returns a type-safe combination of them.<br /><br />
+      } @placeholder {<span>Loading...</span>} The
+      <span class="hljs-attr">merge</span> function works with any two objects
+      and returns a type-safe combination of them.<br /><br />
 
       <h5><b>Conclusion</b></h5>
 
@@ -524,14 +534,14 @@
       <b>combine common metadata with specific data structures</b> returned from
       different APIs.<br />
 
+      @defer(on viewport) {
       <app-code-highlight
         [code]="intersectionTypeCode1"
         [language]="'typescript'"
       ></app-code-highlight>
-
-      In this example, <span class="hljs-attr">UserResponse</span> is an
-      intersection type that combines
-      <span class="hljs-attr">ApiResponse</span> and
+      } @placeholder {<span>Loading...</span>} In this example,
+      <span class="hljs-attr">UserResponse</span> is an intersection type that
+      combines <span class="hljs-attr">ApiResponse</span> and
       <span class="hljs-attr">User</span>.&nbsp;&nbsp;This ensures the resulting
       object has all properties from both interfaces, providing type safety when
       accessing them.<br /><br />
@@ -541,27 +551,29 @@
       When building reusable UI components, intersection types allow us to
       <b>extend base props with additional options</b>.<br />
 
+      @defer(on viewport) {
       <app-code-highlight
         [code]="intersectionTypeCode2"
         [language]="'typescript'"
       ></app-code-highlight>
-
-      This approach enables components to accept a combination of properties,
-      ensuring flexibility while maintaining strong typing.<br /><br />
+      } @placeholder {<span>Loading...</span>} This approach enables components
+      to accept a combination of properties, ensuring flexibility while
+      maintaining strong typing.<br /><br />
 
       <h5><b>Example 3: Combining Services and Models</b></h5>
 
       Intersection types are also effective when composing
       <b>services that interact with various models</b>.<br />
 
+      @defer(on viewport) {
       <app-code-highlight
         [code]="intersectionTypeCode3"
         [language]="'typescript'"
       ></app-code-highlight>
-
-      Here, the <span class="hljs-attr">UserService</span> implements both
-      logging and data-fetching capabilities, providing a unified service with
-      clear type definitions.<br /><br />
+      } @placeholder {<span>Loading...</span>} Here, the
+      <span class="hljs-attr">UserService</span> implements both logging and
+      data-fetching capabilities, providing a unified service with clear type
+      definitions.<br /><br />
 
       <h5><b>Conclusion</b></h5>
 
@@ -604,12 +616,13 @@
 
       Example:<br />
 
+      @defer(on viewport) {
       <app-code-highlight
         [code]="changeDetectionCode1"
         [language]="'typescript'"
       ></app-code-highlight>
-
-      This approach is particularly effective when components are mostly
+      } @placeholder {<span>Loading...</span>} This approach is particularly
+      effective when components are mostly
       <b>display-only</b> or rely on
       <b>immutable data structures</b>.<br /><br />
 
@@ -624,18 +637,18 @@
       <span class="hljs-attr">trackBy</span> prevents Angular from re-rendering
       unchanged items.<br />
 
+      @defer(on viewport) {
       <app-code-highlight
         [code]="changeDetectionCode2"
         [language]="'typescript'"
       ></app-code-highlight>
-
+      } @placeholder {<span>Loading...</span>} @defer(on viewport) {
       <app-code-highlight
         [code]="changeDetectionCode3"
         [language]="'typescript'"
       ></app-code-highlight>
-
-      This ensures only modified items are updated, significantly improving
-      rendering performance.<br /><br />
+      } @placeholder {<span>Loading...</span>} This ensures only modified items
+      are updated, significantly improving rendering performance.<br /><br />
 
       <h5>
         <b>3. Avoiding Unnecessary Change Detection:</b>
