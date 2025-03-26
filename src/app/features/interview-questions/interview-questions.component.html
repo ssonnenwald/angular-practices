@@ -3,7 +3,7 @@
 <ol>
   <li>
     What are the key features of Angular that make it suitable for web
-    develeropers?
+    developers?
     <div class="mb-4">
       <b>A</b>:&nbsp;&nbsp;Angular offers a modular architecture, two-way data
       binding, dependency injection, and a comprehensive set of tools that
@@ -47,10 +47,10 @@
   <li>
     What are Angular directives and how do they work?
     <div class="mb-4">
-      <b>A</b>:&nbsp;&nbsp;Directives in Angular are classes that add
-      addditional behavior to elements in your Angular
-      applications.&nbsp;&nbsp;They are used to manipulate the Document Object
-      Model (DOM) by changing its layout, appearance, or removing elements.
+      <b>A</b>:&nbsp;&nbsp;Directives in Angular are classes that add additional
+      behavior to elements in your Angular applications.&nbsp;&nbsp;They are
+      used to manipulate the Document Object Model (DOM) by changing its layout,
+      appearance, or removing elements.
     </div>
   </li>
   <li>
@@ -93,35 +93,37 @@
     <div class="mb-4">
       <b>A</b>:&nbsp;&nbsp;To architect an Angular application for real-time
       updates while ensuring scalability, I would use <b>SignalR</b> for
-      real-time communication.&nbsp;&nbsp;SignalR is an excellent choice as it
-      allows bidirectional communication between the client and server, making
-      it suitable for scenarios like chat apps, notifications, or live
+      real-time communication.&nbsp;&nbsp;<b>SignalR</b> is an excellent choice
+      as it allows bidirectional communication between the client and server,
+      making it suitable for scenarios like chat apps, notifications, or live
       updates.<br />
       <br />
-      On the backend, I would use <b>ASP.NET Core</b> to set up a SignalR
+      On the backend, I would use <b>ASP.NET Core</b> to set up a <b>SignalR</b>
       Hub.&nbsp;&nbsp;This Hub handles communication between clients and the
       server, allowing the server to push updates to all connected
       clients.&nbsp;&nbsp;To scale efficiently, I would use
-      <b>Redis as a backplane</b> for SignalR.&nbsp;&nbsp;This ensures that
-      messages are broadcasted across multiple server instances, allowing the
-      app to scale horizontally.<br />
+      <b>Redis as a back plane</b> for <b>SignalR</b>.&nbsp;&nbsp;This ensures
+      that messages are broadcasted across multiple server instances, allowing
+      the app to scale horizontally.<br />
       <br />
-      On the frontend, I would integrate SignalR into Angular by creating a
-      <b>SignalR service</b> that manages the WebSocket
-      connection.&nbsp;&nbsp;This service would expose methods for subscribing
-      to real-time updates and sending messages to the server.&nbsp;&nbsp;I’d
-      also use Angular’s <b>Reactive programming</b> features like
-      <b>BehaviorSubject</b> to manage and propagate state updates across
-      components.<br />
+      On the frontend, I would integrate <b>SignalR</b> into Angular by creating
+      a <b>SignalR service</b> that manages the
+      <b>WebSocket</b> connection.&nbsp;&nbsp;This service would expose methods
+      for subscribing to real-time updates and sending messages to the
+      server.&nbsp;&nbsp;I’d also use Angular’s
+      <b>Reactive programming</b> features like <b>BehaviorSubject</b> to manage
+      and propagate state updates across components.<br />
       <br />
-      To handle scalability, I’d set up <b>load balancing</b> and ensure SignalR
+      To handle scalability, I’d set up <b>load balancing</b> and ensure
+      <b>SignalR</b>
       can scale horizontally.&nbsp;&nbsp;I would also implement
       <b>reconnection strategies</b> in the Angular client to handle any
       disconnections gracefully.<br />
       <br />
       In summary, <b>SignalR</b> is a robust solution for handling real-time
-      data, and combining it with Redis for horizontal scaling and Angular’s
-      reactive programming features ensures both performance and scalability.
+      data, and combining it with <b>Redis</b> for horizontal scaling and
+      Angular’s reactive programming features ensures both performance and
+      scalability.
     </div>
   </li>
   <li>
