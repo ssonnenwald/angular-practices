@@ -1,9 +1,10 @@
 import { Component, signal, WritableSignal } from '@angular/core';
 import { CodeHighLightComponent } from '../../shared/components/code-highlight/code-highlight.component';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-mvvm-pattern',
-  imports: [CodeHighLightComponent],
+  imports: [CodeHighLightComponent, NgOptimizedImage],
   templateUrl: './mvvm-pattern.component.html',
   styleUrl: './mvvm-pattern.component.scss',
 })
