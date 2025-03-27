@@ -39,7 +39,7 @@
             ],
             "styles": [
               "highlight.js/styles/stackoverflow-dark.min.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/bootstrap/dist/css/bootstrap-utilities.min.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -121,7 +121,7 @@
             ],
             "styles": [
               "highlight.js/styles/stackoverflow-dark.min.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/bootstrap/dist/css/bootstrap-utilities.min.css",
               "src/styles.scss"
             ],
             "scripts": [],
