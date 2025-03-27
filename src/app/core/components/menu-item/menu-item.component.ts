@@ -8,13 +8,19 @@ import {
   WritableSignal,
 } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
-import { RouterModule } from '@angular/router';
+import { MatListItem, MatListItemIcon } from '@angular/material/list';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MenuItem } from '../../models/menu-item';
 
 @Component({
   selector: 'app-menu-item',
-  imports: [MatListModule, RouterModule, MatIcon],
+  imports: [
+    MatListItem,
+    RouterLink,
+    RouterLinkActive,
+    MatIcon,
+    MatListItemIcon,
+  ],
   templateUrl: './menu-item.component.html',
   styleUrl: './menu-item.component.scss',
   animations: [

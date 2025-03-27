@@ -7,26 +7,37 @@ import {
   ViewChild,
   WritableSignal,
 } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatButtonModule } from '@angular/material/button';
-import { Router, RouterModule } from '@angular/router';
-import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list';
+import { MatIcon } from '@angular/material/icon';
+import { MatToolbar } from '@angular/material/toolbar';
+import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
+import { MatButton, MatIconButton } from '@angular/material/button';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import {
+  MatSidenav,
+  MatSidenavContainer,
+  MatSidenavContent,
+} from '@angular/material/sidenav';
+import { MatNavList } from '@angular/material/list';
 import { MenuItem, menuItems } from '../../models/menu-item';
 import { MenuItemComponent } from '../menu-item/menu-item.component';
 
 @Component({
   selector: 'app-layout',
   imports: [
-    MatToolbarModule,
-    MatButtonModule,
-    MatMenuModule,
-    MatIconModule,
-    RouterModule,
-    MatSidenavModule,
-    MatListModule,
+    MatToolbar,
+    MatButton,
+    MatMenu,
+    MatMenuItem,
+    MatMenuTrigger,
+    MatIcon,
+    MatIconButton,
+    MatButton,
+    MatSidenav,
+    MatSidenavContainer,
+    MatSidenavContent,
+    MatNavList,
+    RouterOutlet,
+    RouterLink,
     MenuItemComponent,
   ],
   templateUrl: './app-layout.component.html',

@@ -1,10 +1,10 @@
 import { Component, signal, WritableSignal } from '@angular/core';
 import { CodeHighLightComponent } from '../../shared/components/code-highlight/code-highlight.component';
-import { MatIconModule } from '@angular/material/icon';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-solid-interface-segregation',
-  imports: [CodeHighLightComponent, MatIconModule],
+  imports: [CodeHighLightComponent, MatIcon],
   templateUrl: './solid-interface-segregation.component.html',
   styleUrl: './solid-interface-segregation.component.scss',
 })

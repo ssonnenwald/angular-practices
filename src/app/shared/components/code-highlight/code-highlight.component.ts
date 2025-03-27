@@ -3,18 +3,17 @@ import {
   inject,
   Input,
   signal,
-  Signal,
   WritableSignal,
 } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
+import { MatIcon } from '@angular/material/icon';
 import { Highlight } from 'ngx-highlightjs';
 import { HighlightLineNumbers } from 'ngx-highlightjs/line-numbers';
-import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatTooltip } from '@angular/material/tooltip';
 import { ClipboardService } from 'ngx-clipboard';
 
 @Component({
   selector: 'app-code-highlight',
-  imports: [Highlight, HighlightLineNumbers, MatIconModule, MatTooltipModule],
+  imports: [Highlight, HighlightLineNumbers, MatIcon, MatTooltip],
   templateUrl: './code-highlight.component.html',
   styleUrl: './code-highlight.component.scss',
 })

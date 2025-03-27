@@ -1,10 +1,10 @@
 import { Component, signal, WritableSignal } from '@angular/core';
 import { CodeHighLightComponent } from '../../shared/components/code-highlight/code-highlight.component';
-import { MatIconModule } from '@angular/material/icon';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-solid-liskov-substitution',
-  imports: [CodeHighLightComponent, MatIconModule],
+  imports: [CodeHighLightComponent, MatIcon],
   templateUrl: './solid-liskov-substitution.component.html',
   styleUrl: './solid-liskov-substitution.component.scss',
 })

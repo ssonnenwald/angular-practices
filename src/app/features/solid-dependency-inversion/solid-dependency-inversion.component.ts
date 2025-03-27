@@ -1,10 +1,10 @@
 import { Component, signal, WritableSignal } from '@angular/core';
 import { CodeHighLightComponent } from '../../shared/components/code-highlight/code-highlight.component';
-import { MatIconModule } from '@angular/material/icon';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-solid-dependency-inversion',
-  imports: [CodeHighLightComponent, MatIconModule],
+  imports: [CodeHighLightComponent, MatIcon],
   templateUrl: './solid-dependency-inversion.component.html',
   styleUrl: './solid-dependency-inversion.component.scss',
 })

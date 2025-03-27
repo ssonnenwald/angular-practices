@@ -72,5 +72,6 @@
     "cobertura.xml",
     "jacoco.xml",
     "coverage.cobertura.xml"
-  ]
+  ],
+  "cSpell.words": ["creational", "highlightjs", "Liskov", "mvvm"]
 }
