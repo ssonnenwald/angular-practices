@@ -1,1 +1,0 @@
-import"./chunk-EQDQRRRY.js";var t=[{title:"Interview",path:"",loadComponent:()=>import("./chunk-TCDPQK2K.js"),children:[{title:"Interview Questions",path:"interview-questions",loadComponent:()=>import("./chunk-VLMSN4LN.js")}]}],e=t;export{e as default};

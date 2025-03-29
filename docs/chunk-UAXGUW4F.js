@@ -1,0 +1,11 @@
+import{Ib as e,cb as a,ub as t,vb as i,wb as n}from"./chunk-DG46SKAS.js";var l=class r{constructor(){}static \u0275fac=function(o){return new(o||r)};static \u0275cmp=a({type:r,selectors:[["app-tell-me-about-yourself"]],decls:65,vars:0,consts:[[1,"mb-4"]],template:function(o,s){o&1&&(t(0,"h1"),e(1,"Tell Me About Yourself"),i(),e(2," How do I answer this question in 60 seconds?"),n(3,"br"),t(4,"h3"),e(5,"S.E.A.T. Method"),i(),t(6,"b"),e(7,"Skills"),i(),e(8,`:
+`),t(9,"ol")(10,"li"),e(11,"Problem Solving"),i(),t(12,"li"),e(13,"Communication"),i(),t(14,"li"),e(15,"Collaborator"),i()(),t(16,"u"),e(17,"Answer"),i(),e(18,":"),n(19,"br"),e(20,`
+Thank you for this opportunity to work for (Company Name).`),n(21,"br")(22,"br"),t(23,"div",0),e(24,` I have the skills to match the job description.\xA0\xA0I am a confident problem solver and a good communicator and always collaborate closely with co-workers to achieve the teams's objectives.
+`),i(),t(25,"b"),e(26,"Education/Experience"),i(),e(27,`:
+`),t(28,"ol")(29,"li"),e(30,"Working on teams"),i(),t(31,"li"),e(32,"Delivering on time sensitive projects"),i()(),t(33,"u"),e(34,"Answer"),i(),e(35,":"),n(36,"br"),t(37,"div",0),e(38,` I have obtained my bachelor's degree in Computer Science and also a MCSD certification from Microsoft.\xA0\xA0 I have experience working on high performance, small and large teams, delivering on time-sensitive projects.
+`),i(),t(39,"b"),e(40,"Achievements"),i(),e(41,`:
+`),t(42,"ol")(43,"li"),e(44,"Talk about one from your past job."),i()(),t(45,"u"),e(46,"Answer"),i(),e(47,":"),n(48,"br"),t(49,"div",0),e(50,` I am a high achiever.\xA0\xA0In my last position, I was praised for my creativity and ability to think outside the box well delivering work items on time and within budget.
+`),i(),t(51,"b"),e(52,"Type"),i(),e(53,`:
+`),t(54,"ol")(55,"li"),e(56,"Type of person you are."),i()(),t(57,"u"),e(58,"Answer"),i(),e(59,":"),n(60,"br"),t(61,"div",0),e(62,` If you hire me, I will be the type of employee who takes ownership of their professional development, takes the lead during challenges, and acts as a positive role model for your company.
+`),i(),t(63,"div"),e(64,` I look forward to sharing additional details in the interview regarding my suitability for this position.
+`),i())},encapsulation:2})};export{l as a};
