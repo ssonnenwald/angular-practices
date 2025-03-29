@@ -10,9 +10,7 @@
   >
 
   @if (!isMobile()) {
-  <button mat-button [matMenuTriggerFor]="menuPatterns" routerLink="/patterns">
-    Patterns
-  </button>
+  <button mat-button [matMenuTriggerFor]="menuPatterns">Patterns</button>
   }
 
   <mat-menu #menuPatterns="matMenu">
@@ -86,9 +84,7 @@
   </mat-menu>
 
   @if (!isMobile()) {
-  <button mat-button [matMenuTriggerFor]="menuSolid" routerLink="/solid">
-    SOLID
-  </button>
+  <button mat-button [matMenuTriggerFor]="menuSolid">SOLID</button>
   }
 
   <mat-menu #menuSolid="matMenu">
@@ -113,13 +109,7 @@
   </mat-menu>
 
   @if (!isMobile()) {
-  <button
-    mat-button
-    [matMenuTriggerFor]="menuTypescript"
-    routerLink="/typescript"
-  >
-    Typescript
-  </button>
+  <button mat-button [matMenuTriggerFor]="menuTypescript">Typescript</button>
   }
 
   <mat-menu #menuTypescript="matMenu">
@@ -135,18 +125,15 @@
   </mat-menu>
 
   @if (!isMobile()) {
-  <button
-    mat-button
-    [matMenuTriggerFor]="menuInterview"
-    routerLink="/interview"
-  >
-    Interview
-  </button>
+  <button mat-button [matMenuTriggerFor]="menuInterview">Interview</button>
   }
 
   <mat-menu #menuInterview="matMenu">
     <button mat-menu-item routerLink="/interview/interview-questions">
       Interview Questions
+    </button>
+    <button mat-menu-item routerLink="/interview/tell-me-about-yourself">
+      Tell Me About Yourself
     </button>
   </mat-menu>
 </mat-toolbar>

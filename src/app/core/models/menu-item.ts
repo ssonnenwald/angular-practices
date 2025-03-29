@@ -22,6 +22,7 @@ import SolidOverviewComponent from '../../features/solid-overview/solid-overview
 import SolidSingleResponsibilityComponent from '../../features/solid-single-responsibility/solid-single-responsibility.component';
 import StrategyPatternComponent from '../../features/strategy-pattern/strategy-pattern.component';
 import StructuralPatternsComponent from '../../features/structural-patterns/structural-patterns.component';
+import TellMeAboutYourselfComponent from '../../features/tell-me-about-yourself/tell-me-about-yourself.component';
 
 export type MenuItem = {
   icon: string;
@@ -201,6 +202,12 @@ export const menuItems: MenuItem[] = [
         label: 'Interview',
         route: '/interview-questions',
         component: InterviewQuestionsComponent,
+      },
+      {
+        icon: 'dashboard',
+        label: 'Tell Me About Yourself',
+        route: '/tell-me-about-yourself',
+        component: TellMeAboutYourselfComponent,
       },
     ],
   },

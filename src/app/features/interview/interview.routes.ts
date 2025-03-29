@@ -12,6 +12,12 @@ const interviewRoutes: Routes = [
         loadComponent: () =>
           import('../interview-questions/interview-questions.component'),
       },
+      {
+        title: 'Tell Me About Yourself',
+        path: 'tell-me-about-yourself',
+        loadComponent: () =>
+          import('../tell-me-about-yourself/tell-me-about-yourself.component'),
+      },
     ],
   },
 ];
