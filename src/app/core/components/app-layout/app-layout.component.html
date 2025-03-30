@@ -1,3 +1,4 @@
+@defer(on immediate) {
 <mat-toolbar>
   @if (isMobile()) {
   <button mat-icon-button (click)="toggleSideNav()">
@@ -11,7 +12,6 @@
 
   @if (!isMobile()) {
   <button mat-button [matMenuTriggerFor]="menuPatterns">Patterns</button>
-  }
 
   <mat-menu #menuPatterns="matMenu">
     <button mat-menu-item routerLink="patterns/design-patterns">
@@ -82,10 +82,8 @@
       Observer Pattern
     </button>
   </mat-menu>
-
-  @if (!isMobile()) {
+  } @if (!isMobile()) {
   <button mat-button [matMenuTriggerFor]="menuSolid">SOLID</button>
-  }
 
   <mat-menu #menuSolid="matMenu">
     <button mat-menu-item routerLink="/solid/solid-overview">
@@ -107,10 +105,8 @@
       Dependency Inversion
     </button>
   </mat-menu>
-
-  @if (!isMobile()) {
+  } @if (!isMobile()) {
   <button mat-button [matMenuTriggerFor]="menuTypescript">Typescript</button>
-  }
 
   <mat-menu #menuTypescript="matMenu">
     <button mat-menu-item routerLink="/typescript/abstract-class">
@@ -123,10 +119,8 @@
       Optional Method
     </button>
   </mat-menu>
-
-  @if (!isMobile()) {
+  } @if (!isMobile()) {
   <button mat-button [matMenuTriggerFor]="menuInterview">Interview</button>
-  }
 
   <mat-menu #menuInterview="matMenu">
     <button mat-menu-item routerLink="/interview/interview-questions">
@@ -136,11 +130,15 @@
       Tell Me About Yourself
     </button>
   </mat-menu>
+  }
 </mat-toolbar>
-
+} @placeholder {
+<div class="loading-toolbar"></div>
+} @defer(on immediate) {
 <mat-sidenav-container>
   <!-- Sidenav (side menu) -->
   <mat-sidenav #sidenav mode="over" opened="false">
+    @if(sidenav.opened) {
     <mat-nav-list>
       @for (item of menuItems(); track item.label) {
       <app-menu-item
@@ -149,6 +147,7 @@
       ></app-menu-item>
       }
     </mat-nav-list>
+    }
   </mat-sidenav>
 
   <!-- Main Content Area -->
@@ -158,3 +157,6 @@
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
+} @placeholder {
+<div class="loading-sidenav-container"></div>
+}

@@ -74,6 +74,7 @@
     "coverage.cobertura.xml"
   ],
   "cSpell.words": [
+    "browserslistrc",
     "creational",
     "highlightjs",
     "Liskov",
@@ -82,5 +83,8 @@
     "stackoverflow"
   ],
   "terminal.integrated.suggest.enabled": true,
-  "terminal.integrated.fontLigatures.enabled": true
+  "terminal.integrated.fontLigatures.enabled": true,
+  "search.exclude": {
+    "**/docs": true
+  }
 }

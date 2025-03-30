@@ -1,3 +1,7 @@
+.loading-toolbar {
+  height: 64px;
+}
+
 mat-toolbar {
   position: sticky;
   top: 0;
@@ -29,6 +33,10 @@ mat-sidenav-container {
   height: calc(100vh - 64px);
 }
 
+.loading-sidenav-container {
+  height: calc(100vh - 64px);
+}
+
 .content {
   display: flex;
   flex-direction: column;
@@ -37,7 +45,7 @@ mat-sidenav-container {
   padding-right: 32px;
   padding-left: 32px;
   padding-bottom: 32px;
-  min-height: calc(100vh - 96px);
+  min-height: calc(100vh - 128px);
   background-color: var(--mat-sys-background);
   color: var(--mat-sys-on-background);
   overflow: auto;
