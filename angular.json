@@ -129,6 +129,12 @@
             "scripts": [],
             "codeCoverage": true
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "https://ssonnenwald.github.io/angular-practices/"
+          }
         }
       }
     }
