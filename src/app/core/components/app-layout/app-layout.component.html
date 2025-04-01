@@ -11,6 +11,14 @@
   >
 
   @if (!isMobile()) {
+  <button mat-button [matMenuTriggerFor]="menuProject">Project</button>
+
+  <mat-menu #menuProject="matMenu">
+    <button mat-menu-item routerLink="project/directory-layout">
+      Directory Layout
+    </button>
+  </mat-menu>
+
   <button mat-button [matMenuTriggerFor]="menuPatterns">Patterns</button>
 
   <mat-menu #menuPatterns="matMenu">

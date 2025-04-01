@@ -23,6 +23,8 @@ import SolidSingleResponsibilityComponent from '../../features/solid-single-resp
 import StrategyPatternComponent from '../../features/strategy-pattern/strategy-pattern.component';
 import StructuralPatternsComponent from '../../features/structural-patterns/structural-patterns.component';
 import TellMeAboutYourselfComponent from '../../features/tell-me-about-yourself/tell-me-about-yourself.component';
+import ProjectComponent from '../../features/project/project.component';
+import DirectoryLayoutComponent from '../../features/directory-layout/directory-layout.component';
 
 export type MenuItem = {
   icon: string;
@@ -38,6 +40,20 @@ export const menuItems: MenuItem[] = [
     label: 'Home',
     route: '/',
     component: HomeComponent,
+  },
+  {
+    icon: 'dashboard',
+    label: 'Project',
+    route: 'project',
+    component: ProjectComponent,
+    subItems: [
+      {
+        icon: 'dashboard',
+        label: 'Directory Layout',
+        route: '/directory-layout',
+        component: DirectoryLayoutComponent,
+      },
+    ],
   },
   {
     icon: 'dashboard',

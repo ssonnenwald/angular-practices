@@ -15,6 +15,8 @@ export const appConfig: ApplicationConfig = {
       lineNumbersLoader: () => import('ngx-highlightjs/line-numbers'), // Optional, add line numbers if needed
       languages: {
         typescript: () => import('highlight.js/lib/languages/typescript'),
+        bash: () => import('highlight.js/lib/languages/bash'),
+        arduino: () => import('highlight.js/lib/languages/arduino'),
         css: () => import('highlight.js/lib/languages/css'),
         scss: () => import('highlight.js/lib/languages/scss'),
         html: () => import('highlight.js/lib/languages/xml'),

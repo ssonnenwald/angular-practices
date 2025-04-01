@@ -22,6 +22,11 @@ export const routes: Routes = [
     loadComponent: () => import('./features/home/home.component'),
   },
   {
+    title: 'Project',
+    path: 'project',
+    loadChildren: () => import('./features/project/project.routes'),
+  },
+  {
     title: 'Patterns',
     path: 'patterns',
     loadChildren: () => import('./features/patterns/patterns.routes'),
