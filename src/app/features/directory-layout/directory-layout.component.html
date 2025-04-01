@@ -27,5 +27,66 @@
 <app-code-highlight
   [code]="directoryStructureDiagram"
   [language]="'arduino'"
-></app-code-highlight>
-} @placeholder {<span>Loading...</span>}
+></app-code-highlight
+>&nbsp; } @placeholder {<span>Loading...</span>}
+
+<h3>Key Features of This Structure</h3>
+<ol>
+  <li>
+    <b>Standalone Components</b>
+    <ul>
+      <li>
+        Each component is self-contained with its <mark>.ts</mark>,
+        <mark>.html</mark>, and <mark>.scss</mark> files.
+      </li>
+      <li>
+        <mark>app.config.ts</mark> is used for bootstrap configuration instead
+        of <mark>NgModule</mark>.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <b>Feature-Based Organization</b>
+    <ul>
+      <li>
+        Each feature (e.g., <mark>home</mark>, <mark>about</mark>) has its own
+        directory.
+      </li>
+      <li>Inside each feature folder, we separate components and views.</li>
+    </ul>
+  </li>
+  <li>
+    <b>Shared Resources</b>
+    <ul>
+      <li>
+        <b>Shared components</b> (buttons, modals) go under
+        <mark>/shared/components/</mark>.
+      </li>
+      <li>
+        <b>Reusable directives</b> go in <mark>/shared/directives/</mark>.
+      </li>
+      <li><b>Reusable pipes</b> go in <mark>/shared/pipes/</mark>.</li>
+    </ul>
+  </li>
+  <li>
+    <b>Core Services & Configuration</b>
+    <ul>
+      <li>
+        Authentication, guards, and interceptors are inside <mark>/core/</mark>.
+      </li>
+      <li>
+        <b>Global configurations</b> like app-wide settings are in
+        <mark>/core/config/</mark>.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <b>Layouts for UI Consistency</b>
+    <ul>
+      <li>
+        <b>Global layout components</b> (header, footer, sidebar) are in
+        <mark>/layout/</mark>.
+      </li>
+    </ul>
+  </li>
+</ol>
