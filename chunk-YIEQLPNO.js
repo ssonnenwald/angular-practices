@@ -1,1 +1,0 @@
-import"./chunk-EQDQRRRY.js";var t=[{title:"Project",path:"",loadComponent:()=>import("./chunk-BUSPW53D.js"),children:[{title:"Directory Layout",path:"directory-layout",loadComponent:()=>import("./chunk-4X2DHL25.js")}]}],o=t;export{o as default};
