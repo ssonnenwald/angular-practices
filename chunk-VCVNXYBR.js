@@ -1,1 +1,0 @@
-import"./chunk-EQDQRRRY.js";var t=[{title:"Structural Patterns",path:"",loadComponent:()=>import("./chunk-3IITMTU5.js"),children:[{title:"Facade Pattern",path:"facade-pattern",loadComponent:()=>import("./chunk-WWVD4T7R.js")},{title:"Adapter Pattern",path:"adapter-pattern",loadComponent:()=>import("./chunk-RHJGQ6EN.js")}]}],a=t;export{a as default};
