@@ -1,0 +1,1 @@
+import"./chunk-EQDQRRRY.js";var t=[{title:"Behavioral Patterns",path:"",loadComponent:()=>import("./chunk-HCZM2SDT.js"),children:[{title:"Strategy Pattern",path:"strategy-pattern",loadComponent:()=>import("./chunk-EEJQBFHE.js")},{title:"Observer Pattern",path:"observer-pattern",loadComponent:()=>import("./chunk-UF2DU3O2.js")}]}],e=t;export{e as default};
